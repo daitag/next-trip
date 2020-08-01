@@ -31,11 +31,11 @@
 　旅行に行った後は、思い出として保存することができる。
 
 ## 設計書
-ワイヤーフレーム：https://xd.adobe.com/view/067c7eb4-ce26-4f36-6667-5d1337c6f184-704d/
-UI-follow:https://drive.google.com/file/d/1tYsi31xY7JS9bu-jGEwgFxMkg5peNPJw/view?usp=sharing
-ER図：https://app.diagrams.net/#G1tYsi31xY7JS9bu-jGEwgFxMkg5peNPJw
-テーブル要件定義書:https://docs.google.com/spreadsheets/d/1bPWH3TxerRYW-7jkFQGInUsLHCqpE-jVKC8F8dgMfq4/edit#gid=0
-アプリケーション詳細設計：https://docs.google.com/spreadsheets/d/1M3vlijepK9DBFlQV-cN1VzzSzrothUOQpaGQJNrwi1c/edit#gid=0
+ワイヤーフレーム：https://xd.adobe.com/view/067c7eb4-ce26-4f36-6667-5d1337c6f184-704d/ <br>
+UI-follow:https://drive.google.com/file/d/1tYsi31xY7JS9bu-jGEwgFxMkg5peNPJw/view?usp=sharing <br>
+ER図：https://app.diagrams.net/#G1tYsi31xY7JS9bu-jGEwgFxMkg5peNPJw <br>
+テーブル要件定義書:https://docs.google.com/spreadsheets/d/1bPWH3TxerRYW-7jkFQGInUsLHCqpE-jVKC8F8dgMfq4/edit#gid=0 <br>
+アプリケーション詳細設計：https://docs.google.com/spreadsheets/d/1M3vlijepK9DBFlQV-cN1VzzSzrothUOQpaGQJNrwi1c/edit#gid=0 <br>
 
 ### 機能一覧
-チャレンジ項目一覧：https://docs.google.com/spreadsheets/d/1GL2DzK6k1H1GRw-uV3hpB3UJGhHfX5G24BRVMagQAoY/edit#gid=0
+チャレンジ項目一覧：https://docs.google.com/spreadsheets/d/1GL2DzK6k1H1GRw-uV3hpB3UJGhHfX5G24BRVMagQAoY/edit#gid=0 <br>
