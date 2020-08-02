@@ -1,0 +1,13 @@
+<h2>タグの制作</h2>
+
+<%= form_for(@tag,url:admin_tag_path) do |f| %>
+	<%= f.label :tag_name,"タグ名" %>
+	<%= f.text_field :tag_name %>
+
+	<%= f.radio_button :tag_status,:true, checked: true %>
+	<%= f.label :tag_status, "有効" %>
+	<%= f.radio_button :tag_status,:false %>
+	<%= f.label :tag_status, "無効" %>
+
+	<%= f.submit "変更" %>
+<% end %>

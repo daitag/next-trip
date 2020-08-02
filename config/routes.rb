@@ -13,6 +13,10 @@ devise_for :users, controllers: {
 #管理者サイド
 get 'admin/homes/top' => 'admin/homes#top', as: 'admin_top'
 
+namespace :admin do
+	resources :tags, only: [:index, :create, :edit, :update]
+end
+
 
 #利用者サイド
 
