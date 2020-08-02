@@ -15,6 +15,7 @@ get 'admin/homes/top' => 'admin/homes#top', as: 'admin_top'
 
 namespace :admin do
 	resources :tags, only: [:index, :create, :edit, :update]
+	resources :notices
 end
 
 

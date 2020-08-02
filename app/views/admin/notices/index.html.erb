@@ -1,0 +1,7 @@
+<h2>一覧画面</h2>
+
+<% @notices.each do |notice| %>
+	<%= notice.title %>
+	<%= notice.updated_at.strftime("%Y-%m-%d %H:%M") %>
+	<%= link_to "詳細へ", admin_notice_path(notice) %>
+<% end %>
