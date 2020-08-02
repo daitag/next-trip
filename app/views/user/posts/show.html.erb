@@ -1,0 +1,16 @@
+<h2>詳細画面</h2>
+
+<%= attachment_image_tag(@post,:image ,:fill ,100,100) %>
+
+<h4>タイトル</h4>
+<%= @post.title %>
+<h4>場所</h4>
+<%= @post.location %>
+<h4>説明</h4>
+<%= @post.body %>
+
+<% if @post.user_id == current_user.id %>
+	<%= link_to "削除",post_path, method: :delete, data: {confirm: "本当に削除しますか？"} %>
+<% end %>
+
+<%= link_to "一覧画面", posts_path %>

@@ -9,3 +9,10 @@
 Admin.create!( admin_name: "administrator",
 			   email: "admin@gmail.com",
 			   password: "password")
+
+
+User.create!( name: "山田太郎",
+			  email: "yamada@gmail.com",
+			  country: "日本",
+			  user_status: true,
+			  password: "000000")

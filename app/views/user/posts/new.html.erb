@@ -1,0 +1,16 @@
+<h2>新規作成</h2>
+
+<!-- 投稿フォーム -->
+<%= form_for(@post) do |f| %>
+<%= f.attachment_field :image %>
+
+<%= f.label :title, "タイトル"%>
+<%= f.text_field :title %>
+<%= f.label :location, "場所"%>
+<%= f.text_field :location %>
+<%= f.label :body, "説明"%>
+<%= f.text_area :body %>
+<!-- タグの選択等 -->
+
+<%= f.submit "投稿する" %>
+<% end %>
