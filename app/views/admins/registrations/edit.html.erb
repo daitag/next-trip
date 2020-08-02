@@ -4,6 +4,11 @@
   <%= render "admins/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :admin_name %><br />
+    <%= f.text_field :admin_name, autofocus: true, autocomplete: "admin_name" %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>

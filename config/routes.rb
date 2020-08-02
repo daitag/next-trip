@@ -9,5 +9,15 @@ devise_for :users, controllers: {
   passwords:     'users/passwords',
   registrations: 'users/registrations'
 }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+#管理者サイド
+get 'admin/homes/top' => 'admin/homes#top', as: 'admin_top'
+
+
+#利用者サイド
+
+scope module: :user do
+	resources :posts, only: [:index, :show, :new, :create, :destroy]
+end
+
 end
