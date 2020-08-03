@@ -22,7 +22,9 @@ end
 #利用者サイド
 
 scope module: :user do
-	resources :posts, only: [:index, :show, :new, :create, :destroy]
+	resources :posts, only: [:index, :show, :new, :create, :destroy] do
+	 resource :favorites, only: [:create,:destroy]
+	end
 end
 
 end
