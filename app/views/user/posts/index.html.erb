@@ -7,4 +7,6 @@
 	<%= attachment_image_tag(post,:image,:fill,200,200) %>
 	<%= post.title %>
 	<%= link_to "詳細",post_path(post) %>
+	<i class="fas fa-heart" style="color: red;"></i>
+	<%= post.favorites.count %>
 <% end %>
