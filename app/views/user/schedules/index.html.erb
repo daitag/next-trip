@@ -1,0 +1,25 @@
+<h2>スケジュール一覧</h2>
+
+<!-- スケジュール作成ホーム -->
+<%= form_for(@schedule, url: schedules_path) do |f| %>
+	<%= f.text_field :content %>
+	<%= f.date_field :day %>
+	<%= f.submit "登録する" %>
+<% end %>
+
+<!-- スケジュールの一覧を表示 -->
+
+<% @schedules.each do |schedule| %>
+	<%= schedule.content %>
+	<%= schedule.day %>
+	<% limit_day = 0 %>
+	<% limit_day = (schedule.day - Date.today).numerator %>
+	<% if limit_day.to_i >= 1 %>
+		<span>あと<%= limit_day %>日!!</span>
+	<% elsif limit_day.to_i <= -1 %>
+		<span></span>
+	<% else %>
+		<span>旅行楽しんできてください!!</span>
+	<% end %>
+	<%= link_to "削除", schedule_path(schedule),method: :delete %>
+<% end %>

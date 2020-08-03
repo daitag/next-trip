@@ -26,6 +26,7 @@ scope module: :user do
 	 resource :favorites, only: [:create, :destroy]
    resources :comments, only: [:create, :destroy]
 	end
+  resources :schedules, only: [:index, :create, :destroy]
 end
 
 end
