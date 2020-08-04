@@ -1,0 +1,22 @@
+
+
+<h1>次の旅行を探してみませんか？</h1>
+<p>
+当サイトは、旅行特化型のSNSになっています。次に行きたい場所を探したり、 <br>
+旅行の思い出を投稿することができます。詳しくは、aboutに掲載しています。
+</p>
+
+<%= link_to "Login",new_user_session_path %>
+<%= link_to "Sign_up",new_user_registration_path %>
+
+<!-- お知らせ一覧 -->
+<h2>一覧画面</h2>
+
+<% @notices.each do |notice| %>
+	<%= notice.title %>
+	<%= notice.updated_at.strftime("%Y-%m-%d %H:%M") %>
+	<%= link_to "詳細へ",notice_path(notice) %>
+<% end %>
+
+
+

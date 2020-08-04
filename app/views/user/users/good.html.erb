@@ -1,0 +1,8 @@
+<h2>行きたい場所</h2>
+
+<% @good_places.each do |good_place| %>
+	<% post = Post.find(good_place.post_id) %>
+	<%= attachment_image_tag(post,:image,:fill,200,200) %>
+	<%= post.title %>
+	<%= link_to "詳細",post_path(post) %>
+<% end %>

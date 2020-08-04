@@ -4,6 +4,7 @@ class User::PostsController < ApplicationController
 			@search = Post.ransack(search_params)
 			@posts = @search.result
 		else
+			params[:q] = { sorts: 'id desc' }
 			@search = Post.ransack()
 			@posts = Post.all
 		end
@@ -37,6 +38,7 @@ class User::PostsController < ApplicationController
 			@search = Post.ransack(search_params)
 			@posts = @search.result
 		else
+			params[:q] = { sorts: 'id desc' }
 			@search = Post.ransack()
 			@posts = Post.all
 		end

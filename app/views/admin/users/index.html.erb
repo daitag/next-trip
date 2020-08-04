@@ -1,0 +1,11 @@
+<h2>ユーザ一覧</h2>
+
+<% @users.each do |user| %>
+	<%= link_to user.name, admin_user_path(user) %>
+	<%= Post.where(user_id: user.id).count %>投稿
+	<% if user.user_status == true %>
+		<label>有効</label>
+	<% else %>
+		<label>無効</label>
+	<% end %>
+<% end %>

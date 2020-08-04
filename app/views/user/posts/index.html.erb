@@ -3,7 +3,7 @@
 <%= link_to "+",new_post_path %>
 
 <!-- 一覧ソート機能 -->
-<%= search_form_for @search, url:search_posts_path,method: :post,local: true do |f| %>
+<%= search_form_for @search, url:search_posts_path,html: {method: :post} do |f| %>
 	<%= f.select( :sorts,{並び替え: 'id asc',いいねの多い順: 'favorites_count desc',いきたいの多い順: 'good_places_count desc',投稿が新しい順: 'updated_at desc',投稿が古い順: 'updated_at asc'}, { onchange: 'this.form.submit()'} ) %>
 	<%= f.submit %>
 <% end %>

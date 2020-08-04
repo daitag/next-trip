@@ -14,13 +14,17 @@ devise_for :users, controllers: {
 get 'admin/homes/top' => 'admin/homes#top', as: 'admin_top'
 
 namespace :admin do
+  resources :users, only: [:index, :show, :edit, :update]
 	resources :tags, only: [:index, :create, :edit, :update]
 	resources :notices
 end
 
 
 #利用者サイド
+root 'user/homes#top'
+get 'user/homes/notices/:id' => 'user/homes#notice',as: 'notice'
 get 'users/:id/password' => 'user/users#password',as: 'password'
+get 'users/good_place' => 'user/users#good',as: 'good_place'
 
 scope module: :user do
 	resources :posts, only: [:index, :show, :new, :create, :destroy] do

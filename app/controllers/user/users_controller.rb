@@ -23,6 +23,10 @@ class User::UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
+	def good
+		@good_places =GoodPlace.where(user_id: current_user.id)
+	end
+
 	private
 	def user_params
 		params.require(:user).permit(:name,:email,:country,:image,:password)
