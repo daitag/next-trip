@@ -1,0 +1,2 @@
+module User::GoodPlacesHelper
+end

@@ -20,13 +20,16 @@ end
 
 
 #利用者サイド
+get 'users/:id/password' => 'user/users#password',as: 'password'
 
 scope module: :user do
 	resources :posts, only: [:index, :show, :new, :create, :destroy] do
 	 resource :favorites, only: [:create, :destroy]
+   resource :good_places, only: [:create, :destroy]
    resources :comments, only: [:create, :destroy]
 	end
   resources :schedules, only: [:index, :create, :destroy]
+  resources :users, only: [:show, :edit, :update]
 end
 
 end

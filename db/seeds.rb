@@ -15,4 +15,4 @@ User.create!( name: "山田太郎",
 			  email: "yamada@gmail.com",
 			  country: "日本",
 			  user_status: true,
-			  password: "000000")
+			  password: "123456")

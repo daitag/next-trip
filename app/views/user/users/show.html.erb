@@ -1,0 +1,11 @@
+<h2>マイページ</h2>
+
+<!-- ユーザ情報 -->
+<%= attachment_image_tag(@user,:image, :fill, 200, 200) %>
+<%= @user.name %>
+
+<!-- ユーザ編集リンク -->
+<%= link_to "ユーザ情報編集", edit_user_path(@user.id) %>
+<%= link_to "パスワード変更", password_path(@user.id) %>
+<%= link_to "旅行の設定", schedules_path %>
+
