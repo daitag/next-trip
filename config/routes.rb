@@ -27,6 +27,9 @@ scope module: :user do
 	 resource :favorites, only: [:create, :destroy]
    resource :good_places, only: [:create, :destroy]
    resources :comments, only: [:create, :destroy]
+   collection do
+    match 'search' => 'posts#search',via: [:get, :post]
+   end
 	end
   resources :schedules, only: [:index, :create, :destroy]
   resources :users, only: [:show, :edit, :update]

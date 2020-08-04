@@ -1,6 +1,12 @@
 class User::PostsController < ApplicationController
 	def index
-		@posts = Post.all
+		if params[:q].present?
+			@search = Post.ransack(search_params)
+			@posts = @search.result
+		else
+			@search = Post.ransack()
+			@posts = Post.all
+		end
 	end
 
 	def show
@@ -26,9 +32,23 @@ class User::PostsController < ApplicationController
 		redirect_to posts_path
 	end
 
+	def search
+		if params[:q].present?
+			@search = Post.ransack(search_params)
+			@posts = @search.result
+		else
+			@search = Post.ransack()
+			@posts = Post.all
+		end
+	end
+
 
 	private
 	def post_params
 		params.require(:post).permit(:title,:location,:body,:image)
+	end
+
+	def search_params
+		params.require(:q).permit(:sorts)
 	end
 end
