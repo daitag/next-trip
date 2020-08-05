@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 	before_action :configure_permitted_parameters, if: :devise_controller?
+	before_action :set_search
 
 	def after_sign_in_path_for(resource)
 		case resource
@@ -26,6 +27,11 @@ class ApplicationController < ActionController::Base
 		when User
 			new_user_session_path
 		end
+	end
+
+	def set_search
+		@search = Post.ransack(params[:q])
+		@search_products = @search.result(distinct: true)
 	end
 
 	private

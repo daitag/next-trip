@@ -9,10 +9,22 @@
 <% end %>
 
 <!-- 一覧表示 -->
-<% @posts.each do |post| %>
+<!-- テンプレート化 -->
+<% if @search_products %>
+	<% @search_products.each do |post| %>
 	<%= attachment_image_tag(post.post_images[0],:image,:fill, 200, 200) %>
 	<%= post.title %>
 	<%= link_to "詳細",post_path(post) %>
 	<i class="fas fa-heart" style="color: red;"></i>
 	<%= post.favorites.count %>
+	<% end %>
+<% else %>
+	<% @posts.each do |post| %>
+	<%= attachment_image_tag(post.post_images[0],:image,:fill, 200, 200) %>
+	<%= post.title %>
+	<%= link_to "詳細",post_path(post) %>
+	<i class="fas fa-heart" style="color: red;"></i>
+	<%= post.favorites.count %>
+	<% end %>
 <% end %>
+

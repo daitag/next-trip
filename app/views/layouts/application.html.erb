@@ -11,7 +11,17 @@
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
+
   <body>
+
+  <!-- 検索ボックス -->
+  <%= search_form_for @search,url: posts_path do |f| %>
+    <%= f.label :location,"場所" %>
+    <%= f.search_field :location_cont %>
+  <%= f.submit "検索" %>
+  <% end %>
+
+
     <%= yield %>
   </body>
 </html>
