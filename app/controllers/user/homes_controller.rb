@@ -1,6 +1,6 @@
 class User::HomesController < ApplicationController
 	def top
-		@notices = Notice.where(status: true)
+		@notices = Notice.where(status: true).page(params[:page])
 	end
 
 	def notice

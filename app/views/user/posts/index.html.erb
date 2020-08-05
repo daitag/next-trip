@@ -18,6 +18,7 @@
 	<i class="fas fa-heart" style="color: red;"></i>
 	<%= post.favorites.count %>
 	<% end %>
+	<%= paginate @search_products %>
 <% else %>
 	<% @posts.each do |post| %>
 	<%= attachment_image_tag(post.post_images[0],:image,:fill, 200, 200) %>
@@ -26,5 +27,6 @@
 	<i class="fas fa-heart" style="color: red;"></i>
 	<%= post.favorites.count %>
 	<% end %>
+	<%= paginate @posts %>
 <% end %>
 
