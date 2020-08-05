@@ -65,3 +65,7 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'ransack'
 gem 'kaminari'
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
+gem "sass-rails", "~>5.0"
+gem "jquery-ui-rails"
