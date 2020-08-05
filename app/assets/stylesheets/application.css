@@ -14,3 +14,6 @@
  *= require_self
  */
 
+.user_image {
+	border-radius: 50%;
+}

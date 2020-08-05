@@ -18,6 +18,7 @@ class User::PostsController < ApplicationController
 
 	def new
 		@post = Post.new
+		@post.post_images.new
 	end
 
 	def create
@@ -47,7 +48,7 @@ class User::PostsController < ApplicationController
 
 	private
 	def post_params
-		params.require(:post).permit(:title,:location,:body,:image)
+		params.require(:post).permit(:title,:location,:body,post_images_images:[])
 	end
 
 	def search_params

@@ -1,7 +1,7 @@
 <h2>マイページ</h2>
 
 <!-- ユーザ情報 -->
-<%= attachment_image_tag(@user,:image, :fill, 200, 200) %>
+<%= attachment_image_tag(@user,:image, :fill, 200, 200, class: "user_image") %>
 <%= @user.name %>
 
 <!-- ユーザ編集リンク -->

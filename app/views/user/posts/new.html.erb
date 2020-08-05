@@ -2,7 +2,7 @@
 
 <!-- 投稿フォーム -->
 <%= form_for(@post) do |f| %>
-<%= f.attachment_field :image %>
+<%= f.attachment_field :post_images_images,multiple: true %>
 
 <%= f.label :title, "タイトル"%>
 <%= f.text_field :title %>

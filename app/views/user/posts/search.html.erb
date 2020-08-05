@@ -10,7 +10,7 @@
 
 <!-- 一覧表示 -->
 <% @posts.each do |post| %>
-	<%= attachment_image_tag(post,:image,:fill,200,200) %>
+	<%= attachment_image_tag(post.post_images[0],:image,:fill, 200, 200) %>
 	<%= post.title %>
 	<%= link_to "詳細",post_path(post) %>
 	<i class="fas fa-heart" style="color: red;"></i>

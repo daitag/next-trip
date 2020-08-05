@@ -1,6 +1,8 @@
 <h2>詳細画面</h2>
 
-<%= attachment_image_tag(@post,:image ,:fill ,100,100) %>
+<% @post.post_images.each do |image| %>
+<%= attachment_image_tag(image,:image ,:fill ,100,100) %>
+<% end %>
 
 <h4>タイトル</h4>
 <%= @post.title %>
