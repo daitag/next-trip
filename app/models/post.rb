@@ -5,6 +5,8 @@ class Post < ApplicationRecord
 	has_many :favorites, dependent: :destroy
 	has_many :good_places, dependent: :destroy
 	has_many :comments, dependent: :destroy
+	has_many :post_tags,dependent: :destroy
+	has_many :tags, through: :post_tags,dependent: :destroy
 
 	validates :title, presence: true
 	validates :body, presence: true

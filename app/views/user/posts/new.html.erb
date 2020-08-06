@@ -34,6 +34,19 @@
 						<%= f.text_area :body,class: "form-control" %>
 					</td>
 				</tr>
+				<tr>
+					<th>
+						<%= f.label :tag, "タグ" %>
+					</th>
+					<td>
+						<%= f.collection_check_boxes(:tag_ids,Tag.where(tag_status: true), :id, :tag_name) do |tag| %>
+							<%= tag.label do %>
+								<%= tag.check_box %>
+								<%= tag.text %>
+							<% end %>
+						<% end %>
+					</td>
+				</tr>
 		</table>
 	</div>
 </div>
