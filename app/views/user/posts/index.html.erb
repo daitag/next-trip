@@ -1,6 +1,6 @@
 <h2>投稿一覧ページ</h2>
 
-<%= link_to "+",new_post_path,class: "btn btn-primary btn-circle float-right" %>
+<%= link_to "+",new_post_path,class: "btn btn-primary rounded-circle float-right" %>
 
 <!-- 一覧ソート機能 -->
 <%= search_form_for @search, url:search_posts_path,html: {method: :post} do |f| %>

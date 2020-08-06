@@ -33,17 +33,9 @@
 		<% end %>
 
 		<!-- いいねの表示 -->
-		<% if @post.favorited_by?(current_user) %>
-		 <%= link_to post_favorites_path(@post.id), method: :delete	do %>
-		 	<i class="fas fa-heart" style="color: red;"></i>
-		 	<%= @post.favorites.count %>いいね
-		 <% end %>
-		<% else %>
-		 <%= link_to post_favorites_path(@post.id), method: :post do %>
-		 	<i class="far fa-heart" style="color: black;"></i>
-		 	<%= @post.favorites.count %>いいね
-		 <% end %>
-		<% end %>
+		<div id="favorite-<%= @post.id %>">
+			<%= render 'user/favorites/favorite', post: @post %>
+		</div>
 		<!-- いいね -->
 
 		<!-- 行きたい場所の表示 -->
