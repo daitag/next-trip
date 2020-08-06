@@ -39,17 +39,9 @@
 		<!-- いいね -->
 
 		<!-- 行きたい場所の表示 -->
-		<% if @post.good_placed_by?(current_user) %>
-			<%= link_to post_good_places_path(@post.id),method: :delete do %>
-			<i class="fas fa-globe-asia" style="color: dodgerblue;"></i>
-			<%= @post.good_places.count %>いきたい!
-			<% end %>
-		<% else %>
-			<%= link_to post_good_places_path(@post.id),method: :post do %>
-			<i class="fas fa-globe-asia" style="color: black;"></i>
-			<%= @post.good_places.count %>いきたい!
-			<% end %>
-		<% end %>
+		<div id="good_place-<%= @post.id %>">
+			<%= render 'user/good_places/good_place', post: @post %>
+		</div>
 
 		<% if @post.user_id == current_user.id %>
 			<%= link_to "削除",post_path, method: :delete, data: {confirm: "本当に削除しますか？"} %>

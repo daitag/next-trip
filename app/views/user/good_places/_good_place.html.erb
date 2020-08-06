@@ -1,0 +1,11 @@
+<% if post.good_placed_by?(current_user) %>
+	<%= link_to post_good_places_path(post.id),method: :delete,remote: true do %>
+	<i class="fas fa-globe-asia" style="color: dodgerblue;"></i>
+	<%= post.good_places.count %>いきたい!
+	<% end %>
+<% else %>
+	<%= link_to post_good_places_path(post.id),method: :post,remote: true do %>
+	<i class="fas fa-globe-asia" style="color: black;"></i>
+	<%= post.good_places.count %>いきたい!
+	<% end %>
+<% end %>
