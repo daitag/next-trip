@@ -5,6 +5,7 @@ class Post < ApplicationRecord
 	has_many :favorites, dependent: :destroy
 	has_many :good_places, dependent: :destroy
 	has_many :comments, dependent: :destroy
+	has_many :alerts, dependent: :destroy
 	has_many :post_tags,dependent: :destroy
 	has_many :tags, through: :post_tags,dependent: :destroy
 
@@ -17,6 +18,10 @@ class Post < ApplicationRecord
 
 	def good_placed_by?(user)
 		good_places.where(user_id: user.id).exists?
+	end
+
+	def alerted_by?(user)
+		alerts.where(user_id: user.id).exists?
 	end
 
 	ransacker :favorites_count do

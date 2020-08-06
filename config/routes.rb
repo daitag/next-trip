@@ -30,6 +30,7 @@ scope module: :user do
 	resources :posts, only: [:index, :show, :new, :create, :destroy] do
 	 resource :favorites, only: [:create, :destroy]
    resource :good_places, only: [:create, :destroy]
+   resource :alerts,only: [:create, :destroy]
    resources :comments, only: [:create, :destroy]
    collection do
     match 'search' => 'posts#search',via: [:get, :post]

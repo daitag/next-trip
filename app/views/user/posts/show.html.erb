@@ -34,7 +34,7 @@
 		</div>
 		<!-- いいね -->
 
-		<!-- 行きたい場所の表示 -->
+		<!-- 行きたいの表示 -->
 		<div id="good_place-<%= @post.id %>">
 			<%= render 'user/good_places/good_place', post: @post %>
 		</div>
@@ -46,3 +46,14 @@
 </div>
 
 <%= link_to "一覧画面", posts_path %>
+
+<!-- alert表示 -->
+<% if @post.alerted_by?(current_user) %>
+ <%= link_to post_alerts_path(@post.id), method: :delete do %>
+ 	<p>管理者に報告中</p>
+ <% end %>
+<% else %>
+ <%= link_to post_alerts_path(@post.id), method: :post do %>
+ 	<p>管理者に報告する</p>
+ <% end %>
+<% end %>
