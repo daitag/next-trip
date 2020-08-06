@@ -1,59 +1,64 @@
 <h2>詳細画面</h2>
 
-<% @post.post_images.each do |image| %>
-	<%= attachment_image_tag(image,:image ,:fill ,100,100) %>
-<% end %>
+<div class="row">
+	<div class="col-md-6">
+		<% @post.post_images.each do |image| %>
+			<%= attachment_image_tag(image,:image ,:fill ,200,200) %>
+		<% end %>
+	</div>
+	<div class="col-md-6">
+		<h4>タイトル</h4>
+		<%= @post.title %>
+		<h4>場所</h4>
+		<%= @post.location %>
+		<h4>説明</h4>
+		<%= @post.body %>
 
-<h4>タイトル</h4>
-<%= @post.title %>
-<h4>場所</h4>
-<%= @post.location %>
-<h4>説明</h4>
-<%= @post.body %>
-
-<!-- コメント一覧 -->
-<% @comments.each do |comment| %>
-	<%= comment.comment %>
-	<%= comment.user.name %>
-	<%= link_to "削除する",post_comment_path(@post.id),method: :delete,data: {confirm: "本当に削除しますか？"} %>
-<% end %>
+		<!-- コメント一覧 -->
+		<% @comments.each do |comment| %>
+			<%= comment.comment %>
+			<%= comment.user.name %>
+			<%= link_to "削除する",post_comment_path(@post.id),method: :delete,data: {confirm: "本当に削除しますか？"} %>
+		<% end %>
 
 
-<!-- コメント -->
-<%= form_for [@post, @comment] do |f| %>
-	<%= f.text_area :comment %>
-	<%= f.submit "コメントする" %>
-<% end %>
+		<!-- コメント -->
+		<%= form_for [@post, @comment] do |f| %>
+			<%= f.text_area :comment %>
+			<%= f.submit "コメントする" %>
+		<% end %>
 
-<!-- いいねの表示 -->
-<% if @post.favorited_by?(current_user) %>
- <%= link_to post_favorites_path(@post.id), method: :delete	do %>
- 	<i class="fas fa-heart" style="color: red;"></i>
- 	<%= @post.favorites.count %>いいね
- <% end %>
-<% else %>
- <%= link_to post_favorites_path(@post.id), method: :post do %>
- 	<i class="far fa-heart" style="color: black;"></i>
- 	<%= @post.favorites.count %>いいね
- <% end %>
-<% end %>
-<!-- いいね -->
+		<!-- いいねの表示 -->
+		<% if @post.favorited_by?(current_user) %>
+		 <%= link_to post_favorites_path(@post.id), method: :delete	do %>
+		 	<i class="fas fa-heart" style="color: red;"></i>
+		 	<%= @post.favorites.count %>いいね
+		 <% end %>
+		<% else %>
+		 <%= link_to post_favorites_path(@post.id), method: :post do %>
+		 	<i class="far fa-heart" style="color: black;"></i>
+		 	<%= @post.favorites.count %>いいね
+		 <% end %>
+		<% end %>
+		<!-- いいね -->
 
-<!-- 行きたい場所の表示 -->
-<% if @post.good_placed_by?(current_user) %>
-	<%= link_to post_good_places_path(@post.id),method: :delete do %>
-	<i class="fas fa-globe-asia" style="color: dodgerblue;"></i>
-	<%= @post.good_places.count %>いきたい!
-	<% end %>
-<% else %>
-	<%= link_to post_good_places_path(@post.id),method: :post do %>
-	<i class="fas fa-globe-asia" style="color: black;"></i>
-	<%= @post.good_places.count %>いきたい!
-	<% end %>
-<% end %>
+		<!-- 行きたい場所の表示 -->
+		<% if @post.good_placed_by?(current_user) %>
+			<%= link_to post_good_places_path(@post.id),method: :delete do %>
+			<i class="fas fa-globe-asia" style="color: dodgerblue;"></i>
+			<%= @post.good_places.count %>いきたい!
+			<% end %>
+		<% else %>
+			<%= link_to post_good_places_path(@post.id),method: :post do %>
+			<i class="fas fa-globe-asia" style="color: black;"></i>
+			<%= @post.good_places.count %>いきたい!
+			<% end %>
+		<% end %>
 
-<% if @post.user_id == current_user.id %>
-	<%= link_to "削除",post_path, method: :delete, data: {confirm: "本当に削除しますか？"} %>
-<% end %>
+		<% if @post.user_id == current_user.id %>
+			<%= link_to "削除",post_path, method: :delete, data: {confirm: "本当に削除しますか？"} %>
+		<% end %>
+	</div>
+</div>
 
 <%= link_to "一覧画面", posts_path %>

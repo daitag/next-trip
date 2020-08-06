@@ -13,8 +13,9 @@
 
 
   <body>
+    <div id = "wrapper">
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <% if user_signed_in? %>
           <%= link_to 'NextTrip' ,posts_path,class: "navbar-brand" %>
         <% elsif admin_signed_in?%>
@@ -53,15 +54,20 @@
       </nav>
     </header>
 
-    <%= yield %>
+    <main>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
 
     <footer class="footer">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <div class="collapse navbar-collapse" id="navbarNav">
-          <p class="ml-auto">©Next-Trip.co</p>
+          <p class="ml-auto copy-right">©Next-Trip.co</p>
         </div>
       </nav>
 
     </footer>
+  </div>
   </body>
 </html>

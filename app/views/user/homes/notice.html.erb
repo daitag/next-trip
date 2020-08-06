@@ -1,7 +1,15 @@
-<h2>詳細画面</h2>
-
-<%= @notice.title %>
-<%= @notice.body %>
-<%= attachment_image_tag(@notice,:image,:fill,200,200) %>
+<div class="notice-title">
+	<%= @notice.title %>
+</div>
+<div class="notice-update">
+	<%= notice.updated_at.strftime("%Y-%m-%d %H:%M") %>
+</div>
+<div class="notice-body">
+	<%= @notice.body %>
+</div>
+<div class="notice-image">
+	<%= attachment_image_tag(@notice,:image,:fill,200,200) %>
+</div>
 
 <%= link_to "一覧画面", root_path %>
+

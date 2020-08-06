@@ -18,6 +18,25 @@
 @import "bootstrap";
 
 
+/*footerを下部に固定*/
+body,
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+  color: #ffffff;
+}
+
+
+/*header*/
+.navbar-brand,.nav-link {
+	color: #ffffff!important;
+}
+
 .user_image {
 	border-radius: 50%;
 }

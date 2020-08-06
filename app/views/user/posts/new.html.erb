@@ -1,16 +1,44 @@
 <h2>新規作成</h2>
 
+
 <!-- 投稿フォーム -->
+
 <%= form_for(@post) do |f| %>
-<%= f.attachment_field :post_images_images,multiple: true %>
+<div class="row">
+	<div class="col-md-6">
+		<%= f.attachment_field :post_images_images,multiple: true,class: "btn" %>
+	</div>
+	<div class="col-md-6">
+		<table class="table border">
+				<tr>
+					<th>
+						<%= f.label :title, "タイトル"%>
+					</th>
+					<td>
+						<%= f.text_field :title,class: "form-control" %>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<%= f.label :location, "場所"%>
+					</th>
+					<td>
+						<%= f.text_field :location,class: "form-control" %>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<%= f.label :body, "説明"%>
+					</th>
+					<td>
+						<%= f.text_area :body,class: "form-control" %>
+					</td>
+				</tr>
+		</table>
+	</div>
+</div>
 
-<%= f.label :title, "タイトル"%>
-<%= f.text_field :title %>
-<%= f.label :location, "場所"%>
-<%= f.text_field :location %>
-<%= f.label :body, "説明"%>
-<%= f.text_area :body %>
-<!-- タグの選択等 -->
-
-<%= f.submit "投稿する" %>
+<div class="submit">
+	<%= f.submit "投稿する",class: "btn" %>
+</div>
 <% end %>

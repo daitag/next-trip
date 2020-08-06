@@ -1,6 +1,6 @@
 <h2>投稿一覧ページ</h2>
 
-<%= link_to "+",new_post_path %>
+<%= link_to "+",new_post_path,class: "btn btn-primary btn-circle float-right" %>
 
 <!-- 一覧ソート機能 -->
 <%= search_form_for @search, url:search_posts_path,html: {method: :post} do |f| %>
@@ -11,22 +11,41 @@
 <!-- 一覧表示 -->
 <!-- テンプレート化 -->
 <% if @search_products %>
+	<div class="row">
 	<% @search_products.each do |post| %>
-	<%= attachment_image_tag(post.post_images[0],:image,:fill, 200, 200) %>
-	<%= post.title %>
-	<%= link_to "詳細",post_path(post) %>
-	<i class="fas fa-heart" style="color: red;"></i>
-	<%= post.favorites.count %>
+	<div class="col-md-3">
+		<div class="content-top">
+			<%= attachment_image_tag(post.post_images[0],:image,:fill, 200, 200) %>
+		</div>
+		<div class="content-bottom">
+			<%= post.title %>
+			<%= link_to "詳細",post_path(post) %>
+			<i class="fas fa-heart" style="color: red;"></i>
+			<%= post.favorites.count %>
+		</div>
+	</div>
 	<% end %>
-	<%= paginate @search_products %>
+	<div class="pagenation offset-md-5 col-md-2">
+		<%= paginate @search_products %>
+	</div>
 <% else %>
-	<% @posts.each do |post| %>
-	<%= attachment_image_tag(post.post_images[0],:image,:fill, 200, 200) %>
-	<%= post.title %>
-	<%= link_to "詳細",post_path(post) %>
-	<i class="fas fa-heart" style="color: red;"></i>
-	<%= post.favorites.count %>
-	<% end %>
-	<%= paginate @posts %>
+	<div class="row">
+		<% @posts.each do |post| %>
+		<div class="col-md-3">
+			<div class="content-top">
+				<%= attachment_image_tag(post.post_images[0],:image,:fill, 100, 100) %>
+			</div>
+			<div class="content-bottom">
+				<%= post.title %>
+				<%= link_to "詳細",post_path(post) %>
+				<i class="fas fa-heart" style="color: red;"></i>
+				<%= post.favorites.count %>
+			</div>
+		</div>
+		<% end %>
+	</div>
+	<div class="pagenation row">
+		<%= paginate @posts %>
+	</div>
 <% end %>
 
