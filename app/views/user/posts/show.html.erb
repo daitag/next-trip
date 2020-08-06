@@ -19,18 +19,14 @@
 		<% end %>
 
 		<!-- コメント一覧 -->
-		<% @comments.each do |comment| %>
-			<%= comment.comment %>
-			<%= comment.user.name %>
-			<%= link_to "削除する",post_comment_path(@post.id),method: :delete,data: {confirm: "本当に削除しますか？"} %>
-		<% end %>
-
+		<div id="comment_area">
+			<%= render 'user/comments/comment_index',{post: @post, comments: @comments } %>
+		</div>
 
 		<!-- コメント -->
-		<%= form_for [@post, @comment] do |f| %>
-			<%= f.text_area :comment %>
-			<%= f.submit "コメントする" %>
-		<% end %>
+		<div>
+			<%= render 'user/comments/comment_form',{post: @post, comment: @comment } %>
+		</div>
 
 		<!-- いいねの表示 -->
 		<div id="favorite-<%= @post.id %>">

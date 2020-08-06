@@ -1,0 +1,2 @@
+$("#comment_area").html("<%= escape_javascript(render 'user/comments/comment_index',{post: @post, comments: @post.comments }) %>")
+$("textarea").val('');
