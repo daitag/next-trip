@@ -1,12 +1,11 @@
 <h2>新規作成</h2>
 
-
 <!-- 投稿フォーム -->
-
 <%= form_for(@post) do |f| %>
 <div class="row">
 	<div class="col-md-6">
-		<%= f.attachment_field :post_images_images,multiple: true,class: "btn" %>
+		<div id='image-box_container'></div>
+		<%= f.file_field :post_images_images,multiple: true ,id: "post_image" %>
 	</div>
 	<div class="col-md-6">
 		<table class="table border">
