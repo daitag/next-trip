@@ -17,34 +17,45 @@
 //= require_tree .
 
 $(function(){
+	// DataTransferオブジェクトで、データの入れ物を作る
+	var dataBox = new DataTransfer();
 	// file_fieldを取得
 	var file_field = document.querySelector('input[type=file]')
 	// fileが選択された時の処理
 	$('#post_image').change(function(){
 		// 選択したfileを取得
 		var file = $('input[type="file"]').prop('files')[0];
+		$.each(this.files, function(i, file){
 		// fileオブジェクトの読み込み
 		var fileReader = new FileReader();
+
+		// DataTransferオブジェクトに対して、fileを追加
+		dataBox.items.add(file)
+		// file一覧をfile_fieldに入れる
+		file_field.files = dataBox.files
+
+		var num = $('.post_image').length + 1 + i
+		fileReader.readAsDataURL(file);
+
 		// 読み込み後に、srcにfileURLを入れる
 		fileReader.onloadend = function(){
 			var src = fileReader.result
-			var html= `<div class='post_image data-image="${file.name}"">
+			var html= `<div class='post_image' data-image="${file.name}"">
 							<div class='post_image'>
 					   			<img src="${src}" width="200" height="200">
+					   			<div class='post_image-delete'>削除</div>
 					   		</div>
-					   		<div class='post_image-delete'>削除</div>
 					   </div>`
 			// htmlに挿入
 			$('#image-box_container').before(html);
-		}
-		fileReader.readAsDataURL(file);
+		};
+	  	});
 	});
 
 	$(document).on("click", '.post_image-delete',function(){
 	// プレビューの情報取得
-	var click_image = $(this).parent()
-	// クリックしたプレビューを削除
-	click_image.remove();
+	$(this).parent().parent().remove();
+	$('input[type=file]').val('');
 	})
 });
 
