@@ -65,7 +65,7 @@ $(function(){
 $(document).on('turbolinks:load', function() {
 $(function(){
     // inputのidから情報の取得
-    $('#user_image_preview').on('change', function (e) {
+    $('[id$=_image_preview]').on('change', function (e) {
 // ここから既存の画像のurlの取得
     var reader = new FileReader();
     reader.onload = function (e) {
@@ -76,4 +76,6 @@ $(function(){
 });
 });
 });
+
+
 

@@ -1,11 +1,12 @@
 <h2>新規作成</h2>
+<%= attachment_image_tag(@notice,:image,size:"200x200", fallback: "no_image.jpg") %>
 
 <%= form_for(@notice,url: admin_notices_path) do |f| %>
 	<%= f.label :title, "タイトル" %>
 	<%= f.text_field :title %>
 	<%= f.label :body, "内容" %>
 	<%= f.text_area :body %>
-	<%= f.attachment_field :image %>
+	<%= f.attachment_field :image,id: "notice_image_preview" %>
 	<%= f.label :status, "公開設定" %>
 	<%= f.radio_button :status,true,checked: true %>
 	<%= f.label :status,"公開",value: true %>
