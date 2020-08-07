@@ -1,7 +1,7 @@
 <h2>ユーザ情報編集</h2>
 
 <%= form_for(@user,url:admin_user_path(@user)) do |f| %>
-	<%= f.attachment_field :image %>
+	<%= f.attachment_field :image,id: "user_image_preview" %>
 	<%= f.label "名前" %>
 	<%= f.text_field :name %>
 	<%= f.label "出身" %>

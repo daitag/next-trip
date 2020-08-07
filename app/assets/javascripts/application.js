@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
+// 投稿写真のプレビュ
 $(function(){
 	// DataTransferオブジェクトで、データの入れ物を作る
 	var dataBox = new DataTransfer();
@@ -59,4 +60,20 @@ $(function(){
 	})
 });
 
+
+// ユーザの写真プレビュ
+$(document).on('turbolinks:load', function() {
+$(function(){
+    // inputのidから情報の取得
+    $('#user_image_preview').on('change', function (e) {
+// ここから既存の画像のurlの取得
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $(".image").attr('src', e.target.result);
+    }
+// ここまで
+    reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+});
+});
+});
 
