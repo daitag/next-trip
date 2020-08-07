@@ -1,3 +1,8 @@
 <h2>トップページ</h2>
 
 <%= @users.count %>名登録中!!
+
+<% @alerts.each do |alert| %>
+	<%= alert.post.title %>
+	<%= link_to '詳細',admin_post_path(alert.post.id) %>
+<% end %>
