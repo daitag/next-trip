@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
+
 // 投稿写真のプレビュ
 $(function(){
 	// DataTransferオブジェクトで、データの入れ物を作る
@@ -76,6 +77,17 @@ $(function(){
 });
 });
 });
+
+
+$(function(){
+  $("#map-container").japanMap({
+      width:600,
+      onSelect : function(data){
+          alert(data.name);
+      }
+    });
+});
+
 
 
 

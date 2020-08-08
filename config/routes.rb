@@ -26,6 +26,7 @@ root 'user/homes#top'
 get 'user/homes/notices/:id' => 'user/homes#notice',as: 'notice'
 get 'users/:id/password' => 'user/users#password',as: 'password'
 get 'users/good_place' => 'user/users#good',as: 'good_place'
+get 'users/japan_map' => 'user/posts#japan_map',as: 'japan_map'
 
 scope module: :user do
 	resources :posts, only: [:index, :show, :new, :create, :destroy] do
