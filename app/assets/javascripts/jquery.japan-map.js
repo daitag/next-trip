@@ -43,7 +43,7 @@
             movesIslands        : true,          //  Moves Nansei Islands (Okinawa and part of Kagishima) to the left-top space.
             font                : "Arial",
             fontSize            : 15,
-            fontColor           : "blue",
+            fontColor           : null,
             fontShadowColor     : null,
             onSelect            : function(){},
             onHover             : function(){}
@@ -209,7 +209,7 @@
                 }
 
                 _target.on(_move, function(e){
-                    point	= e.originalEvent.changedTouches ? e.originalEvent.changedTouches[0] : e;
+                    point   = e.originalEvent.changedTouches ? e.originalEvent.changedTouches[0] : e;
 
                     if (self.isHovering()) {
                         self.pointer = {
@@ -224,7 +224,7 @@
                 });
 
                 $(document).on(_end, function(e){
-                    point	= e.originalEvent.changedTouches ? e.originalEvent.changedTouches[0] : e;
+                    point   = e.originalEvent.changedTouches ? e.originalEvent.changedTouches[0] : e;
 
                     if (self.data.code !== null && self.data.name != null && "onSelect" in self.options){
                         setTimeout(function(){
@@ -253,7 +253,7 @@
             });
 
             _target.on("mousedown", function(e){
-                var point	= e.originalEvent.changedTouches ? e.originalEvent.changedTouches[0] : e;
+                var point   = e.originalEvent.changedTouches ? e.originalEvent.changedTouches[0] : e;
 
                 if (self.data.code !== null && self.data.name != null && "onSelect" in self.options){
                     setTimeout(function(){
@@ -647,43 +647,50 @@
         }
     ];
 
-    // 地方ごとを追加
+            // 地方ごとを追加
     var definition_of_area = [
         {
-            "code"       :1,
+            "code"       :48,
             "name"       :"北海道",
+            "color"      :"#BAD3FF",
             "prefectures":[1]
         },
         {
-            "code"       :2,
+            "code"       :49,
             "name"       :"東北",
+            "color"      :"#A7F1FF",
             "prefectures":[2,3,4,5,6,7]
         },
         {
             "code"       :3,
             "name"       :"関東",
+            "color"      :"#DCC2FF",
             "prefectures":[8,9,10,11,12,13,14]
         },
         {
             "code"       :4,
             "name"       :"中部",
+            "color"      :"#C9FF2F",
             "prefectures":[15,16,17,18,19,20,21,22,23]
         },
         {
             "code"       :5,
             "name"       :"近畿",
+            "color"      :"#B1F9D0",
             "prefectures":[24,25,26,27,28,29,30]
         },
         {
             "code"       :6,
             "name"       :"中国・四国",
+            "color"      :"#30F9B2",
             "prefectures":[31,32,33,34,35,36,37,38,39]
         },
         {
             "code"       :7,
             "name"       :"九州",
+            "color"      :"#FFC7AF",
             "prefectures":[40,41,42,43,44,45,46,47]
-        },
+        }
     ];
 
     var definition_of_prefectures = [
@@ -1369,3 +1376,16 @@
     };
 
 })(jQuery);
+
+
+// 追加
+
+$(function(){
+  $("#map-container").japanMap({
+      width:600,
+      onSelect : function(data){
+          alert(data.name);
+      }
+    });
+});
+
