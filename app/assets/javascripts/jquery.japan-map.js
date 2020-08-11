@@ -1375,17 +1375,21 @@
         46 : "Kagoshima", 47 : "Okinawa"
     };
 
+    $(function(){
+        $("#map-container").japanMap({
+            onSelect : function(data){
+                var prefectures = data.area.prefectures;
+                $.each(prefectures,function(index,value){
+                    $(".prefectures").append(definition_of_prefectures[value - 1]['name']);
+                });
+            }
+        });
+    });
+
 })(jQuery);
 
 
-// 追加
 
-$(function(){
-  $("#map-container").japanMap({
-      width:600,
-      onSelect : function(data){
-          alert(data.name);
-      }
-    });
-});
+
+
 
