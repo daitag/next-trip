@@ -1379,6 +1379,9 @@
         $("#map-container").japanMap({
             onSelect : function(data){
                 var prefectures = data.area.prefectures;
+                if(!$(".prefectures").empty()){
+                    $(".prefectures").remove();
+                }
                 $.each(prefectures,function(index,value){
                     $(".prefectures").append(definition_of_prefectures[value - 1]['name']);
                 });
