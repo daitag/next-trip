@@ -1383,7 +1383,11 @@
                     $(".prefectures").remove();
                 }
                 $.each(prefectures,function(index,value){
-                    $(".prefectures").append(definition_of_prefectures[value - 1]['name']);
+                    $(".prefectures").append('<div class="prefectures_name">' + definition_of_prefectures[value - 1]['name'] + '</div>');
+                });
+                $(".prefectures_name").click(function(){
+                    $("#search_box").val($(this).text());
+                    $("#search_submit").click();
                 });
             }
         });
