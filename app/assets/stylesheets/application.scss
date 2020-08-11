@@ -16,6 +16,8 @@
 
 
 @import "bootstrap";
+@import "slick-theme";
+@import "slick";
 
 
 /*footerを下部に固定*/
@@ -29,6 +31,12 @@ body,
 footer {
   margin-top: auto;
   color: #ffffff;
+}
+
+/* slick */
+.slick img {
+	height: 300px;
+	width: 100%;
 }
 
 
@@ -51,3 +59,4 @@ footer {
 	width: 100%;
 	height: 200px;
 }
+

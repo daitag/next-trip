@@ -58,7 +58,7 @@ $(function(){
 	// プレビューの情報取得
 	$(this).parent().parent().remove();
 	$('input[type=file]').val('');
-	})
+	});
 });
 
 
@@ -76,6 +76,16 @@ $(function(){
     reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
 });
 });
+});
+
+
+// slick
+$(document).on('turbolinks:load', function(){
+	$(".slick").slick({
+		autoplay:true,
+		autoplaySpeed:3000,
+		speed: 500,
+	});
 });
 
 
