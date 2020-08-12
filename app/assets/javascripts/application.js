@@ -88,6 +88,20 @@ $(document).on('turbolinks:load', function(){
 	});
 });
 
+// 投稿の国
+$(function(){
+	$(".country-select").change(function(){
+		$(".prefecture .city").css('display','none');
+		if($(".country-select").val() == "JP"){
+			$(".prefecture").css('display','table-row');
+			$(".city").css('display','none');
+		}else{
+			$(".city").css('display','table-row');
+			$(".prefecture").css('display','none');
+		}
+	});
+});
+
 
 
 

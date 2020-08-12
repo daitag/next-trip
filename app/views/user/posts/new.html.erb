@@ -19,6 +19,30 @@
 				</tr>
 				<tr>
 					<th>
+						<%= f.label :country, "国"%>
+					</th>
+					<td>
+						<%= f.country_select :country,{ priority_countries:["JP"] , include_blank: "------"}, format: :with_alpha2, autocomplete: "country", class: "form-control country-select" %>
+					</td>
+				</tr>
+				<tr class="prefecture">
+					<th>
+						<%= f.label :prefecture, "都道府県"%>
+					</th>
+					<td>
+						<%= f.select :prefecture,Post.prefectures.keys,{include_blank: "------"},class: "form-control" %>
+					</td>
+				</tr>
+				<tr class="city">
+					<th>
+						<%= f.label :prefecture, "都市"%>
+					</th>
+					<td>
+						<%= f.text_field :prefecture,class: "form-control" %>
+					</td>
+				</tr>
+				<tr>
+					<th>
 						<%= f.label :location, "場所"%>
 					</th>
 					<td>
