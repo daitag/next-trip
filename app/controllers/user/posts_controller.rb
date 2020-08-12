@@ -2,7 +2,7 @@ class User::PostsController < ApplicationController
 	def index
 		if params[:q].present?
 			@search = Post.ransack(search_params)
-			@posts = @search.result
+			@posts = @search.result.page(params[:page])
 		else
 			params[:q] = { sorts: 'id desc' }
 			@search = Post.ransack()
@@ -34,16 +34,7 @@ class User::PostsController < ApplicationController
 		redirect_to posts_path
 	end
 
-	def search
-		if params[:q].present?
-			@search = Post.ransack(search_params)
-			@posts = @search.result.page(params[:page])
-		else
-			params[:q] = { sorts: 'id desc' }
-			@search = Post.ransack()
-			@posts = Post.page(params[:page])
-		end
-	end
+
 
 
 	private

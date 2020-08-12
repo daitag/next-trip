@@ -3,9 +3,15 @@
 <%= link_to "+",new_post_path,class: "btn btn-primary rounded-circle float-right" %>
 
 <!-- 一覧ソート機能 -->
-<%= search_form_for @search, url:search_posts_path,html: {method: :post} do |f| %>
-	<%= f.select( :sorts,{並び替え: 'id asc',いいねの多い順: 'favorites_count desc',いきたいの多い順: 'good_places_count desc',投稿が新しい順: 'updated_at desc',投稿が古い順: 'updated_at asc'}, { onchange: 'this.form.submit()'} ) %>
-	<%= f.submit %>
+
+<%= search_form_for @search, url:posts_path do |f| %>
+	<div class="row">
+		<div class="col-md-4">
+			<%= f.select( :sorts,{並び替え: 'id asc',いいねの多い順: 'favorites_count desc',いきたいの多い順: 'good_places_count desc',投稿が新しい順: 'updated_at desc',投稿が古い順: 'updated_at asc'}, { onchange: 'this.form.submit()'},class: "form-control") %>
+		</div>
+		<div class="col-md-2">
+			<%= f.submit "並び替え",class: "btn my-sm-0" %>
+		</div>
 <% end %>
 
 <!-- 一覧表示 -->
