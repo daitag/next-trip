@@ -51,7 +51,7 @@
           </ul>
           <!-- 検索ボックス -->
           <%= search_form_for @search,url: posts_path,class: "form-inline my-2 my-lg-0" do |f| %>
-            <%= f.search_field :location_cont,id: "search_box",class: "form-control mr-sm-2" %>
+            <%= f.search_field :country_or_prefecture_or_location_or_body_cont,id: "search_box",class: "form-control mr-sm-2" %>
             <%= f.submit "検索",id:"search_submit",class: "btn my-2 my-sm-0" %>
           <% end %>
         </div>

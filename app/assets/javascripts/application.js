@@ -88,10 +88,9 @@ $(document).on('turbolinks:load', function(){
 	});
 });
 
-// 投稿の国
+// 投稿する写真の国によって選択内容が変わる
 $(function(){
 	$(".country-select").change(function(){
-		$(".prefecture .city").css('display','none');
 		if($(".country-select").val() == "JP"){
 			$(".prefecture").css('display','table-row');
 			$(".city").css('display','none');

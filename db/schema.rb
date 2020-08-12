@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2020_08_12_011123) do
     t.datetime "updated_at", null: false
     t.boolean "post_status", default: true
     t.string "country"
-    t.integer "prefecture"
+    t.string "prefecture"
   end
 
   create_table "schedules", force: :cascade do |t|
