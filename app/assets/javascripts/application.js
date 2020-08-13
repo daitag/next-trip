@@ -43,7 +43,7 @@ $(function(){
 			// 読み込み後に、srcにfileURLを入れる
 			fileReader.onloadend = function(){
 				var src = fileReader.result
-				var html= `<div class='post_image' data-image'${file.name}'>
+				var html= `<div class='post_image' data-image='${file.name}'>
 								<div class='post_image_content'>
 									<div>
 						   				<img src=${src} width="200" height="200">
@@ -75,8 +75,8 @@ $(function(){
 				console.log(dataBox)
 			}else{
 				// プレビューが複数の場合
-				$.each(file_field.files, function(i,input){
-					if(input.name==target_name){
+				$.each(document.querySelector('input[type=file]').files, function(i,input){
+					if(document.querySelector('input[type=file]').files[i].name == target_name){
 						dataBox.items.remove(i)
 					}
 				})
