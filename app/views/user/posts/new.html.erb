@@ -4,8 +4,9 @@
 <%= form_for(@post) do |f| %>
 <div class="row">
 	<div class="col-md-6">
-		<div id='image-box_container'></div>
-		<%= f.file_field :post_images_images,multiple: true ,id: "post_image" %>
+		<div id='image-box_container'>
+			<%= f.file_field :post_images_images,multiple: true ,id: "post_image" %>
+		</div>
 	</div>
 	<div class="col-md-6">
 		<table class="table border">
@@ -25,20 +26,20 @@
 						<%= f.country_select :country,{ priority_countries:["JP"] , include_blank: "------"}, format: :with_alpha2, autocomplete: "country", class: "form-control country-select" %>
 					</td>
 				</tr>
+				<tr class="city">
+					<th>
+						<%= f.label :city, "都市"%>
+					</th>
+					<td>
+						<%= f.text_field :city,class: "form-control" %>
+					</td>
+				</tr>
 				<tr class="prefecture">
 					<th>
 						<%= f.label :prefecture, "都道府県"%>
 					</th>
 					<td>
 						<%= f.select :prefecture,Post.prefectures.keys,{include_blank: "------"},class: "form-control" %>
-					</td>
-				</tr>
-				<tr class="city">
-					<th>
-						<%= f.label :prefecture, "都市"%>
-					</th>
-					<td>
-						<%= f.text_field :prefecture,class: "form-control" %>
 					</td>
 				</tr>
 				<tr>
@@ -61,7 +62,7 @@
 					<th>
 						<%= f.label :tag, "タグ" %>
 					</th>
-					<td>
+					<td class="label-select">
 						<%= f.collection_check_boxes(:tag_ids,Tag.where(tag_status: true), :id, :tag_name) do |tag| %>
 							<%= tag.label do %>
 								<%= tag.check_box %>

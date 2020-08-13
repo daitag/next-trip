@@ -39,7 +39,7 @@ class User::PostsController < ApplicationController
 
 	private
 	def post_params
-		params.require(:post).permit(:title,:country,:prefecture,:location,:body,post_images_images:[],tag_ids:[])
+		params.require(:post).permit(:title,:country,:prefecture,:city,:location,:body,post_images_images:[],tag_ids:[])
 	end
 
 	def search_params
