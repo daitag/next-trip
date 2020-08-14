@@ -30,7 +30,8 @@ class ApplicationController < ActionController::Base
 
 	def set_search
 		@search = Post.ransack(params[:q])
-		@search_products = @search.result(distinct: true).page params[:page]
+		# 公開設定がtrueのみ表示
+		@search_products = @search.result(distinct: true).where(post_status: true).page params[:page]
 	end
 
 	private

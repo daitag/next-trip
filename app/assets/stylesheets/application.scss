@@ -41,6 +41,26 @@ footer {
 
 
 /*header*/
+.home-top {
+	background-image: image-url('photo2.jpeg');
+	height: 500px;
+	position: relative;
+}
+
+.top-content {
+	border: 1px solid #000000;
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	background-color: rgba(255,255,255,0.5);
+}
+
+.share-trip,.search-trip,.schedule-trip {
+	border: 1px solid #000000;
+	margin: 20px 0;
+}
+
+
 .navbar-brand,.nav-link {
 	color: #ffffff!important;
 }
@@ -49,9 +69,47 @@ footer {
 	border-radius: 50%;
 }
 
+.user-detail > div {
+	margin: 20px 0;
+}
+
 //postのプレビュー
 .btn-file {
 	display: none;
+}
+
+.slick_index {
+	width: 200px;
+}
+
+.slide-arrow{
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+}
+
+.slick-prev{
+	left: 0px;
+	background: black !important;
+	border-radius: 50%;
+	z-index: 100;
+	display: none;
+	opacity: 0.5;
+}
+
+.slick-next{
+	right: 0px;
+	background: black !important;
+	border-radius: 50%;
+	z-index: 100;
+	display: none;
+	opacity: 0.5;
+}
+
+
+.slick_index_image{
+	width: 200px;
+	height: 200px;
 }
 
 .form_image {

@@ -4,7 +4,7 @@
 <%= form_for(@user,url:user_path(@user)) do |f| %>
 	<div class="row">
 		<div class="col-md-6">
-			<%= attachment_image_tag(@user,:image,size:"200x200", class: "user_image") %>
+			<%= attachment_image_tag(@user,:image,size:"200x200", class: "user_image", fallback: "no_image.jpg") %>
 			<%= f.attachment_field :image,id:"user_image_preview" %>
 		</div>
 		<div class="col-md-6">

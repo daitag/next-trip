@@ -1,12 +1,50 @@
 <div class="text-center">
-	<h1>次の旅行を探してみませんか？</h1>
-	<p>
-	当サイトは、旅行特化型のSNSになっています。次に行きたい場所を探したり、 <br>
-	旅行の思い出を投稿することができます。詳しくは、aboutに掲載しています。
-	</p>
+	<div class="home-top">
+		<div class="top-content">
+			<h1>次の旅行を探してみませんか？</h1>
+			<p>
+			当サイトは、旅行特化型のSNSになっています。次に行きたい場所を日常的に探したり、 <br>
+			旅行の思い出を投稿することができます。詳しくは、aboutに掲載しています。
+			</p>
 
-	<%= link_to "Login",new_user_session_path,class: "btn btn-primary" %>
-	<%= link_to "Signup",new_user_registration_path,class: "btn btn-primary" %>
+			<%= link_to "Login",new_user_session_path,class: "btn btn-primary" %>
+			<%= link_to "Signup",new_user_registration_path,class: "btn btn-primary" %>
+		</div>
+	</div>
+
+	<div class="about" id="about">
+		<h2>Next-tripとは?</h2>
+		<p>旅行特化型のSNSです。以下のようなサービスを利用することができます。</p>
+		<ul>
+			<li>1.旅行の写真の共有</li>
+			<li>2.旅行先の検索</li>
+			<li>3.旅行予定の管理</li>
+		</ul>
+
+		<div class="about-detail col-md-6 offset-md-3">
+			<div class="share-trip">
+				<h3>1.旅行の写真の共有</h3>
+				<p>
+					写真を選択、タイトルと場所等を投稿することで,世界中の人に旅を共有することができます。
+				　　いつでも、どこにいても写真・思い出の共有をすることができます。
+				</p>
+			</div>
+			<div class="search-trip">
+				<h3>2.旅行先の検索</h3>
+				<p>
+					いきたい旅行先を探すことができます。他の人の旅行先、人気なスポットを見てみて、
+					いきたい場所を探してみましょう。いきたい場所リストも作成することもできます。
+				</p>
+			</div>
+			<div class="schedule-trip">
+				<h3>3.旅行予定の管理</h3>
+				<p>
+					旅行の予定を入力することで、予定の管理ができます。あと、何日で旅行なのかがわかります。
+					日程を把握し、旅行へのモチベーションを高めましょう。
+				</p>
+			</div>
+		</div>
+	</div>
 
 	<!-- お知らせ一覧 -->
 	<table class="table table-hover border offset-md-2 col-md-8">

@@ -120,6 +120,28 @@ $(document).on('turbolinks:load', function(){
 	});
 });
 
+$(document).on('turbolinks:load', function(){
+	$(".slick_index").slick({
+		arrows: true,
+		accessibility: true,
+		zcenterMode: true,
+    	nextButton: '.swiper-button-next',
+    	prevButton: '.swiper-button-prev'
+	});
+
+	$(".slick_index").hover(
+		function(){
+			$(".slick-prev").css("display",'block');
+			$(".slick-next").css("display",'block');
+		},
+		function(){
+			$(".slick-prev").css("display",'none');
+			$(".slick-next").css("display",'none');
+		}
+		);
+});
+
+
 // 投稿する写真の国によって選択内容が変わる
 $(document).on('turbolinks:load', function() {
 $(function(){

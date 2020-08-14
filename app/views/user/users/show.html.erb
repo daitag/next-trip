@@ -6,21 +6,21 @@
 		<%= attachment_image_tag(@user,:image, :fill, 200, 200, class: "user_image") %>
 	</div>
 	<div class="col-md-8 text-center">
-		<div class="row">
+		<div class="row user-detail">
 			<div class="col-md-6">
 				<%= @user.name %>
 			</div>
 			<div class="col-md-6">
-				<%= link_to "ユーザ情報編集", edit_user_path(@user.id) %>
+				<%= link_to "ユーザ情報編集", edit_user_path(@user.id),class: "btn btn-primary" %>
 			</div>
 			<div class="col-md-6">
-				<%= link_to "パスワード変更", password_path(@user.id) %>
+				<%= link_to "パスワード変更", password_path(@user.id),class: "btn btn-primary" %>
 			</div>
 			<div class="col-md-6">
-				<%= link_to "旅行の設定", schedules_path %>
+				<%= link_to "旅行の設定", schedules_path,class: "btn btn-primary" %>
 			</div>
 			<div class="col-md-6">
-				<%= link_to "行きたい場所",good_place_path %>
+				<%= link_to "行きたい場所",good_place_path,class: "btn btn-primary" %>
 			</div>
 		</div>
 	</div>
