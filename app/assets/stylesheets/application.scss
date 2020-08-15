@@ -89,20 +89,16 @@ footer {
 }
 
 .slick-prev{
-	left: 0px;
+	left: 0px !important;
 	background: black !important;
-	border-radius: 50%;
 	z-index: 100;
-	display: none;
 	opacity: 0.5;
 }
 
 .slick-next{
-	right: 0px;
+	right: 0px !important;
 	background: black !important;
-	border-radius: 50%;
 	z-index: 100;
-	display: none;
 	opacity: 0.5;
 }
 

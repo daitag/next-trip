@@ -138,7 +138,7 @@ $(document).on('turbolinks:load', function(){
 			$(".slick-prev").css("display",'none');
 			$(".slick-next").css("display",'none');
 		}
-		);
+	);
 });
 
 
