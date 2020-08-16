@@ -46,6 +46,42 @@
 		</div>
 	</div>
 
+	<!-- 人気投稿 -->
+	<h2>人気投稿</h2>
+	<div class="row">
+		<% @ranks.each do |rank| %>
+			<div class="col-md-3">
+				<div class="content-top">
+					<%= attachment_image_tag(rank.post_images[0],:image,:fill, 200, 200) %>
+				</div>
+				<div class="content-bottom">
+					<%= rank.title %>
+					<%= link_to "詳細",post_path(rank) %>
+					<i class="fas fa-heart" style="color: red;"></i>
+					<%= rank.favorites.count %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+
+	<!-- 投稿 -->
+	<h2>新規投稿</h2>
+	<div class="row">
+		<% @posts.first(4).each do |post| %>
+		<div class="col-md-3">
+			<div class="content-top">
+				<%= attachment_image_tag(post.post_images[0],:image,:fill, 200, 200) %>
+			</div>
+			<div class="content-bottom">
+				<%= post.title %>
+				<%= link_to "詳細",post_path(post) %>
+				<i class="fas fa-heart" style="color: red;"></i>
+				<%= post.favorites.count %>
+			</div>
+		</div>
+		<% end %>
+	</div>
+
 	<!-- お知らせ一覧 -->
 	<table class="table table-hover border offset-md-2 col-md-8">
 		<h2>お知らせ</h2>

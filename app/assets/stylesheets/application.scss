@@ -45,6 +45,7 @@ footer {
 .home-top {
 	background-image: image-url('photo2.jpeg');
 	height: 500px;
+	background-size: cover !important;
 	position: relative;
 }
 
@@ -63,7 +64,7 @@ footer {
 
 
 .navbar-brand,.nav-link {
-	color: #ffffff!important;
+	color: #ffffff !important;
 }
 
 .user_image {

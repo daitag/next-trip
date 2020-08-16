@@ -87,10 +87,6 @@ $(function(){
 			}
 			// プレビューの削除
 			target_image.remove();
-
-			// var num = $('.post_image').length
-			// $('#image-box_container').show()
-			// $('#image-box_container').attr('class',`post-num-${num}`)
 		})
 	});
 });
