@@ -1,25 +1,39 @@
 <h2>スケジュール一覧</h2>
 
-<!-- スケジュール作成ホーム -->
-<%= form_for(@schedule, url: schedules_path) do |f| %>
-	<%= f.text_field :content %>
-	<%= f.date_field :day %>
-	<%= f.submit "登録する" %>
-<% end %>
+<div class="row">
+	<div class="col-md-4">
+		<h3>予定作成</h3>
+		<!-- スケジュール作成ホーム -->
+		<%= form_for(@schedule, url: schedules_path) do |f| %>
+		<%= f.label :content, '旅行先' %>
+		<%= f.text_field :content,class: "form-control" %>
+		<%= f.label :start_day, '出発日' %>
+		<%= f.date_field :start_day,class: "form-control" %>
+		<%= f.label :end_day, '帰着日' %>
+		<%= f.date_field :end_day,class: "form-control" %>
+		<%= f.submit "登録する",class: "btn" %>
+		<% end %>
 
-<!-- スケジュールの一覧を表示 -->
+		<!-- スケジュールの一覧を表示 -->
+		<h3>スケジュール一覧</h3>
+		<% @schedules.each do |schedule| %>
+			<%= schedule.content %>
+			<%= schedule.start_day %>
+			<% limit_day = 0 %>
+			<% limit_day = (schedule.start_day - Date.today).numerator %>
+			<% if limit_day.to_i >= 1 %>
+			<span>あと<%= limit_day %>日!!</span>
+			<% elsif limit_day.to_i <= -1 %>
+			<span></span>
+			<% else %>
+			<span>旅行楽しんできてください!!</span>
+			<% end %>
+			<%= link_to "削除", schedule_path(schedule),method: :delete %>
+		<% end %>
+	</div>
 
-<% @schedules.each do |schedule| %>
-	<%= schedule.content %>
-	<%= schedule.day %>
-	<% limit_day = 0 %>
-	<% limit_day = (schedule.day - Date.today).numerator %>
-	<% if limit_day.to_i >= 1 %>
-		<span>あと<%= limit_day %>日!!</span>
-	<% elsif limit_day.to_i <= -1 %>
-		<span></span>
-	<% else %>
-		<span>旅行楽しんできてください!!</span>
-	<% end %>
-	<%= link_to "削除", schedule_path(schedule),method: :delete %>
-<% end %>
+	<div class="col-md-8">
+		<!-- カレンダーの表示 -->
+		<div id="calendar"></div>
+	</div>
+</div>

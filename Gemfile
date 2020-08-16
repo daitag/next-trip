@@ -70,6 +70,8 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'country_select'
 gem 'rails-i18n', '~> 5.1'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

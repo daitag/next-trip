@@ -3,7 +3,7 @@ class User::SchedulesController < ApplicationController
 
 	def index
 		@schedule = Schedule.new
-		@schedules = Schedule.all
+		@schedules = Schedule.where(user_id: current_user)
 		@today = Date.current
 	end
 
@@ -22,6 +22,6 @@ class User::SchedulesController < ApplicationController
 
 	private
 	def schedule_params
-		params.require(:schedule).permit(:content, :day)
+		params.require(:schedule).permit(:content, :start_day, :end_day)
 	end
 end
