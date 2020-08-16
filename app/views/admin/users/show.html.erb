@@ -1,20 +1,40 @@
 <h2>ユーザ詳細</h2>
 
-<%= attachment_image_tag(@user,:image, :fill, 200, 200) %>
-
-<label>利用者ID</label>
-<%= @user.id %>
-<label>名前</label>
-<%= @user.name %>
-<label>出身</label>
-<%= @user.country %>
-<label>メールアドレス</label>
-<%= @user.email %>
-<label>利用者ステータス</label>
-<% if @user.user_status == true %>
-	<label>有効</label>
-<% else %>
-	<label>無効</label>
-<% end %>
-
-<%= link_to "編集",edit_admin_user_path(@user) %>
+<div class="row">
+	<div class="col-md-4">
+		<h3>ユーザプロフィール</h3>
+		<%= attachment_image_tag(@user,:image, :fill, 200, 200) %>
+	</div>
+	<div class="col-md-8">
+		<h3>ユーザ情報</h3>
+		<table class="table table-hover table-bordered">
+				<tr>
+					<th>利用者ID</th>
+					<td><%= @user.id %></td>
+				</tr>
+				<tr>
+					<th>名前</th>
+					<td><%= @user.name %></td>
+				</tr>
+				<tr>
+					<th>出身</th>
+					<td><%= @user.country %></td>
+				</tr>
+				<tr>
+					<th>メールアドレス</th>
+					<td><%= @user.email %></td>
+				</tr>
+				<tr>
+					<th>利用者ステータス</th>
+					<td>
+						<% if @user.user_status == true %>
+							<label>有効</label>
+						<% else %>
+							<label>無効</label>
+						<% end %>
+					</td>
+				</tr>
+		</table>
+	</div>
+</div>
+<%= link_to "編集",edit_admin_user_path(@user),class: "btn btn-primary" %>

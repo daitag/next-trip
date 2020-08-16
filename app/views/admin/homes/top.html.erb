@@ -1,8 +1,24 @@
 <h2>トップページ</h2>
 
+<h3>会員数</h3>
 <%= @users.count %>名登録中!!
 
-<% @alerts.each do |alert| %>
-	<%= alert.post.title %>
-	<%= link_to '詳細',admin_post_path(alert.post.id) %>
-<% end %>
+<h3>アラート一覧</h3>
+<table class="table table-hover table-bordered">
+	<% @alerts.each do |alert| %>
+		<thead>
+			<tr>
+				<th>投稿タイトル</th>
+				<th>ユーザ名</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= alert.post.title %></td>
+				<td><%= alert.user.name %></td>
+				<td><%= link_to '詳細',admin_post_path(alert.post.id) %></td>
+			</tr>
+		</tbody>
+	<% end %>
+</table>

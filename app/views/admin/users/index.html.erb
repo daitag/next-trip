@@ -1,11 +1,26 @@
 <h2>ユーザ一覧</h2>
 
-<% @users.each do |user| %>
-	<%= link_to user.name, admin_user_path(user) %>
-	<%= Post.where(user_id: user.id).count %>投稿
-	<% if user.user_status == true %>
-		<label>有効</label>
-	<% else %>
-		<label>無効</label>
+<table class="table table-hover table-bordered">
+	<% @users.each do |user| %>
+		<thead>
+			<tr>
+				<th>ユーザ名</th>
+				<th>投稿数</th>
+				<th>ユーザステータス</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= link_to user.name, admin_user_path(user) %></td>
+				<td><%= Post.where(user_id: user.id).count %>投稿</td>
+				<td>
+					<% if user.user_status == true %>
+						<label>有効</label>
+					<% else %>
+						<label>無効</label>
+					<% end %>
+				</td>
+			</tr>
+		</tbody>
 	<% end %>
-<% end %>
+</table>

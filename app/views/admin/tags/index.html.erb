@@ -2,24 +2,39 @@
 
 <%= form_for(@tag,url:admin_tags_path) do |f| %>
 	<%= f.label :tag_name,"タグ名" %>
-	<%= f.text_field :tag_name %>
+	<%= f.text_field :tag_name,class: "form-control" %>
 
 	<%= f.radio_button :tag_status,:true, checked: true %>
 	<%= f.label :tag_status, "有効",value: true %>
 	<%= f.radio_button :tag_status,:false %>
 	<%= f.label :tag_status, "無効",value: false %>
 
-	<%= f.submit "作成" %>
+	<%= f.submit "作成",class: "btn" %>
 <% end %>
 
 
 <!-- 一覧 -->
-<% @tags.each do |tag| %>
-	<%= tag.tag_name %>
-	<% if tag.tag_status == true %>
-		<label>有効</label>
-	<% else %>
-		<label>無効</label>
-	<% end %>
-	<%= link_to "編集",edit_admin_tag_path(tag) %>
-<% end %>
+<table class="table table-hover border">
+	<thead>
+		<tr>
+			<th>タグ名</th>
+			<th>タグステータス</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @tags.each do |tag| %>
+		<tr>
+			<td><%= tag.tag_name %></td>
+			<td>
+				<% if tag.tag_status == true %>
+					<label>有効</label>
+				<% else %>
+					<label>無効</label>
+				<% end %>
+			</td>
+			<td><%= link_to "編集",edit_admin_tag_path(tag) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

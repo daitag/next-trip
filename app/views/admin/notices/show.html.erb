@@ -1,8 +1,16 @@
 <h2>詳細画面</h2>
 
-<%= @notice.title %>
-<%= @notice.body %>
-<%= attachment_image_tag(@notice,:image,:fill,200,200) %>
+<div class="row">
+	<div class="col-md-4">
+		<%= attachment_image_tag(@notice,:image,:fill,200,200) %>
+	</div>
+	<div class="col-md-8">
+		<h3>タイトル</h3>
+		<%= @notice.title %>
+		<h3>内容</h3>
+		<%= @notice.body %>
+	</div>
+</div>
 
-<%= link_to "一覧画面", admin_notices_path %>
-<%= link_to "編集画面", edit_admin_notice_path %>
+<%= link_to "一覧画面", admin_notices_path,class: "btn btn-primary" %>
+<%= link_to "編集画面", edit_admin_notice_path,class: "btn btn-primary" %>
