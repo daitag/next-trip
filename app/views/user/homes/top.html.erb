@@ -1,21 +1,23 @@
-<div class="text-center">
+<div class="text-center continer-fluid">
 	<div class="home-top">
-		<div class="top-content">
-			<h1>次の旅行を探してみませんか？</h1>
-			<p>
-			当サイトは、旅行特化型のSNSになっています。次に行きたい場所を日常的に探したり、 <br>
-			旅行の思い出を投稿することができます。詳しくは、aboutに掲載しています。
-			</p>
+		<div class="inner">
+			<div class="top-content">
+				<h1>次の旅行を探してみませんか？</h1>
+				<p>
+				当サイトは、旅行特化型のSNSになっています。次に行きたい場所を探したり、 <br>
+				旅行の思い出を投稿することができます。詳しくは、aboutに掲載しています。
+				</p>
 
-			<%= link_to "Login",new_user_session_path,class: "btn btn-primary" %>
-			<%= link_to "Signup",new_user_registration_path,class: "btn btn-primary" %>
+				<%= link_to "Login",new_user_session_path,class: "btn btn-primary" %>
+				<%= link_to "Signup",new_user_registration_path,class: "btn btn-primary" %>
+			</div>
 		</div>
 	</div>
 
 	<div class="about" id="about">
-		<h2>Next-tripとは?</h2>
+		<h2>NextTripとは?</h2>
 		<p>旅行特化型のSNSです。以下のようなサービスを利用することができます。</p>
-		<ul>
+		<ul class="about-list">
 			<li>1.旅行の写真の共有</li>
 			<li>2.旅行先の検索</li>
 			<li>3.旅行予定の管理</li>
@@ -47,39 +49,41 @@
 	</div>
 
 	<!-- 人気投稿 -->
-	<h2>人気投稿</h2>
-	<div class="row">
-		<% @ranks.each do |rank| %>
+	<div id="ranking">
+		<h2>人気投稿</h2>
+		<div class="row">
+			<% @ranks.each do |rank| %>
+				<div class="col-md-3">
+					<div class="content-top">
+						<%= attachment_image_tag(rank.post_images[0],:image,:fill, 200, 200) %>
+					</div>
+					<div class="content-bottom">
+						<%= rank.title %>
+						<%= link_to "詳細",post_path(rank) %>
+						<i class="fas fa-heart" style="color: red;"></i>
+						<%= rank.favorites.count %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+
+		<!-- 投稿 -->
+		<h2>新規投稿</h2>
+		<div class="row">
+			<% @posts.first(4).each do |post| %>
 			<div class="col-md-3">
 				<div class="content-top">
-					<%= attachment_image_tag(rank.post_images[0],:image,:fill, 200, 200) %>
+					<%= attachment_image_tag(post.post_images[0],:image,:fill, 200, 200) %>
 				</div>
 				<div class="content-bottom">
-					<%= rank.title %>
-					<%= link_to "詳細",post_path(rank) %>
+					<%= post.title %>
+					<%= link_to "詳細",post_path(post) %>
 					<i class="fas fa-heart" style="color: red;"></i>
-					<%= rank.favorites.count %>
+					<%= post.favorites.count %>
 				</div>
 			</div>
-		<% end %>
-	</div>
-
-	<!-- 投稿 -->
-	<h2>新規投稿</h2>
-	<div class="row">
-		<% @posts.first(4).each do |post| %>
-		<div class="col-md-3">
-			<div class="content-top">
-				<%= attachment_image_tag(post.post_images[0],:image,:fill, 200, 200) %>
-			</div>
-			<div class="content-bottom">
-				<%= post.title %>
-				<%= link_to "詳細",post_path(post) %>
-				<i class="fas fa-heart" style="color: red;"></i>
-				<%= post.favorites.count %>
-			</div>
+			<% end %>
 		</div>
-		<% end %>
 	</div>
 
 	<!-- お知らせ一覧 -->
@@ -105,4 +109,7 @@
 		</tbody>
 	</table>
 	<%= paginate @notices %>
+	<div id="top-scroll">
+		<a href="#" id="page-top"><i class="fas fa-arrow-circle-up fa-2x"></i></a>
+	</div>
 </div>

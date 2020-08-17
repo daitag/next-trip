@@ -73,8 +73,8 @@ $(function(){
 			if(file_field.files.length==1){
 				// inputのファイルを削除
 				$('input[type=file]').val(null)
-				dataBox.clearData();
-				console.log(dataBox)
+					dataBox.clearData();
+					console.log(dataBox);
 			}else{
 				// プレビューが複数の場合
 				$.each(document.querySelector('input[type=file]').files, function(i,input){
@@ -146,13 +146,15 @@ $(function(){
 	$(".country-select").change(function(){
 		// 選択したらタグを作る
 		// var tag = $(".country-select option:selected").text();
-		// $(".label-select").last().append("<label><input type='checkbox' checked='checked' name='post[]' id='post_tag_ids_8' ></label>" + $('.country-select option:selected').text());
+		// $(".label-select").last().append("<label for=post_tag_ids_8'><input type='checkbox' checked='checked' name='post[tag_ids][]' id='post_tag_ids_8' >"+ $('.country-select option:selected').text() + "</label>" );
 		// 選択したものが日本かそれ以外かで選択肢を変える。
 		if($(".country-select").val() == "JP"){
 			$(".prefecture").css('display','table-row');
+			$(".city_form").val("");
 			$(".city").css("display", 'none');
 		}else{
 			$(".city").css('display','table-row');
+			$(".prefecture option:selected").removeAttr("selected");
 			$(".prefecture").css("display", 'none');
 		}
 	});
@@ -222,4 +224,30 @@ $(function () {
     });
 });
 
+// scrolltop
+$(document).on('turbolinks:load', function () {
+	$(function(){
+		$("#page-top").click(function(){
+			$('body, html').animate({ scrollTop: 0}, 500);
+			return false;
+		});
 
+		$(window).scroll(function(){
+			if($(this).scrollTop() >= 400){
+				$("#page-top").css("bottom", "60px");
+			}else{
+				$("#page-top").css("bottom", "-50px");
+			}
+		});
+	});
+});
+
+
+// // favorite
+// $(function(){
+// 	$(document).on('turbolinks:load', function () {
+// 		$("#favorite").click(function(){
+// 			$(this).animate({left: "-10px"},100).animate({rigth: "10px"},100)
+// 		});
+// 	});
+// });

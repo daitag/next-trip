@@ -1,81 +1,80 @@
+<div class="container">
 <h2>新規作成</h2>
 
 <!-- 投稿フォーム -->
 <%= form_for(@post) do |f| %>
-<div class="row">
-	<div class="col-md-6">
-		<div id='image-box_container'>
-			<%= f.file_field :post_images_images,multiple: true ,id: "post_image" %>
+	<div class="row">
+		<div class="col-md-4">
+			<div id='image-box_container'>
+				<%= f.file_field :post_images_images,multiple: true ,id: "post_image" %>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<table class="table border">
+					<tr>
+						<th>
+							<%= f.label :title, "タイトル"%>
+						</th>
+						<td>
+							<%= f.text_field :title,class: "form-control" %>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<%= f.label :country, "国"%>
+						</th>
+						<td>
+							<%= f.country_select :country,{ priority_countries:["JP"] , include_blank: "------"}, format: :with_alpha2, autocomplete: "country", class: "form-control country-select" %>
+						</td>
+					</tr>
+					<tr class="city">
+						<th>
+							<%= f.label :city, "都市"%>
+						</th>
+						<td>
+							<%= f.text_field :city,class: "form-control city_form" %>
+						</td>
+					</tr>
+					<tr class="prefecture">
+						<th>
+							<%= f.label :prefecture, "都道府県"%>
+						</th>
+						<td>
+							<%= f.select :prefecture,Post.prefectures.keys,{include_blank: "------"},class: "form-control" %>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<%= f.label :location, "場所"%>
+						</th>
+						<td>
+							<%= f.text_field :location,class: "form-control" %>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<%= f.label :body, "説明"%>
+						</th>
+						<td>
+							<%= f.text_area :body,class: "form-control" %>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<%= f.label :tag, "タグ" %>
+						</th>
+						<td class="label-select">
+							<%= f.collection_check_boxes(:tag_ids,Tag.where(tag_status: true), :id, :tag_name) do |tag| %>
+								<%= tag.label do %>
+									<%= tag.check_box %>
+									<%= tag.text %>
+								<% end %>
+							<% end %>
+						</td>
+					</tr>
+			</table>
 		</div>
 	</div>
-	<div class="col-md-6">
-		<table class="table border">
-				<tr>
-					<th>
-						<%= f.label :title, "タイトル"%>
-					</th>
-					<td>
-						<%= f.text_field :title,class: "form-control" %>
-					</td>
-				</tr>
-				<tr>
-					<th>
-						<%= f.label :country, "国"%>
-					</th>
-					<td>
-						<%= f.country_select :country,{ priority_countries:["JP"] , include_blank: "------"}, format: :with_alpha2, autocomplete: "country", class: "form-control country-select" %>
-					</td>
-				</tr>
-				<tr class="city">
-					<th>
-						<%= f.label :city, "都市"%>
-					</th>
-					<td>
-						<%= f.text_field :city,class: "form-control" %>
-					</td>
-				</tr>
-				<tr class="prefecture">
-					<th>
-						<%= f.label :prefecture, "都道府県"%>
-					</th>
-					<td>
-						<%= f.select :prefecture,Post.prefectures.keys,{include_blank: "------"},class: "form-control" %>
-					</td>
-				</tr>
-				<tr>
-					<th>
-						<%= f.label :location, "場所"%>
-					</th>
-					<td>
-						<%= f.text_field :location,class: "form-control" %>
-					</td>
-				</tr>
-				<tr>
-					<th>
-						<%= f.label :body, "説明"%>
-					</th>
-					<td>
-						<%= f.text_area :body,class: "form-control" %>
-					</td>
-				</tr>
-				<tr>
-					<th>
-						<%= f.label :tag, "タグ" %>
-					</th>
-					<td class="label-select">
-						<%= f.collection_check_boxes(:tag_ids,Tag.where(tag_status: true), :id, :tag_name) do |tag| %>
-							<%= tag.label do %>
-								<%= tag.check_box %>
-								<%= tag.text %>
-							<% end %>
-						<% end %>
-					</td>
-				</tr>
-		</table>
-	</div>
-</div>
-
-<div class="submit">
-	<%= f.submit "投稿する",class: "btn" %>
-</div>
+<%= f.submit "投稿する",class: "btn" %>
 <% end %>
+</div>

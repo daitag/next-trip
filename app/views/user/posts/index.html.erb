@@ -1,53 +1,36 @@
-<h2>投稿一覧ページ</h2>
+<div class="container">
+	<h2>投稿一覧ページ</h2>
 
-<div data-turbolinks="false">
-	<%= link_to "+",new_post_path,class: "btn btn-primary rounded-circle float-right" %>
-</div>
+	<div data-turbolinks="false">
+		<%= link_to "+",new_post_path,class: "btn btn-primary rounded-circle float-right" %>
+	</div>
 
-<!-- 一覧ソート機能 -->
+	<!-- 一覧ソート機能 -->
 
-<%= search_form_for @search, url:posts_path do |f| %>
-	<div class="row">
-		<div class="col-md-4">
-			<%= f.select( :sorts,{並び替え: 'id asc',いいねの多い順: 'favorites_count desc',いきたいの多い順: 'good_places_count desc',投稿が新しい順: 'updated_at desc',投稿が古い順: 'updated_at asc'}, { onchange: 'this.form.submit()'},class: "form-control") %>
-		</div>
-		<div class="col-md-2">
-			<%= f.submit "並び替え",class: "btn my-sm-0" %>
-		</div>
-<% end %>
-
-<!-- 一覧表示 -->
-<!-- テンプレート化 -->
-<% if @search_products %>
-	<div class="row">
-	<% @search_products.each do |post| %>
-	<div class="col-md-3">
-		<div class="content-top">
-			<div class="slick_index">
-				<% post.post_images.each do |image| %>
-					<div class="slick_index_image">
-						<%= attachment_image_tag(image,:image ,:fill ,200,200) %>
-					</div>
-				<% end %>
+	<%= search_form_for @search, url:posts_path do |f| %>
+		<div class="row">
+			<div class="col-md-4">
+				<%= f.select( :sorts,{並び替え: 'id asc',いいねの多い順: 'favorites_count desc',いきたいの多い順: 'good_places_count desc',投稿が新しい順: 'updated_at desc',投稿が古い順: 'updated_at asc'}, { onchange: 'this.form.submit()'},class: "form-control") %>
 			</div>
-		</div>
-		<div class="content-bottom">
-			<%= post.title %>
-			<%= link_to "詳細",post_path(post) %>
-			<i class="fas fa-heart" style="color: red;"></i>
-			<%= post.favorites.count %>
-		</div>
-	</div>
+			<div class="col-md-2">
+				<%= f.submit "並び替え",class: "btn my-sm-0" %>
+			</div>
 	<% end %>
-	<div class="pagenation offset-md-5 col-md-2">
-		<%= paginate @search_products %>
-	</div>
-<% else %>
-	<div class="row">
-		<% @posts.each do |post| %>
+
+	<!-- 一覧表示 -->
+	<!-- テンプレート化 -->
+	<% if @search_products %>
+		<div class="row">
+		<% @search_products.each do |post| %>
 		<div class="col-md-3">
 			<div class="content-top">
-				<%= attachment_image_tag(post.post_images[0],:image,:fill, 200, 200) %>
+				<div class="slick_index">
+					<% post.post_images.each do |image| %>
+						<div class="slick_index_image">
+							<%= attachment_image_tag(image,:image ,:fill ,200,200) %>
+						</div>
+					<% end %>
+				</div>
 			</div>
 			<div class="content-bottom">
 				<%= post.title %>
@@ -57,9 +40,27 @@
 			</div>
 		</div>
 		<% end %>
-	</div>
-	<div class="pagenation row">
-		<%= paginate @posts %>
-	</div>
-<% end %>
-
+		<div class="pagenation offset-md-5 col-md-2">
+			<%= paginate @search_products %>
+		</div>
+	<% else %>
+		<div class="row">
+			<% @posts.each do |post| %>
+			<div class="col-md-3">
+				<div class="content-top">
+					<%= attachment_image_tag(post.post_images[0],:image,:fill, 200, 200) %>
+				</div>
+				<div class="content-bottom">
+					<%= post.title %>
+					<%= link_to "詳細",post_path(post) %>
+					<i class="fas fa-heart" style="color: red;"></i>
+					<%= post.favorites.count %>
+				</div>
+			</div>
+			<% end %>
+		</div>
+		<div class="pagenation row">
+			<%= paginate @posts %>
+		</div>
+	<% end %>
+</div>
