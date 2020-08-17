@@ -20,6 +20,8 @@
 		<% @post.tags.each do |tag| %>
 			<%= tag.tag_name %>
 		<% end %>
+		<h4>投稿者</h4>
+		<%= link_to @post.user.name,user_path(@post.user_id) %>
 
 		<!-- コメント一覧 -->
 		<div id="comment_area">
