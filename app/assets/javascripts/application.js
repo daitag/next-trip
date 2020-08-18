@@ -227,8 +227,9 @@ $(function () {
 // scrolltop
 $(document).on('turbolinks:load', function () {
 	$(function(){
-		$("#page-top").click(function(){
-			$('body, html').animate({ scrollTop: 0}, 500);
+		$("a[href^='#']").click(function(){
+			var target = $($(this).attr("href")).offset().top;
+			$('body, html').animate({ scrollTop: target}, 500);
 			return false;
 		});
 
@@ -242,12 +243,7 @@ $(document).on('turbolinks:load', function () {
 	});
 });
 
-
-// // favorite
-// $(function(){
-// 	$(document).on('turbolinks:load', function () {
-// 		$("#favorite").click(function(){
-// 			$(this).animate({left: "-10px"},100).animate({rigth: "10px"},100)
-// 		});
-// 	});
-// });
+(document).on('turbolinks:load', function () {
+	$(function(){
+	});
+});

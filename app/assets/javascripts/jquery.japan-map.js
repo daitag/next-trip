@@ -12,7 +12,7 @@
  * Date: 2014-05-15
  */
 
-;(function($){
+(function($){
     "use strict";
 
     $.fn.japanMap = function(options){
@@ -23,7 +23,7 @@
 
         options = $.extend({
             type                : "canvas",       // Only type of "canvas" exist now. Perhaps "svg" in future.
-            selection           : "area",   // "prefecture" or "area"
+            selection           : "prefecture",   // "prefecture" or "area"
             width               : null,           // Canvas will be scaled to larger one of "width" and "height".
             height              : null,
             color               : "#a0a0a0",      // Default color, which used if no color is set in "areas" object.
@@ -36,7 +36,7 @@
             drawsBoxLine        : true,
             showsPrefectureName : false,
             prefectureNameType  : "full",
-            showsAreaName       : true,
+            showsAreaName       : false,
             areaNameType        : "full",
             areas               : definition_of_area,
             prefectures         : definition_of_prefectures,
@@ -650,13 +650,13 @@
             // 地方ごとを追加
     var definition_of_area = [
         {
-            "code"       :48,
+            "code"       :1,
             "name"       :"北海道",
             "color"      :"#BAD3FF",
             "prefectures":[1]
         },
         {
-            "code"       :49,
+            "code"       :2,
             "name"       :"東北",
             "color"      :"#A7F1FF",
             "prefectures":[2,3,4,5,6,7]
@@ -1375,28 +1375,29 @@
         46 : "Kagoshima", 47 : "Okinawa"
     };
 
+    // 地方から県名の選択・検索
+    // $(function(){
+    //     $("#map-container").japanMap({
+    //         onSelect : function(data){
+    //             var prefectures = data.area.prefectures;
+    //             if(!$(".prefectures").empty()){
+    //                 $(".prefectures").remove();
+    //             }
+    //             $.each(prefectures,function(index,value){
+    //                 $(".prefectures").append('<div class="prefectures_name">' + definition_of_prefectures[value - 1]['name'] + '</div>');
+    //             });
+    //             $(".prefectures_name").click(function(){
+    //                 $("#search_box").val($(this).text());
+    //                 $("#search_submit").click();
+    //             });
+    //         }
+    //     });
+    // });
     $(function(){
         $("#map-container").japanMap({
-            onSelect : function(data){
-                var prefectures = data.area.prefectures;
-                if(!$(".prefectures").empty()){
-                    $(".prefectures").remove();
-                }
-                $.each(prefectures,function(index,value){
-                    $(".prefectures").append('<div class="prefectures_name">' + definition_of_prefectures[value - 1]['name'] + '</div>');
-                });
-                $(".prefectures_name").click(function(){
-                    $("#search_box").val($(this).text());
-                    $("#search_submit").click();
-                });
+            onHover : function(data){
+            var prefecture = data.prefecture;
             }
         });
     });
-
 })(jQuery);
-
-
-
-
-
-
