@@ -1,0 +1,14 @@
+$('.post_more').append("<%= j(render 'search_products',{search_products: @search_products}) %>")
+$('#more_link').replaceWith("<%= j(link_to_next_page @search_products, 'もっと見る', remote: true, id: 'more_link') %>");
+$('.slick_index').not('.slick-initialized').slick();
+
+$(".slick_index").hover(
+	function(){
+		$(".slick-prev").css("display",'block');
+		$(".slick-next").css("display",'block');
+	},
+	function(){
+		$(".slick-prev").css("display",'none');
+		$(".slick-next").css("display",'none');
+	}
+);

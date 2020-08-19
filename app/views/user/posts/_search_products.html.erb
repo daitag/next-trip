@@ -1,0 +1,19 @@
+<% search_products.each do |post| %>
+	<div class="col-md-3">
+		<div class="content-top">
+			<div class="slick_index">
+				<% post.post_images.each do |image| %>
+					<div class="slick_index_image">
+						<%= attachment_image_tag(image,:image ,:fill ,200,200) %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+		<div class="content-bottom">
+			<%= post.title %>
+			<%= link_to "詳細",post_path(post) %>
+			<i class="fas fa-heart" style="color: red;"></i>
+			<%= post.favorites.count %>
+		</div>
+	</div>
+<% end %>
