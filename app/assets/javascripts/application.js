@@ -242,3 +242,13 @@ $(document).on('turbolinks:load', function () {
 	});
 });
 
+// post-image
+$(document).on('turbolinks:load', function () {
+	$(function(){
+		$(".post-image-select").click(function(){
+			$(".post-image-main").attr("src",$(this).attr("src"));
+
+			return false;
+		});
+	});
+});
