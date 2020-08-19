@@ -120,11 +120,10 @@ $(document).on('turbolinks:load', function(){
 
 $(document).on('turbolinks:load', function(){
 	$(".slick_index").slick({
+		autoplay:false,
 		arrows: true,
 		accessibility: true,
 		zcenterMode: true,
-    	nextButton: '.swiper-button-next',
-    	prevButton: '.swiper-button-prev'
 	});
 
 	$(".slick_index").hover(
@@ -234,7 +233,7 @@ $(document).on('turbolinks:load', function () {
 		});
 
 		$(window).scroll(function(){
-			if($(this).scrollTop() >= 400){
+			if($(this).scrollTop() >= 100){
 				$("#page-top").css("bottom", "60px");
 			}else{
 				$("#page-top").css("bottom", "-50px");

@@ -2,7 +2,7 @@
 	<h2>投稿一覧ページ</h2>
 
 	<div data-turbolinks="false">
-		<%= link_to "+",new_post_path,class: "btn btn-primary rounded-circle float-right" %>
+		<%= link_to "+",new_post_path,class: "btn btn-primary rounded-circle post_new" %>
 	</div>
 
 	<!-- 一覧ソート機能 -->
@@ -25,11 +25,16 @@
 				<%= render 'search_products',{search_products: @search_products} %>
 			</div>
 		</div>
-		<%= link_to_next_page(@search_products, 'もっと見る', remote: true, id: 'more_link')%>
+		<div class="post-index-more">
+			<%= link_to_next_page(@search_products, 'もっと見る', remote: true, id: 'more_link')%>
+		</div>
 	<% else %>
 		<%= render 'post_index', {posts: @posts} %>
 		<div class="pagenation row">
 			<%= paginate @posts %>
 		</div>
 	<% end %>
+	<div id="top-scroll" data-turbolinks="false">
+		<a href="#page-top-link" id="page-top"><i class="fas fa-arrow-circle-up fa-2x"></i></a>
+	</div>
 </div>

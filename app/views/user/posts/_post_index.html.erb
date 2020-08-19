@@ -11,7 +11,9 @@
 				</div>
 			</div>
 			<div class="content-bottom">
-				<%= post.title %>
+				<div class="post-title">
+					<%= post.title %>
+				</div>
 				<%= link_to "詳細",post_path(post) %>
 				<i class="fas fa-heart" style="color: red;"></i>
 				<%= post.favorites.count %>
