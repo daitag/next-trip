@@ -119,12 +119,29 @@ $(document).on('turbolinks:load', function(){
 });
 
 $(document).on('turbolinks:load', function(){
-	$(".slick_index").slick({
-		autoplay:false,
+	$('.slick_index',this).on('init', function(event, slick) {
+    $(this).append('<div class="slick-counter"><span class="current"></span> / <span class="total"></span></div>');
+    $('.current',this).text(slick.currentSlide + 1);
+    $('.total',this).text(slick.slideCount);
+  })
+  .slick({
+  		autoplay:false,
 		arrows: true,
 		accessibility: true,
-		zcenterMode: true,
-	});
+		zcenterMode: true
+  	})
+  .on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+    $('.current', this).text(nextSlide + 1);
+  });
+
+
+	// $(".slick_index").slick({
+	// 	autoplay:false,
+	// 	arrows: true,
+	// 	accessibility: true,
+	// 	zcenterMode: true
+	// });
+
 
 	$(".slick_index").hover(
 		function(){
