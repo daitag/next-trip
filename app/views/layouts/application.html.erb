@@ -40,6 +40,11 @@
             <li><%= link_to '新規投稿',new_post_path,class: "nav-link" %></li>
             <li><%= link_to 'マイページ',user_path(current_user.id),class: "nav-link" %></li>
             <li><%= link_to 'ログアウト',destroy_user_session_path,method: :delete,class: "nav-link" %></li>
+            <!-- 検索ボックス -->
+            <%= search_form_for @search,url: posts_path,class: "form-inline my-2 my-lg-0" do |f| %>
+              <%= f.search_field :country_or_prefecture_or_location_or_city_or_body_or_tags_tag_name_cont,id: "search_box",class: "form-control mr-sm-2" %>
+              <%= f.submit "検索",id:"search_submit",class: "btn my-2 my-sm-0" %>
+            <% end %>
             <% elsif admin_signed_in?%>
             <li><%= link_to '会員一覧',admin_users_path,class: "nav-link" %></li>
             <li><%= link_to 'タグ作成',admin_tags_path,class: "nav-link" %></li>
@@ -52,11 +57,6 @@
             <li><%= link_to 'ログイン',new_user_session_path,class: "nav-link" %></li>
             <% end %>
           </ul>
-          <!-- 検索ボックス -->
-          <%= search_form_for @search,url: posts_path,class: "form-inline my-2 my-lg-0" do |f| %>
-            <%= f.search_field :country_or_prefecture_or_location_or_city_or_body_or_tags_tag_name_cont,id: "search_box",class: "form-control mr-sm-2" %>
-            <%= f.submit "検索",id:"search_submit",class: "btn my-2 my-sm-0" %>
-          <% end %>
         </div>
       </nav>
     </header>

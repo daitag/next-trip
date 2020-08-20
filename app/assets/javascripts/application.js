@@ -118,29 +118,22 @@ $(document).on('turbolinks:load', function(){
 	});
 });
 
+// post_indexのページ数、hover時の矢印
 $(document).on('turbolinks:load', function(){
 	$('.slick_index',this).on('init', function(event, slick) {
     $(this).append('<div class="slick-counter"><span class="current"></span> / <span class="total"></span></div>');
     $('.current',this).text(slick.currentSlide + 1);
     $('.total',this).text(slick.slideCount);
-  })
-  .slick({
+	})
+  	.slick({
   		autoplay:false,
 		arrows: true,
 		accessibility: true,
 		zcenterMode: true
   	})
-  .on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-    $('.current', this).text(nextSlide + 1);
+	  .on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+	    $('.current', this).text(nextSlide + 1);
   });
-
-
-	// $(".slick_index").slick({
-	// 	autoplay:false,
-	// 	arrows: true,
-	// 	accessibility: true,
-	// 	zcenterMode: true
-	// });
 
 
 	$(".slick_index").hover(
@@ -154,6 +147,7 @@ $(document).on('turbolinks:load', function(){
 		}
 	);
 });
+
 
 
 // 投稿する写真の国によって選択内容が変わる
