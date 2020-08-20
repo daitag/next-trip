@@ -55,6 +55,8 @@
             <li><%= link_to '人気の投稿',"#ranking",class: "nav-link" %></li>
             <li><%= link_to '新規会員登録',new_user_registration_path,class: "nav-link" %></li>
             <li><%= link_to 'ログイン',new_user_session_path,class: "nav-link" %></li>
+            <li><%= link_to 'ゲストログイン（user）', users_guest_sign_in_path, method: :post,class: "nav-link" %></li>
+            <li><%= link_to 'ゲストログイン（admin）', admins_guest_sign_in_path, method: :post,class: "nav-link" %></li>
             <% end %>
           </ul>
         </div>
