@@ -1,50 +1,71 @@
 <div class="text-center">
-	<div class="home-top">
-		<div class="inner">
-			<div class="top-content">
-				<h1>次の旅行を探してみませんか？</h1>
-				<p>
-				当サイトは、旅行特化型のSNSになっています。次に行きたい場所を探したり、 <br>
-				旅行の思い出を投稿することができます。詳しくは、aboutに掲載しています。
-				</p>
-
+	<div class="home-top row align-items-center">
+		<div class="top-content col-md-8 offset-md-2">
+			<div class="main-title">次の旅行を探してみませんか？</div>
+			<div class="sub-title">
+			当サイトは、旅行特化型のSNSになっています。次に行きたい場所を探したり、 <br>
+			旅行の思い出を投稿することができます。詳しくは、aboutに掲載しています。</div>
+			<div class="top-content-button">
 				<%= link_to "Login",new_user_session_path,class: "btn btn-primary" %>
-				<%= link_to "Signup",new_user_registration_path,class: "btn btn-primary" %>
+				<%= link_to "Sign up",new_user_registration_path,class: "btn btn-success" %>
 			</div>
 		</div>
 	</div>
 
 	<div class="container">
 	<div class="about" id="about">
-		<h2>NextTripとは?</h2>
-		<p>旅行特化型のSNSです。以下のようなサービスを利用することができます。</p>
-		<ul class="about-list">
-			<li>1.旅行の写真の共有</li>
-			<li>2.旅行先の検索</li>
-			<li>3.旅行予定の管理</li>
-		</ul>
-
-		<div class="about-detail col-md-6 offset-md-3">
-			<div class="share-trip">
-				<h3>1.旅行の写真の共有</h3>
-				<p>
-					写真を選択、タイトルと場所等を投稿することで,世界中の人に旅を共有することができます。
-				　　いつでも、どこにいても写真・思い出の共有をすることができます。
-				</p>
+		<div class="main-title">NextTripとは?</div>
+		<div class="sub-content">旅行特化型のSNSです。以下のようなサービスを利用することができます。</div>
+		<div class="about-detail">
+			<div class="about-detail-box row">
+				<div class="col-md-4">
+					<div class="share-trip-image">
+						<img src="assets/share-image.jpg" alt="">
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="share-trip">
+						<div class="content-title">1.旅行の写真の共有</div>
+						<p>
+							写真を選択、タイトルと場所等を投稿することで,世界中の人に旅を共有することができます。いつでも、どこにいても写真・思い出の共有をすることができます。
+						</p>
+						<%= link_to "さっそく共有してみる",new_user_registration_path,class: "btn btn-primary about-button" %>
+					</div>
+				</div>
 			</div>
-			<div class="search-trip">
-				<h3>2.旅行先の検索</h3>
-				<p>
-					いきたい旅行先を探すことができます。他の人の旅行先、人気なスポットを見てみて、
-					いきたい場所を探してみましょう。いきたい場所リストも作成することもできます。
-				</p>
+			<div class="about-detail-box row">
+				<div class="col-md-4">
+					<div class="share-trip-image">
+						<img src="assets/sharch-image.jpg" alt="">
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="search-trip">
+						<div class="content-title">2.旅行先の検索</div>
+						<p>
+							いきたい旅行先を探すことができます。他の人の旅行先、人気なスポットを見てみて、
+							いきたい場所を探してみましょう。いきたい場所リストも作成することもできます。
+						</p>
+						<%= link_to "さっそく探してみる",new_user_registration_path,class: "btn btn-primary about-button" %>
+					</div>
+				</div>
 			</div>
-			<div class="schedule-trip">
-				<h3>3.旅行予定の管理</h3>
-				<p>
-					旅行の予定を入力することで、予定の管理ができます。あと、何日で旅行なのかがわかります。
-					日程を把握し、旅行へのモチベーションを高めましょう。
-				</p>
+			<div class="about-detail-box row">
+				<div class="col-md-4">
+					<div class="share-trip-image">
+						<img src="assets/calender-image.jpg" alt="">
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="schedule-trip">
+						<div class="content-title">3.旅行予定の管理</div>
+						<p>
+							旅行の予定を入力することで、予定の管理ができます。あと、何日で旅行なのかがわかります。
+							日程を把握し、旅行へのモチベーションを高めましょう。
+						</p>
+						<%= link_to "さっそく予定を立てる",new_user_registration_path,class: "btn btn-primary about-button" %>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -41,7 +41,10 @@ footer {
 }
 
 
-/*header*/
+
+/*main*/
+
+/*top*/
 .home-top {
 	background-image: image-url('photo2.jpeg');
 	height: 700px;
@@ -49,30 +52,53 @@ footer {
 	background-repeat: no-repeat;
 	position: relative;
 	text-align: center;
+	margin-bottom: 20px;
+	margin-right: 0 !important;
+	margin-left: 0 !important;
 }
 
-.inner {
-	left: 50%;
-	position: absolute;
-	top: 50%;
-}
 
 .top-content {
 	border: 1px solid #000000;
 	background-color: rgba(255,255,255,0.5);
-	transform: translate(-50%,-50%);
-	width: 600px;
+}
+
+.main-title {
+	font-size: 50px;
+}
+
+.sub-title {
+	font-size: 16px;
+}
+
+.content-title {
+	font-size: 40px;
+}
+
+.top-content-button {
+	margin: 10px 0;
+}
+
+.about {
+	margin: 50px 0;
+}
+
+.sub-content {
+	font-size: 16px;
+}
+
+.about-detail-box {
+	margin: 40px 0;
+	border: 1px solid #000000;
+}
+
+.about-button {
+	margin-top: 50px;
 }
 
 .about-list > li{
 	list-style: none;
 }
-
-.share-trip,.search-trip,.schedule-trip {
-	border: 1px solid #000000;
-	margin: 20px 0;
-}
-
 
 .navbar-brand,.nav-link {
 	color: #ffffff !important;
