@@ -1,0 +1,10 @@
+<div class="container">
+<h2>いいね一覧</h2>
+
+<% @favorites.each do |favorite| %>
+	<% post = Post.find(favorite.post_id) %>
+	<%= attachment_image_tag(post.post_images[0],:image,:fill, 200, 200) %>
+	<%= post.title %>
+	<%= link_to "詳細",post_path(post) %>
+<% end %>
+</div>

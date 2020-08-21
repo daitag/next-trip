@@ -5,7 +5,7 @@
 <div class="row">
 	<div class="offset-md-2 col-md-2">
 		<!-- ユーザ情報 -->
-		<%= attachment_image_tag(@user,:image, :fill, 200, 200, class: "user_image") %>
+		<%= attachment_image_tag(@user,:image,size:"200x200", class: "user_image", fallback: "no_image.jpg") %>
 	</div>
 	<div class="col-md-8 text-center">
 		<div class="row user-detail">
@@ -22,7 +22,10 @@
 				<%= link_to "旅行の設定", schedules_path,class: "btn btn-primary" %>
 			</div>
 			<div class="col-md-6">
-				<%= link_to "行きたい場所",good_place_path,class: "btn btn-primary" %>
+				<%= link_to "行きたい一覧",good_place_path,class: "btn btn-primary" %>
+			</div>
+			<div class="col-md-6">
+				<%= link_to "いいね一覧",favorite_path,class: "btn btn-primary" %>
 			</div>
 		</div>
 	</div>

@@ -127,7 +127,9 @@ $(document).on('turbolinks:load', function(){
 	})
   	.slick({
   		autoplay:false,
-		arrows: true,
+  		autoplaySpeed: 500,
+  		speed: 300,
+		arrows: false,
 		accessibility: true,
 		zcenterMode: true
   	})
@@ -135,17 +137,24 @@ $(document).on('turbolinks:load', function(){
 	    $('.current', this).text(nextSlide + 1);
   });
 
+	$('.slick_index').mouseover(function() {
+    $(this).slick('play')
+    });
+    $('.slick_index').mouseout(function() {
+        $(this).slick('pause')
+    });
 
-	$(".slick_index").hover(
-		function(){
-			$(".slick-prev").css("display",'block');
-			$(".slick-next").css("display",'block');
-		},
-		function(){
-			$(".slick-prev").css("display",'none');
-			$(".slick-next").css("display",'none');
-		}
-	);
+
+	// $(".slick_index").hover(
+	// 	function(){
+	// 		$(".slick-prev").css("display",'inline-block');
+	// 		$(".slick-next").css("display",'block');
+	// 	},
+	// 	function(){
+	// 		$(".slick-prev").css("display",'none');
+	// 		$(".slick-next").css("display",'none');
+	// 	}
+	// );
 });
 
 

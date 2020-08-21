@@ -1,6 +1,7 @@
 <% search_products.each do |post| %>
 	<div class="col-md-3 post-box">
 		<div class="post-content">
+			<%= link_to post_path(post) do %>
 			<div class="content-top">
 				<div class="slick_index">
 					<% post.post_images.each do |image| %>
@@ -15,7 +16,6 @@
 				</div>
 			</div>
 			<div class="content-bottom">
-				<%= link_to post_path(post) do %>
 					<div class="post-title">
 						<%= post.title %>
 					</div>
@@ -27,8 +27,8 @@
 							<%= post.city %>
 						<% end %>
 					</div>
-				<% end %>
 			</div>
+			<% end %>
 		</div>
 	</div>
 <% end %>

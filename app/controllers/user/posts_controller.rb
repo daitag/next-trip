@@ -1,13 +1,22 @@
 class User::PostsController < ApplicationController
 	def index
-		if params[:q].present?
-			@search = Post.ransack(search_params)
-			@posts = @search.result.page(params[:page])
+		# if params[:q].present?
+		# 	@search = Post.ransack(search_params)
+		# 	@posts = @search.result.page(params[:page])
+		# else
+		# 	params[:q] = { sorts: 'id desc' }
+		# 	@search = Post.ransack()
+		# 	@posts = Post.page(params[:page])
+		# end
+		# 公開設定がtrueのみ表示
+		if params[:tag_id]
+			@tag = Tag.find(params[:tag_id])
+			@posts = @tag.posts
+			# @posts = @search.result(distinct: true).where(tag_id: params[:tag_id])
 		else
-			params[:q] = { sorts: 'id desc' }
-			@search = Post.ransack()
-			@posts = Post.page(params[:page])
+			@search_products = @search.result(distinct: true).where(post_status: true).order('id desc').page(params[:page]).per(16)
 		end
+		@tags = Tag.where(tag_status: true)
 	end
 
 	def show
