@@ -24,7 +24,7 @@
 							<%= f.label :country, "国"%>
 						</th>
 						<td>
-							<%= f.country_select :country,{ priority_countries:["JP"] , include_blank: "------"}, format: :with_alpha2, autocomplete: "country", class: "form-control country-select" %>
+							<%= f.country_select :country, {format: :with_alpha2 , priority_countries:["JP"] , include_blank: "------"}, class: "form-control country-select" %>
 						</td>
 					</tr>
 					<tr class="city">
