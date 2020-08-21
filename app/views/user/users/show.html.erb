@@ -1,50 +1,37 @@
 <div class="container">
-<h2>マイページ</h2>
+<div class="content-title">マイページ</div>
 
-<h3>ユーザ情報</h3>
-<div class="row">
-	<div class="offset-md-2 col-md-2">
+<div class="page-sub-title">ユーザ情報</div>
+
+<div class="row user-detail-box">
+	<div class="col-md-3 offset-md-1">
 		<!-- ユーザ情報 -->
 		<%= attachment_image_tag(@user,:image,size:"200x200", class: "user_image", fallback: "no_image.jpg") %>
 	</div>
-	<div class="col-md-8 text-center">
+	<div class="col-md-8">
 		<div class="row user-detail">
 			<div class="col-md-6">
 				<p>ユーザ名:<%= @user.name %></p>
 			</div>
 			<div class="col-md-6">
-				<%= link_to "ユーザ情報編集", edit_user_path(@user.id),class: "btn btn-primary" %>
+				<%= link_to "ユーザ情報編集", edit_user_path(@user.id),class: "btn btn-primary user-detail-button" %>
 			</div>
 			<div class="col-md-6">
-				<%= link_to "パスワード変更", password_path(@user.id),class: "btn btn-primary" %>
+				<%= link_to "パスワード変更", password_path(@user.id),class: "btn btn-primary user-detail-button" %>
 			</div>
 			<div class="col-md-6">
-				<%= link_to "旅行の設定", schedules_path,class: "btn btn-primary" %>
+				<%= link_to "旅行の設定", schedules_path,class: "btn btn-primary user-detail-button" %>
 			</div>
 			<div class="col-md-6">
-				<%= link_to "行きたい一覧",good_place_path,class: "btn btn-primary" %>
+				<%= link_to "行きたい一覧",good_place_path,class: "btn btn-primary user-detail-button" %>
 			</div>
 			<div class="col-md-6">
-				<%= link_to "いいね一覧",favorite_path,class: "btn btn-primary" %>
+				<%= link_to "いいね一覧",favorite_path,class: "btn btn-primary user-detail-button" %>
 			</div>
 		</div>
 	</div>
 </div>
 
-<h3>投稿一覧</h3>
-<div class="row">
-	<% @posts.each do |post| %>
-	<div class="col-md-3">
-			<div class="content-top">
-				<%= attachment_image_tag(post.post_images[0],:image,:fill, 200, 200) %>
-			</div>
-			<div class="content-bottom">
-				<%= post.title %>
-				<%= link_to "詳細",post_path(post) %>
-				<i class="fas fa-heart" style="color: red;"></i>
-				<%= post.favorites.count %>
-			</div>
-		</div>
-	<% end %>
-</div>
+<div class="page-sub-title">投稿一覧</div>
+	<%= render '/user/posts/post_index', {posts: @posts} %>
 </div>

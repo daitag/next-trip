@@ -96,8 +96,26 @@ footer {
 	margin-top: 50px;
 }
 
+.rank-post,.new-post {
+	margin: 50px 0;
+}
+
 .about-list > li{
 	list-style: none;
+}
+
+.page-sub-title {
+	font-size: 30px;
+}
+
+
+/*my-page*/
+.user-detail-button {
+	width: 150px;
+}
+
+.user-detail-box {
+	margin: 30px 0;
 }
 
 .navbar-brand,.nav-link {

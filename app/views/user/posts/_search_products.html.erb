@@ -2,20 +2,20 @@
 	<div class="col-md-3 post-box">
 		<div class="post-content">
 			<%= link_to post_path(post) do %>
-			<div class="content-top">
-				<div class="slick_index">
-					<% post.post_images.each do |image| %>
-						<div class="slick_index_image">
-							<%= attachment_image_tag(image,:image ,:fill ,200,200) %>
-							<div class="post-favorite">
-								<i class="fas fa-heart" style="color: red;"></i>
-								<%= post.favorites.count %>
+				<div class="content-top">
+					<div class="slick_index">
+						<% post.post_images.each do |image| %>
+							<div class="slick_index_image">
+								<%= attachment_image_tag(image,:image ,:fill ,200,200) %>
+								<div class="post-favorite">
+									<i class="fas fa-heart" style="color: red;"></i>
+									<%= post.favorites.count %>
+								</div>
 							</div>
-						</div>
-					<% end %>
+						<% end %>
+					</div>
 				</div>
-			</div>
-			<div class="content-bottom">
+				<div class="content-bottom">
 					<div class="post-title">
 						<%= post.title %>
 					</div>
@@ -27,7 +27,7 @@
 							<%= post.city %>
 						<% end %>
 					</div>
-			</div>
+				</div>
 			<% end %>
 		</div>
 	</div>

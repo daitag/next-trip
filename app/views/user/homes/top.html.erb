@@ -72,39 +72,85 @@
 
 	<!-- 人気投稿 -->
 	<div id="ranking">
+		<div class="rank-post">
 		<h2>人気投稿</h2>
-		<div class="row">
-			<% @ranks.each do |rank| %>
-				<div class="col-md-3">
-					<div class="content-top">
-						<%= attachment_image_tag(rank.post_images[0],:image,:fill, 200, 200) %>
+			<div class="row">
+				<% @ranks.each do |rank| %>
+					<div class="col-md-3 post-box">
+						<div class="post-content">
+							<%= link_to post_path(rank) do %>
+								<div class="content-top">
+									<div class="slick_index">
+										<% rank.post_images.each do |image| %>
+											<div class="slick_index_image">
+												<%= attachment_image_tag(image,:image ,:fill ,200,200) %>
+												<div class="post-favorite">
+													<i class="fas fa-heart" style="color: red;"></i>
+													<%= rank.favorites.count %>
+												</div>
+											</div>
+										<% end %>
+									</div>
+								</div>
+								<div class="content-bottom">
+									<div class="post-title">
+										<%= rank.title %>
+									</div>
+									<div class="post_place">
+										<span>【場所】</span>
+										<% if rank.prefecture.present? %>
+											<%= rank.prefecture %>
+										<% else %>
+											<%= rank.city %>
+										<% end %>
+									</div>
+								</div>
+							<% end %>
+						</div>
 					</div>
-					<div class="content-bottom">
-						<%= rank.title %>
-						<%= link_to "詳細",post_path(rank) %>
-						<i class="fas fa-heart" style="color: red;"></i>
-						<%= rank.favorites.count %>
-					</div>
-				</div>
-			<% end %>
+				<% end %>
+			</div>
 		</div>
 
 		<!-- 投稿 -->
-		<h2>新規投稿</h2>
-		<div class="row">
-			<% @posts.first(4).each do |post| %>
-			<div class="col-md-3">
-				<div class="content-top">
-					<%= attachment_image_tag(post.post_images[0],:image,:fill, 200, 200) %>
-				</div>
-				<div class="content-bottom">
-					<%= post.title %>
-					<%= link_to "詳細",post_path(post) %>
-					<i class="fas fa-heart" style="color: red;"></i>
-					<%= post.favorites.count %>
-				</div>
+		<div class="new-post">
+			<h2>新規投稿</h2>
+			<div class="row">
+				<% @posts.first(4).each do |post| %>
+					<div class="col-md-3 post-box">
+						<div class="post-content">
+							<%= link_to post_path(post) do %>
+								<div class="content-top">
+									<div class="slick_index">
+										<% post.post_images.each do |image| %>
+											<div class="slick_index_image">
+												<%= attachment_image_tag(image,:image ,:fill ,200,200) %>
+												<div class="post-favorite">
+													<i class="fas fa-heart" style="color: red;"></i>
+													<%= post.favorites.count %>
+												</div>
+											</div>
+										<% end %>
+									</div>
+								</div>
+								<div class="content-bottom">
+									<div class="post-title">
+										<%= post.title %>
+									</div>
+									<div class="post_place">
+										<span>【場所】</span>
+										<% if post.prefecture.present? %>
+											<%= post.prefecture %>
+										<% else %>
+											<%= post.city %>
+										<% end %>
+									</div>
+								</div>
+							<% end %>
+						</div>
+					</div>
+				<% end %>
 			</div>
-			<% end %>
 		</div>
 	</div>
 
