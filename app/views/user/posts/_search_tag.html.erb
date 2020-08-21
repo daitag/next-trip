@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th class="text-center">タグ検索</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>
+				<% @tags.each do |tag| %>
+				<div class="tags-index-box">
+					<%= link_to tag.tag_name, posts_path(tag_id: tag.id),class: "tags_index_select" %>
+				</div>
+				<% end %>
+			</th>
+		</tr>
+	</tbody>
+</table>

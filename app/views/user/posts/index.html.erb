@@ -5,40 +5,49 @@
 		<%= link_to "+",new_post_path,class: "btn btn-primary rounded-circle post_new" %>
 	</div>
 
-	<!-- 一覧ソート機能 -->
-	<% if @search_products %>
-		<%= search_form_for @search, url:posts_path do |f| %>
-			<div class="row">
-				<div class="col-md-4">
-					<%= f.select( :sorts,{並び替え: 'id asc',いいねの多い順: 'favorites_count desc',いきたいの多い順: 'good_places_count desc',投稿が新しい順: 'updated_at desc',投稿が古い順: 'updated_at asc'}, { onchange: 'this.form.submit()'},class: "form-control") %>
-				</div>
-				<div class="col-md-2">
-					<%= f.submit "並び替え",class: "btn my-sm-0" %>
-				</div>
-		<% end %>
-	<% else %>
-	<% end %>
-
-	<!-- 一覧表示 -->
-	<!-- テンプレート化 -->
-	<% if @search_products %>
-		<div id="search_products">
-			<div class="row post_more">
-				<%= render 'search_products',{search_products: @search_products} %>
+	<div class="row">
+		<div class="col-md-3">
+			<div class="search_sort">
+			<!-- 一覧ソート機能 -->
+				<% if @search_products %>
+					<%= search_form_for @search, url:posts_path do |f| %>
+						<div class="row">
+							<div class="col-md-12">
+								<%= f.select( :sorts,{並び替え: 'id asc',いいねの多い順: 'favorites_count desc',いきたいの多い順: 'good_places_count desc',投稿が新しい順: 'updated_at desc',投稿が古い順: 'updated_at asc'}, { onchange: 'this.form.submit()'},class: "form-control") %>
+							</div>
+							<div class="col-md-12">
+								<%= f.submit "並び替え",class: "btn col-md-12" %>
+							</div>
+						</div>
+					<% end %>
+				<% else %>
+				<% end %>
+			</div>
+			<!-- タグ検索 -->
+			<div class="search_index">
+				<%= render 'search_tag',{tags: @tags} %>
 			</div>
 		</div>
-		<div class="post-index-more">
-			<%= link_to_next_page(@search_products, 'もっと見る', remote: true, id: 'more_link')%>
+		<!-- 一覧表示 -->
+		<!-- テンプレート化 -->
+		<div class="col-md-9">
+			<% if @search_products %>
+				<div id="search_products">
+					<div class="row post_more">
+						<%= render 'search_products',{search_products: @search_products} %>
+					</div>
+				</div>
+				<div class="post-index-more">
+					<%= link_to_next_page(@search_products, 'もっと見る', remote: true, id: 'more_link',class: "post-more-show")%>
+				</div>
+			<% else %>
+				<%= render 'post_index', {posts: @posts} %>
+				<div class="pagenation row">
+				</div>
+			<% end %>
+			<div id="top-scroll" data-turbolinks="false">
+				<a href="#page-top-link" id="page-top"><i class="fas fa-arrow-circle-up fa-2x"></i></a>
+			</div>
 		</div>
-	<% else %>
-		<%= render 'post_index', {posts: @posts} %>
-		<div class="pagenation row">
-		</div>
-	<% end %>
-	<div id="top-scroll" data-turbolinks="false">
-		<a href="#page-top-link" id="page-top"><i class="fas fa-arrow-circle-up fa-2x"></i></a>
 	</div>
-	<% @tags.each do |tag| %>
-		<%= link_to tag.tag_name, posts_path(tag_id: tag.id) %>
-	<% end %>
 </div>

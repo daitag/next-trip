@@ -16,19 +16,19 @@
 	</div>
 	<div class="col-md-6">
 		<h4>タイトル</h4>
-		<%= @post.title %>
+			<%= @post.title %>
 		<h4>国</h4>
-		<%= @post.country %>
+			<%= @post.country %>
 		<h4>場所</h4>
-		<%= @post.location %>
+			<%= @post.location %>
 		<h4>説明</h4>
-		<%= @post.body %>
+			<%= @post.body %>
 		<h4>タグ</h4>
-		<% @post.tags.each do |tag| %>
-			<%= tag.tag_name %>
-		<% end %>
+			<% @post.tags.each do |tag| %>
+				<%= tag.tag_name %>
+			<% end %>
 		<h4>投稿者</h4>
-		<%= link_to @post.user.name,user_path(@post.user_id) %>
+			<%= link_to @post.user.name,user_path(@post.user_id) %>
 
 		<!-- コメント一覧 -->
 		<div id="comment_area">

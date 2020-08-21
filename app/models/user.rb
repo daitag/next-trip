@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_many :alerts, dependent: :destroy
   attachment :image
 
+  validates :name, presence: true
+  validates :country, presence: true
+
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
