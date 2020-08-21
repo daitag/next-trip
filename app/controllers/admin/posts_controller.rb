@@ -5,8 +5,13 @@ class Admin::PostsController < ApplicationController
 
 	def update
 		@post = Post.find(params[:id])
-		@post.update(post_params)
-		redirect_to admin_post_path(@post)
+		if @post.update(post_params)
+			redirect_to admin_post_path(@post)
+			flash[:notice] = "投稿情報を更新しました"
+		else
+			flash.now[:alert] = "投稿情報の更新に失敗しました"
+			render :show
+		end
 	end
 
 	private

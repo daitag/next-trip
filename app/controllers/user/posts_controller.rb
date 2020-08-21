@@ -33,14 +33,24 @@ class User::PostsController < ApplicationController
 	def create
 		@post = Post.new(post_params)
 		@post.user_id = current_user.id
-		@post.save!
-		redirect_to post_path(@post.id)
+		if @post.save
+			redirect_to post_path(@post.id)
+			flash[:notice] = "投稿できました"
+		else
+			flash.now[:alert] = "投稿できませんでした"
+			render :new
+		end
 	end
 
 	def destroy
 		@post = Post.find(params[:id])
-		@post.destroy
-		redirect_to posts_path
+		if @post.destroy
+			redirect_to posts_path
+			flash[:notice] = "削除ができました"
+		else
+			flash.now[:alert] = "削除ができませんでした"
+			render :show
+		end
 	end
 
 

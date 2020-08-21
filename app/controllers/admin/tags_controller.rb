@@ -6,8 +6,13 @@ class Admin::TagsController < ApplicationController
 
 	def create
 		@tag = Tag.new(tag_params)
-		@tag.save
-		redirect_to admin_tags_path
+		if @tag.save
+			redirect_to admin_tags_path
+			flash[:notice] = "タグを作成できました"
+		else
+			flash.now[:alert] = "タグの生成に失敗しました"
+			render :index
+		end
 	end
 
 	def edit
@@ -16,8 +21,13 @@ class Admin::TagsController < ApplicationController
 
 	def update
 		@tag = Tag.find(params[:id])
-		@tag.update(tag_params)
-		redirect_to admin_tags_path
+		if @tag.update(tag_params)
+			redirect_to admin_tags_path
+			flash[:notice] = "タグ情報を更新できました"
+		else
+			flash.now[:alert] = "タグ情報ができませんでした"
+			render :edit
+		end
 	end
 
 	private

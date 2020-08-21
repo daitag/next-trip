@@ -11,6 +11,9 @@ class Post < ApplicationRecord
 
 	validates :title, presence: true
 	validates :body, presence: true
+	validate :post_images
+	validate :country
+	validate :location
 
 	enum prefecture: {
     北海道:'北海道',青森県:'青森県',岩手県:'岩手県',宮城県:'宮城県',秋田県:'秋田県',山形県:'山形県',福島県:'福島県',

@@ -10,14 +10,25 @@ class User::SchedulesController < ApplicationController
 	def create
 		@schedule = Schedule.new(schedule_params)
 		@schedule.user_id = current_user.id
-		@schedule.save!
-		redirect_to request.referer
+		if @schedule.save
+			redirect_to request.referer
+			flash[:notice] = "スケジュールを計画しました"
+		else
+			flash.now[:alert] = "スケジュールの投稿に失敗しました"
+			render :index
+		end
+
 	end
 
 	def destroy
 		@schedule = Schedule.find(params[:id])
-		@schedule.destroy!
-		redirect_to request.referer
+		if @schedule.destroy
+			redirect_to request.referer
+			flash[:notice] = "スケジュールを削除しました"
+		else
+			flash.now[:alert] = "スケジュールの削除に失敗しました"
+			render :index
+		end
 	end
 
 	private
