@@ -1,18 +1,8 @@
-<table class="table table-bordered">
-	<thead>
-		<tr>
-			<th class="text-center">タグ検索</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<th>
-				<% @tags.each do |tag| %>
-				<div class="tags-index-box">
-					<%= link_to tag.tag_name, posts_path(tag_id: tag.id),class: "tags_index_select" %>
-				</div>
-				<% end %>
-			</th>
-		</tr>
-	</tbody>
-</table>
+<div class="dropdown show">
+<a class="btn btn-secondary dropdown-toggle col-md-12" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">タグ検索</a>
+	<div class="tags-index-box dropdown-menu col-md-12" aria-labelledby="dropdownMenuLink">
+	<% @tags.each do |tag| %>
+		<%= link_to tag.tag_name, posts_path(tag_id: tag.id),class: "tags_index_select dropdown-item col-md-12" %>
+	<% end %>
+	</div>
+</div>

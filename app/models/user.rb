@@ -12,7 +12,6 @@ class User < ApplicationRecord
   attachment :image
 
   validates :name, presence: true
-  validates :country, presence: true
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
