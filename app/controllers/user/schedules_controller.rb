@@ -11,11 +11,11 @@ class User::SchedulesController < ApplicationController
 		@schedule = Schedule.new(schedule_params)
 		@schedule.user_id = current_user.id
 		if @schedule.save
-			redirect_to request.referer
+			redirect_to schedules_path
 			flash[:notice] = "スケジュールを計画しました"
 		else
-			flash.now[:alert] = "スケジュールの投稿に失敗しました"
-			render :index
+			redirect_to schedules_path
+			flash[:alert] = "スケジュールの投稿に失敗しました"
 		end
 
 	end

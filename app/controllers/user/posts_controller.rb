@@ -17,6 +17,7 @@ class User::PostsController < ApplicationController
 			@search_products = @search.result(distinct: true).where(post_status: true).order('id desc').page(params[:page]).per(16)
 		end
 		@tags = Tag.where(tag_status: true)
+		@post_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(4).pluck(:post_id))
 	end
 
 	def show

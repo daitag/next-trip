@@ -27,6 +27,58 @@
 			<div class="search_index">
 				<%= render 'search_tag',{tags: @tags} %>
 			</div>
+			<div class="post-index-rank">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>ランキング上位</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<% @post_ranks.first(3).each do |post| %>
+									<div class="post-box">
+										<div class="post-content">
+											<%= link_to post_path(post) do %>
+												<div class="content-top">
+													<div class="slick_index">
+														<% post.post_images.each do |image| %>
+															<div class="slick_index_image">
+																<%= attachment_image_tag(image,:image ,:fill ,200,200) %>
+																<div class="post-favorite">
+																	<i class="fas fa-heart" style="color: red;"></i>
+																	<%= post.favorites.count %>
+																</div>
+															</div>
+														<% end %>
+													</div>
+												</div>
+												<div class="content-bottom">
+													<div class="post-title">
+														<%= post.title %>
+													</div>
+													<div class="post_place">
+														<span>【場所】</span>
+														<% if post.prefecture.present? %>
+															<%= post.prefecture %>
+														<% else %>
+															<%= post.city %>
+														<% end %>
+													</div>
+													<div class="post-time">
+														<%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+													</div>
+												</div>
+											<% end %>
+										</div>
+									</div>
+								<% end %>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 		<!-- 一覧表示 -->
 		<!-- テンプレート化 -->

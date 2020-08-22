@@ -20,12 +20,15 @@
 						<%= post.title %>
 					</div>
 					<div class="post_place">
-						<span>【場所】</span>
+						<span>場所)</span>
 						<% if post.prefecture.present? %>
 							<%= post.prefecture %>
 						<% else %>
 							<%= post.city %>
 						<% end %>
+						<div class="post-time">
+							<%= post.created_at.strftime("%Y-%m-%d") %>
+						</div>
 					</div>
 				</div>
 			<% end %>
