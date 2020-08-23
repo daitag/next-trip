@@ -1,4 +1,5 @@
 class Admin::NoticesController < ApplicationController
+	before_action :authenticate_admin!
 	def index
 		@notices = Notice.page(params[:page])
 	end
