@@ -18,18 +18,20 @@
 		<!-- スケジュールの一覧を表示 -->
 		<h3>スケジュール一覧</h3>
 		<% @schedules.each do |schedule| %>
-			<%= schedule.content %>
-			<%= schedule.start_day %>
-			<% limit_day = 0 %>
-			<% limit_day = (schedule.start_day - Date.today).numerator %>
-			<% if limit_day.to_i >= 1 %>
-			<span>あと<%= limit_day %>日!!</span>
-			<% elsif limit_day.to_i <= -1 %>
-			<span></span>
-			<% else %>
-			<span>旅行楽しんできてください!!</span>
-			<% end %>
-			<%= link_to "削除", schedule_path(schedule),method: :delete %>
+			<div class="schedule-index">
+				<%= schedule.content %>
+				<%= schedule.start_day %>
+				<% limit_day = 0 %>
+				<% limit_day = (schedule.start_day - Date.today).numerator %>
+				<% if limit_day.to_i >= 1 %>
+				<span>あと<%= limit_day %>日!!</span>
+				<% elsif limit_day.to_i <= -1 %>
+				<span></span>
+				<% else %>
+				<span>旅行楽しんできてください!!</span>
+				<% end %>
+				<%= link_to "削除", schedule_path(schedule),method: :delete %>
+			</div>
 		<% end %>
 	</div>
 

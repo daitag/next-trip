@@ -1,4 +1,6 @@
 class User::SchedulesController < ApplicationController
+	before_action :authenticate_user!
+
 	require "date"
 
 	def index

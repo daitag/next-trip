@@ -115,6 +115,7 @@ $(document).on('turbolinks:load', function(){
 		autoplay:true,
 		autoplaySpeed:3000,
 		speed: 500,
+		arrows: false
 	});
 });
 
@@ -129,9 +130,7 @@ $(document).on('turbolinks:load', function(){
   		autoplay:false,
   		autoplaySpeed: 500,
   		speed: 300,
-		arrows: false,
-		accessibility: true,
-		zcenterMode: true
+		arrows: false
   	})
 	  .on('beforeChange', function(event, slick, currentSlide, nextSlide) {
 	    $('.current', this).text(nextSlide + 1);
@@ -246,7 +245,7 @@ $(function () {
 // scrolltop
 $(document).on('turbolinks:load', function () {
 	$(function(){
-		$("a[href^='#']").click(function(){
+		$("a[href^='#']:not([href='#'])").click(function(){
 			var target = $($(this).attr("href")).offset().top;
 			$('body, html').animate({ scrollTop: target}, 500);
 			return false;

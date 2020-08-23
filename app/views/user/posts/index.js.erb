@@ -4,6 +4,22 @@ jQuery(document).ready(function ($) {
 	$('.slick_index').not('.slick-initialized').slick();
 
 
+	$(document).on('turbolinks:load', function(){
+	$('.slick_index',this).on('init', function(event, slick) {
+    $(this).append('<div class="slick-counter"><span class="current"></span> / <span class="total"></span></div>');
+    $('.current',this).text(slick.currentSlide + 1);
+    $('.total',this).text(slick.slideCount);
+	})
+  	.slick({
+  		autoplay:false,
+  		autoplaySpeed: 500,
+  		speed: 300,
+		arrows: false
+  	})
+	  .on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+	    $('.current', this).text(nextSlide + 1);
+  	});
+
 	$('.slick_index').mouseover(function() {
     $(this).slick('play')
     });
@@ -11,16 +27,6 @@ jQuery(document).ready(function ($) {
         $(this).slick('pause')
     });
 
-
-	// $(".slick_index").hover(
-	// 	function(){
-	// 		$(".slick-prev").css("display",'inline-block');
-	// 		$(".slick-next").css("display",'block');
-	// 	},
-	// 	function(){
-	// 		$(".slick-prev").css("display",'none');
-	// 		$(".slick-next").css("display",'none');
-	// 	}
-	// );
+	});
 });
 

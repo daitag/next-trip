@@ -1,4 +1,5 @@
 class User::PostsController < ApplicationController
+	before_action :authenticate_user!
 	def index
 		# if params[:q].present?
 		# 	@search = Post.ransack(search_params)
@@ -65,4 +66,5 @@ class User::PostsController < ApplicationController
 	def search_params
 		params.require(:q).permit(:sorts)
 	end
+
 end
