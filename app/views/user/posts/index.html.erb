@@ -1,16 +1,26 @@
 <div class="container">
 	<h2>投稿一覧ページ</h2>
 
-	<div data-turbolinks="false">
-		<%= link_to "+",new_post_path,class: "btn btn-primary rounded-circle post_new" %>
+	<div data-turbolinks="false" class="post_new_button">
+		<%= link_to "+",new_post_path,class: "btn btn-primary rounded-circle post_new",alt: "新規投稿" %>
 	</div>
 
 	<div class="row">
 		<div class="col-md-3">
+			<!-- タグ検索 -->
+			<div class="search_index">
+				<% if @search_products %>
+				<a class="page-sub-title search_index_toggle" href="#">タグ検索</a>
+				<div class="search_index_detail">
+					<div class="search_tag_toggle"><%= render 'search_tag',{tags: @tags} %></div>
+				</div>
+				<% end %>
+			</div>
 			<div class="search_sort">
 			<!-- 一覧ソート機能 -->
-			<div class="page-sub-title">並び替え</div>
 				<% if @search_products %>
+				<a class="page-sub-title search_index_toggle" href="#">並び替え</a>
+					<div class="search_index_detail">
 					<%= search_form_for @search, url:posts_path do |f| %>
 						<div class="row">
 							<div class="col-md-12">
@@ -21,30 +31,27 @@
 							</div>
 						</div>
 					<% end %>
+					</div>
 				<% else %>
 				<% end %>
 			</div>
-			<!-- タグ検索 -->
-			<div class="search_index">
-				<div class="page-sub-title">タグ検索</div>
-				<%= render 'search_tag',{tags: @tags} %>
-			</div>
 			<!-- 国検索 -->
 			<div class="post-index-country-search">
-				<div class="page-sub-title">国名検索</div>
-				<%= search_form_for @search,url: posts_path,class: "form-inline" do |f| %>
-					<%= f.country_select :country_cont, {format: :with_alpha2 , priority_countries:["JP"] , include_blank: "------"}, class: "form-control post-country-search" %>
-					<%= f.submit "検索",id:"search_submit",class: "btn post-country-search" %>
+				<% if @search_products %>
+				<a class="page-sub-title search_index_toggle" href="#">国名検索</a>
+				<div class="search_index_detail">
+					<%= search_form_for @search,url: posts_path,class: "form-inline" do |f| %>
+						<%= f.country_select :country_cont, {format: :with_alpha2 , priority_countries:["JP"] , include_blank: "------"}, class: "form-control post-country-search" %>
+						<%= f.submit "検索",id:"search_submit",class: "btn post-country-search" %>
+					<% end %>
+				</div>
 				<% end %>
 			</div>
 			<!-- ランキング -->
 			<div class="post-index-rank">
+				<a class="page-sub-title search_index_toggle" href="#">ランキング</a>
+				<div class="search_index_detail">
 				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th>ランキング上位</th>
-						</tr>
-					</thead>
 					<tbody>
 						<tr>
 							<td>
@@ -89,6 +96,7 @@
 						</tr>
 					</tbody>
 				</table>
+				</div>
 			</div>
 		</div>
 		<!-- 一覧表示 -->

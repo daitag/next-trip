@@ -10,6 +10,7 @@
 			<tr>
 				<th>投稿タイトル</th>
 				<th>ユーザ名</th>
+				<th>投稿ステータス</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -17,7 +18,14 @@
 			<% @alerts.each do |alert| %>
 			<tr>
 				<td><%= alert.post.title %></td>
-				<td><%= alert.user.name %></td>
+				<td><%= link_to alert.user.name, admin_user_path(alert.post.user.id) %></td>
+				<td>
+					<% if alert.post.post_status == true %>
+						<span>有効</span>
+					<% else %>
+						<span>無効</span>
+					<% end %>
+				</td>
 				<td><%= link_to '詳細',admin_post_path(alert.post.id) %></td>
 			</tr>
 			<% end %>

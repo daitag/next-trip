@@ -271,3 +271,26 @@ $(document).on('turbolinks:load', function () {
 		});
 	});
 });
+
+//index-toggle
+$(document).on('turbolinks:load', function () {
+	$(function(){
+		$(".search_index_toggle").on("click",function(){
+			$(this).next().stop().slideToggle();
+			return false;
+		});
+	});
+});
+
+$(function(){
+	$(".post_new").hover(function(){
+		// マウスオーバー時
+		$(".post_new_button").append('<div id="tooltip"><p></p></div>');
+		$("#tooltip p").html($(this).attr("alt"));
+		$("#tooltip").hide();
+		$("#tooltip").fadeIn();
+	},function(){
+		// マウスアウト時
+		$("#tooltip").remove();
+	})
+})

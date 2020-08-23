@@ -106,6 +106,7 @@ footer {
 
 .page-sub-title {
 	font-size: 30px;
+	color: #000000;
 }
 
 
@@ -185,7 +186,7 @@ footer {
 //postのプレビュー
 .post_new {
 	position: fixed;
-	top: 70px;
+	top: 105px;
 	right: 50px;
 	z-index: 500;
 }
@@ -287,16 +288,8 @@ footer {
 	color: #ffffff;
 }
 
-.post-index-rank {
-	padding-top: 30px;
-}
-
 .prefectures-index {
 	min-height: 100px;
-}
-
-.post-index-country-search {
-	padding-top: 30px;
 }
 
 .post-country-search {
@@ -305,4 +298,31 @@ footer {
 
 .japan-map-view {
 	display: flex;
+}
+
+.search_index_detail {
+	display: none;
+}
+
+#tooltip {
+	position: fixed;
+	border-radius: 10px;
+	background: #007bff;
+	top: 60px;
+	right: 35px;
+	color: #ffffff;
+	width: 70px;
+	height: 40px;
+	text-align: center;
+}
+
+#tooltip:after {
+	content: "";
+	width: 0px;
+	border-top: 5px solid #007bff;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	position: absolute;
+	left: 50%;
+	margin-left: -4px;
 }

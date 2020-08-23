@@ -12,8 +12,8 @@
 		<tbody>
 			<tr>
 			<% @users.each do |user| %>
-				<td><%= link_to user.name, admin_user_path(user) %></td>
-				<td><%= Post.where(user_id: user.id).count %>投稿</td>
+					<td><%= link_to user.name,admin_user_path(user) %></td>
+					<td><%= Post.where(user_id: user.id).count %>投稿</td>
 				<td>
 					<% if user.user_status == true %>
 						<label>有効</label>

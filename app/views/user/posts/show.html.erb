@@ -24,13 +24,13 @@
 		<div class="page-sub-title">説明</div>
 			<div class="sub-content-show"><%= @post.body %></div>
 		<div class="page-sub-title">タグ</div>
-			<% @post.tags.each do |tag| %>
-				<div class="tag-show"><%= tag.tag_name %></div>
-			<% end %>
+		<% @post.tags.each do |tag| %>
+			<div class="tag-show"><%= tag.tag_name %></div>
+		<% end %>
 		<div class="page-sub-title">投稿者</div>
-			<div class="sub-content-show"><%= link_to @post.user.name,user_path(@post.user_id) %>
-				<%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>
-			</div>
+		<div class="sub-content-show"><%= link_to @post.user.name,user_path(@post.user_id) %>
+			<%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>
+		</div>
 
 		<!-- コメント一覧 -->
 		<div id="comment_area">
