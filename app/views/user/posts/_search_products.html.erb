@@ -1,5 +1,5 @@
 <% search_products.each do |post| %>
-	<div class="col-md-3 post-box">
+	<div class="col-lg-3 col-md-6 mr-0 ml-0 post-box">
 		<div class="post-content">
 			<%= link_to post_path(post) do %>
 				<div class="content-top">
@@ -20,7 +20,7 @@
 						<%= post.title %>
 					</div>
 					<div class="post_place">
-						<span>場所)</span>
+						<span></span>
 						<% if post.prefecture.present? %>
 							<%= post.prefecture %>
 						<% else %>

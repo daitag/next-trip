@@ -119,7 +119,7 @@ $(document).on('turbolinks:load', function(){
 	});
 });
 
-// post_indexのページ数、hover時の矢印
+// post_indexのページ数
 $(document).on('turbolinks:load', function(){
 	$('.slick_index',this).on('init', function(event, slick) {
     $(this).append('<div class="slick-counter"><span class="current"></span> / <span class="total"></span></div>');
@@ -142,18 +142,6 @@ $(document).on('turbolinks:load', function(){
     $('.slick_index').mouseout(function() {
         $(this).slick('pause')
     });
-
-
-	// $(".slick_index").hover(
-	// 	function(){
-	// 		$(".slick-prev").css("display",'inline-block');
-	// 		$(".slick-next").css("display",'block');
-	// 	},
-	// 	function(){
-	// 		$(".slick-prev").css("display",'none');
-	// 		$(".slick-next").css("display",'none');
-	// 	}
-	// );
 });
 
 

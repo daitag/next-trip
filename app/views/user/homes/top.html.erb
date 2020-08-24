@@ -1,6 +1,6 @@
 <div class="text-center">
 	<div class="home-top row align-items-center">
-		<div class="top-content col-md-8 offset-md-2">
+		<div class="top-content col-md-8 offset-md-2 col-sm-12">
 			<div class="main-title">次の旅行を探してみませんか？</div>
 			<div class="sub-title">
 			当サイトは、旅行特化型のSNSになっています。次に行きたい場所を探したり、 <br>
@@ -18,7 +18,7 @@
 		<div class="sub-content">旅行特化型のSNSです。以下のようなサービスを利用することができます。</div>
 		<div class="about-detail">
 			<div class="about-detail-box row">
-				<div class="col-md-4">
+				<div class="col-md-4 pl-0 pr-0">
 					<div class="share-trip-image">
 						<img src="assets/share-image.jpg" alt="">
 					</div>
@@ -34,7 +34,7 @@
 				</div>
 			</div>
 			<div class="about-detail-box row">
-				<div class="col-md-4">
+				<div class="col-md-4 pl-0 pr-0">
 					<div class="share-trip-image">
 						<img src="assets/sharch-image.jpg" alt="">
 					</div>
@@ -51,7 +51,7 @@
 				</div>
 			</div>
 			<div class="about-detail-box row">
-				<div class="col-md-4">
+				<div class="col-md-4 pl-0 pr-0">
 					<div class="share-trip-image">
 						<img src="assets/calender-image.jpg" alt="">
 					</div>
@@ -76,7 +76,7 @@
 		<h2>人気投稿</h2>
 			<div class="row">
 				<% @ranks.each do |rank| %>
-					<div class="col-md-3 post-box">
+					<div class="col-lg-3 col-md-6 post-box">
 						<div class="post-content">
 							<%= link_to post_path(rank) do %>
 								<div class="content-top">
@@ -117,7 +117,7 @@
 			<h2>新規投稿</h2>
 			<div class="row">
 				<% @posts.first(4).each do |post| %>
-					<div class="col-md-3 post-box">
+					<div class="col-lg-3 col-md-6 post-box">
 						<div class="post-content">
 							<%= link_to post_path(post) do %>
 								<div class="content-top">

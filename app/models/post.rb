@@ -9,11 +9,11 @@ class Post < ApplicationRecord
 	has_many :post_tags,dependent: :destroy
 	has_many :tags, through: :post_tags,dependent: :destroy
 
-	validates :title, presence: true
+	validates :title, presence: true,length: { maximum: 10 }
 	validates :body, presence: true
-	validate :post_images
-	validate :country
-	validate :location
+	validates :post_images, presence: true,length: { maximum: 10 }
+	validates :country, presence: true
+	validates :location, presence: true,length: { maximum: 15 }
 
 	enum prefecture: {
     北海道:'北海道',青森県:'青森県',岩手県:'岩手県',宮城県:'宮城県',秋田県:'秋田県',山形県:'山形県',福島県:'福島県',

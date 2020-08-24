@@ -1,7 +1,7 @@
 <div class="container">
 <h2>スケジュール一覧</h2>
 
-<div class="row">
+<div class="row schdule_content">
 	<div class="col-md-4">
 		<h3>予定作成</h3>
 		<!-- スケジュール作成ホーム -->
@@ -16,6 +16,7 @@
 		<% end %>
 
 		<!-- スケジュールの一覧を表示 -->
+		<div class="schedule_calender">
 		<h3>スケジュール一覧</h3>
 		<% @schedules.each do |schedule| %>
 			<div class="schedule-index">
@@ -33,6 +34,7 @@
 				<%= link_to "削除", schedule_path(schedule),method: :delete %>
 			</div>
 		<% end %>
+		</div>
 	</div>
 
 	<div class="col-md-8">

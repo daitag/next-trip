@@ -1,12 +1,12 @@
-<div class="container">
+<div class="container user_show">
 <div class="content-title">マイページ</div>
 
 <div class="page-sub-title">ユーザ情報</div>
 
 <div class="row user-detail-box">
-	<div class="col-md-3 offset-md-1">
+	<div class="col-md-3">
 		<!-- ユーザ情報 -->
-		<%= attachment_image_tag(@user,:image,size:"200x200", class: "user_image", fallback: "no_image.jpg") %>
+		<%= attachment_image_tag(@user,:image,size:"150x150", class: "user_image", fallback: "no_image.jpg") %>
 	</div>
 	<div class="col-md-8">
 		<div class="row user-detail">

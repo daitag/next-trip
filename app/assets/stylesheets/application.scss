@@ -22,8 +22,7 @@
 
 
 /*footerを下部に固定*/
-body,
-#wrapper {
+body,#wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -61,6 +60,10 @@ footer {
 .top-content {
 	border: 1px solid #000000;
 	background-color: rgba(255,255,255,0.5);
+}
+
+.share-trip-image img {
+	width: 100%;
 }
 
 .main-title {
@@ -147,6 +150,17 @@ footer {
 	color: #ffffff !important;
 }
 
+.navbar-toggler {
+	border: 1px solid #ffffff !important;
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30'
+  xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)'
+  stroke-width='3' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+
 
 #top-scroll {
 	postition: relative;
@@ -171,6 +185,7 @@ footer {
 }
 
 .user_image {
+	margin-top: 15px;
 	border-radius: 50%;
 }
 
@@ -314,6 +329,7 @@ footer {
 	width: 70px;
 	height: 40px;
 	text-align: center;
+	z-index: 200;
 }
 
 #tooltip:after {
@@ -325,4 +341,43 @@ footer {
 	position: absolute;
 	left: 50%;
 	margin-left: -4px;
+}
+
+/*schedule_calender*/
+
+.schdule_content {
+	margin-top: 50px;
+}
+
+.schedule_calender {
+	margin-top: 50px;
+}
+
+
+
+/*レスポンシブデザイン*/
+@media screen and (max-width: 959px) {
+	.user_image {
+
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.page-sub-title {
+		font-size: 20px;
+	}
+	.user_show {
+		text-align: center;
+	}
+
+	#calendar {
+	margin-top: 50px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.user_show {
+		text-align: center;
+	}
+
 }

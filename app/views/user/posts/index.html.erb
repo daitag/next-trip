@@ -1,12 +1,33 @@
-<div class="container">
-	<h2>投稿一覧ページ</h2>
+<div class="container-fluid">
 
 	<div data-turbolinks="false" class="post_new_button">
 		<%= link_to "+",new_post_path,class: "btn btn-primary rounded-circle post_new",alt: "新規投稿" %>
 	</div>
 
 	<div class="row">
-		<div class="col-md-3">
+				<!-- 一覧表示 -->
+		<!-- テンプレート化 -->
+		<div class="col-md-9 mr-p ml-0">
+			<h2>投稿一覧ページ</h2>
+			<% if @search_products %>
+				<div id="search_products">
+					<div class="row post_more">
+						<%= render 'search_products',{search_products: @search_products} %>
+					</div>
+					<div class="post-index-more">
+						<%= link_to_next_page(@search_products, 'もっと見る', remote: true, id: 'more_link',class: "post-more-show")%>
+					</div>
+				</div>
+			<% else %>
+				<%= render 'post_index', {posts: @posts} %>
+				<div class="pagenation row">
+				</div>
+			<% end %>
+			<div id="top-scroll" data-turbolinks="false">
+				<a href="#page-top-link" id="page-top"><i class="fas fa-arrow-circle-up fa-2x"></i></a>
+			</div>
+		</div>
+		<div class="col-md-3 index-slidebar">
 			<!-- タグ検索 -->
 			<div class="search_index">
 				<% if @search_products %>
@@ -97,27 +118,6 @@
 					</tbody>
 				</table>
 				</div>
-			</div>
-		</div>
-		<!-- 一覧表示 -->
-		<!-- テンプレート化 -->
-		<div class="col-md-9">
-			<% if @search_products %>
-				<div id="search_products">
-					<div class="row post_more">
-						<%= render 'search_products',{search_products: @search_products} %>
-					</div>
-				</div>
-				<div class="post-index-more">
-					<%= link_to_next_page(@search_products, 'もっと見る', remote: true, id: 'more_link',class: "post-more-show")%>
-				</div>
-			<% else %>
-				<%= render 'post_index', {posts: @posts} %>
-				<div class="pagenation row">
-				</div>
-			<% end %>
-			<div id="top-scroll" data-turbolinks="false">
-				<a href="#page-top-link" id="page-top"><i class="fas fa-arrow-circle-up fa-2x"></i></a>
 			</div>
 		</div>
 	</div>
