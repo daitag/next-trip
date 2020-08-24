@@ -12,6 +12,11 @@
 		<%= f.text_field :title,class: "form-control" %>
 		<%= f.label :body, "内容" %>
 		<%= f.text_area :body,class: "form-control" %>
+		<%= f.label :notice_tag, "タグ設定" %>
+		<%= f.radio_button :notice_tag, true, checked: true %>
+		<%= f.label :notice_tag, "重要なお知らせ",value: true %>
+		<%= f.radio_button :notice_tag, false %>
+		<%= f.label :notice_tag, "アップデート情報",value: false %>
 		<%= f.label :status, "公開設定" %>
 		<%= f.radio_button :status,true,checked: true %>
 		<%= f.label :status,"公開",value: true %>

@@ -353,7 +353,38 @@ footer {
 	margin-top: 50px;
 }
 
+/*notice*/
+.notice_tag_true {
+	background-color: #ff0000;
+	border-radius: 10px;
+	width: 100px;
+	text-align: center;
+	color: #ffffff;
+}
 
+.notice_tag_false {
+	background-color: #228b22;
+	border-radius: 10px;
+	width: 100px;
+	text-align: center;
+	color: #ffffff;
+}
+
+.notice_status_true {
+	background-color: #007bff;
+	border-radius: 10px;
+	width: 100px;
+	text-align: center;
+	color: #ffffff;
+}
+
+.notice_status_false {
+	background-color: #ff0000;
+	border-radius: 10px;
+	width: 100px;
+	text-align: center;
+	color: #ffffff;
+}
 
 /*レスポンシブデザイン*/
 @media screen and (max-width: 959px) {

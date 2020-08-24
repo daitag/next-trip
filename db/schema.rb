@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2020_08_12_225123) do
     t.text "body"
     t.string "image_id"
     t.boolean "status"
+    t.boolean "notice_tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

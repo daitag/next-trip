@@ -14,7 +14,7 @@ class Admin::NoticesController < ApplicationController
 
 	def create
 		@notice = Notice.new(notice_params)
-		if @notice.save
+		if @notice.save!
 			redirect_to admin_notice_path(@notice.id)
 			flash[:notice] = "お知らせを作成しました"
 		else
@@ -51,6 +51,6 @@ class Admin::NoticesController < ApplicationController
 
 	private
 	def notice_params
-		params.require(:notice).permit(:title,:body,:image,:status)
+		params.require(:notice).permit(:title,:body,:image,:status,:notice_tag)
 	end
 end

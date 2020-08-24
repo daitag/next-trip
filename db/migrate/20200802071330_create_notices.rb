@@ -5,6 +5,7 @@ class CreateNotices < ActiveRecord::Migration[5.2]
     	t.text :body
     	t.string :image_id
     	t.boolean :status
+    	t.boolean :notice_tag
 
       t.timestamps
     end
