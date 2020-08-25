@@ -19,10 +19,11 @@
 	<tbody>
 		<tr>
 			<td><%= notice.title %></td>
-			<td><% if notice.notice_tag == true %>
-					<label>重要な情報</label>
+			<td>
+				<% if @notice.notice_tag == true %>
+					<label class="notice_tag_true">重要な情報</label>
 				<% else %>
-					<label>アップデート情報</label>
+					<label class="notice_tag_false">アップデート情報</label>
 				<% end %>
 			</td>
 			<td><%= notice.updated_at.strftime("%Y-%m-%d %H:%M") %></td>

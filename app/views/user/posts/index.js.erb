@@ -1,13 +1,25 @@
 jQuery(document).ready(function ($) {
 	$('.post_more').append("<%= j(render 'search_products',{search_products: @search_products}) %>")
 	$('#more_link').replaceWith("<%= j(link_to_next_page @search_products, 'もっと見る', remote: true, id: 'more_link') %>");
-	$('.slick_index').not('.slick-initialized').slick();
-  $.ajax({
-        type: "GET",
-        url: "assets/application.js",
-        dataType: "script"
-  });
+	$('.slick_index',this).on('init', function(event, slick) {
+	    $(this).append('<div class="slick-counter"><span class="current"></span> / <span class="total"></span></div>');
+	    $('.current',this).text(slick.currentSlide + 1);
+	    $('.total',this).text(slick.slideCount);
+		}).not('.slick-initialized').slick({
+	  		autoplay:false,
+	  		autoplaySpeed: 500,
+	  		speed: 300,
+			arrows: false
+		})
+		.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+		    $('.current', this).text(nextSlide + 1);
+	 });
 
-
+	$('.slick_index').mouseover(function() {
+    $(this).slick('play')
+    });
+    $('.slick_index').mouseout(function() {
+        $(this).slick('pause')
+    });
 });
 

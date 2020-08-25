@@ -159,18 +159,26 @@
 		<h2>お知らせ</h2>
 		<thead>
 			<tr>
-				<th>アップデート日時</th>
+				<th>タグ</th>
 				<th>タイトル</th>
+				<th>アップデート日時</th>
 			</tr>
 		</thead>
 		<tbody>
 			<% @notices.each do |notice| %>
 			<tr>
 				<td>
-					<%= notice.updated_at.strftime("%Y-%m-%d") %>
+					<% if notice.notice_tag == true %>
+						<label class="notice_tag_true">重要な情報</label>
+					<% else %>
+						<label class="notice_tag_false">アップデート情報</label>
+					<% end %>
 				</td>
 				<td>
 					<%= link_to notice.title,notice_path(notice) %>
+				</td>
+				<td>
+					<%= notice.updated_at.strftime("%Y-%m-%d") %>
 				</td>
 			</tr>
 			<% end %>

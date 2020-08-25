@@ -1,16 +1,43 @@
 <div class="container">
-<div class="notice-title">
-	<%= @notice.title %>
+<h2>詳細画面</h2>
+
+<div class="row">
+	<div class="col-md-4">
+		<%= attachment_image_tag(@notice,:image,:fill,200,200) %>
+	</div>
+	<div class="col-md-8">
+		<h3>タイトル</h3>
+		<%= @notice.title %>
+		<h3>内容</h3>
+		<%= @notice.body %>
+		<h3>詳細</h3>
+		<div class="notice_tag">
+			<span>タグ</span>
+			<% if @notice.notice_tag == true %>
+				<label class="notice_tag_true">重要な情報</label>
+			<% else %>
+				<label class="notice_tag_false">アップデート情報</label>
+			<% end %>
+		</div>
+		<div class="notice_status">
+			<span>公開情報</span>
+			<% if @notice.status == true %>
+				<label class="notice_status_true">公開中</label>
+			<% else %>
+				<label class="notice_status_false">非公開</label>
+			<% end %>
+		</div>
+		<div class="notice-create">
+			<span>作成日</span>
+			<%= @notice.created_at.strftime("%Y-%m-%d %H:%M") %>
+		</div>
+		<div class="notice-update">
+			<span>最終修正日</span>
+			<%= @notice.updated_at.strftime("%Y-%m-%d %H:%M") %>
+		</div>
+	</div>
 </div>
-<div class="notice-update">
-	<%= notice.updated_at.strftime("%Y-%m-%d %H:%M") %>
-</div>
-<div class="notice-body">
-	<%= @notice.body %>
-</div>
-<div class="notice-image">
-	<%= attachment_image_tag(@notice,:image,:fill,200,200) %>
-</div>
+
 
 <%= link_to "一覧画面", root_path %>
 
