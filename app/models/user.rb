@@ -9,9 +9,10 @@ class User < ApplicationRecord
   has_many :good_places, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :alerts, dependent: :destroy
+  has_many :schedules, dependent: :destroy
   attachment :image
 
-  validates :name, presence: true
+  validates :name,length: {minimum: 2, maximum: 20}
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
