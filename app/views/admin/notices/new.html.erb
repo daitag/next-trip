@@ -6,12 +6,21 @@
 	<div class="col-md-4">
 		<%= attachment_image_tag(@notice,:image,size:"200x200", fallback: "no_image.jpg") %>
 		<%= f.attachment_field :image,id: "notice_image_preview" %>
+		<% if @notice.errors.include?(:image) %>
+    		<span style="color: red;"><%= @notice.errors.full_messages_for(:image).first %></span>
+		<% end %>
 	</div>
 	<div class="col-md-8">
 		<%= f.label :title, "タイトル" %>
 		<%= f.text_field :title,class: "form-control" %>
+		<% if @notice.errors.include?(:title) %>
+    		<span style="color: red;"><%= @notice.errors.full_messages_for(:title).first %></span>
+		<% end %>
 		<%= f.label :body, "内容" %>
 		<%= f.text_area :body,class: "form-control" %>
+		<% if @notice.errors.include?(:body) %>
+    		<span style="color: red;"><%= @notice.errors.full_messages_for(:body).first %></span>
+		<% end %>
 		<%= f.label :notice_tag, "タグ設定" %>
 		<%= f.radio_button :notice_tag, true, checked: true %>
 		<%= f.label :notice_tag, "重要なお知らせ",value: true %>

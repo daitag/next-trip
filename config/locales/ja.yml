@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    attributes:
+      # postの表示
+      post:
+        post_images: 画像
+        title: タイトル
+        country: 国
+        location: 場所
+      # scheduleの表示
+      schedule:
+        content: 旅行先
+        start_day: 出発日
+        end_day: 帰着日
+      # tagの表示
+      tag:
+        tag_name: タグ名
+      # noticeの表示
+      notice:
+        image: 画像
+        title: タイトル
+        body: 内容

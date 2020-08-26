@@ -2,8 +2,13 @@
 <h2>タグの制作</h2>
 
 <%= form_for(@tag,url:admin_tags_path) do |f| %>
-	<%= f.label :tag_name,"タグ名" %>
-	<%= f.text_field :tag_name,class: "form-control" %>
+	<div class="field">
+		<%= f.label :tag_name,"タグ名" %>
+		<%= f.text_field :tag_name,class: "form-control" %>
+		<% if @tag.errors.include?(:tag_name) %>
+	    	<span style="color: red;"><%= @tag.errors.full_messages_for(:tag_name).first %></span>
+		<% end %>
+	</div>
 
 	<%= f.radio_button :tag_status,:true, checked: true %>
 	<%= f.label :tag_status, "有効",value: true %>

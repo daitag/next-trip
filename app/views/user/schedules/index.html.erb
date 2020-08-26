@@ -8,10 +8,19 @@
 		<%= form_for(@schedule, url: schedules_path) do |f| %>
 		<%= f.label :content, '旅行先' %>
 		<%= f.text_field :content,class: "form-control" %>
+		<% if @schedule.errors.include?(:content) %>
+    		<span style="color: red;"><%= @schedule.errors.full_messages_for(:content).first %></span>
+		<% end %>
 		<%= f.label :start_day, '出発日' %>
 		<%= f.date_field :start_day,class: "form-control" %>
+		<% if @schedule.errors.include?(:start_day) %>
+    		<span style="color: red;"><%= @schedule.errors.full_messages_for(:start_day).first %></span>
+		<% end %>
 		<%= f.label :end_day, '帰着日' %>
 		<%= f.date_field :end_day,class: "form-control" %>
+		<% if @schedule.errors.include?(:end_day) %>
+    		<span style="color: red;"><%= @schedule.errors.full_messages_for(:end_day).first %></span>
+		<% end %>
 		<%= f.submit "登録する",class: "btn" %>
 		<% end %>
 

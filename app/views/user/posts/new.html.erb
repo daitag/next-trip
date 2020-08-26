@@ -6,8 +6,11 @@
 	<div class="row">
 		<div class="col-md-4">
 			<div id='image-box_container'>
-				<p>画像の投稿は10枚までです。</p>
+				<%= f.label :post_images_images, "画像の投稿は10枚までです。"%>
 				<%= f.file_field :post_images_images,multiple: true ,id: "post_image" %>
+				<% if @post.errors.include?(:post_images) %>
+    				<span style="color: red;"><%= @post.errors.full_messages_for(:post_images).first %></span>
+				<% end %>
 			</div>
 		</div>
 		<div class="col-md-8">
@@ -18,6 +21,9 @@
 						</th>
 						<td>
 							<%= f.text_field :title,class: "form-control" %>
+							<% if @post.errors.include?(:title) %>
+    							<span style="color: red;"><%= @post.errors.full_messages_for(:title).first %></span>
+							<% end %>
 						</td>
 					</tr>
 					<tr>
@@ -26,6 +32,9 @@
 						</th>
 						<td>
 							<%= f.country_select :country, {format: :with_alpha2 , priority_countries:["JP"] , include_blank: "------"}, class: "form-control country-select" %>
+							<% if @post.errors.include?(:country) %>
+    							<span style="color: red;"><%= @post.errors.full_messages_for(:country).first %></span>
+							<% end %>
 						</td>
 					</tr>
 					<tr class="city">
@@ -34,6 +43,9 @@
 						</th>
 						<td>
 							<%= f.text_field :city,class: "form-control city_form" %>
+							<% if @post.errors.include?(:city) %>
+    							<span style="color: red;"><%= @post.errors.full_messages_for(:city).first %></span>
+							<% end %>
 						</td>
 					</tr>
 					<tr class="prefecture">
@@ -42,6 +54,9 @@
 						</th>
 						<td>
 							<%= f.select :prefecture,Post.prefectures.keys,{include_blank: "------"},class: "form-control" %>
+							<% if @post.errors.include?(:prefecture) %>
+    							<span style="color: red;"><%= @post.errors.full_messages_for(:prefecture).first %></span>
+							<% end %>
 						</td>
 					</tr>
 					<tr>
@@ -50,6 +65,9 @@
 						</th>
 						<td>
 							<%= f.text_field :location,class: "form-control" %>
+							<% if @post.errors.include?(:location) %>
+    							<span style="color: red;"><%= @post.errors.full_messages_for(:location).first %></span>
+							<% end %>
 						</td>
 					</tr>
 					<tr>
