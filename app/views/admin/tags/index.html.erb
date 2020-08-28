@@ -1,10 +1,10 @@
 <div class="container">
-<h2>タグの制作</h2>
+<div class="page-sub-title">タグの制作</div>
 
 <%= form_for(@tag,url:admin_tags_path) do |f| %>
 	<div class="field">
-		<%= f.label :tag_name,"タグ名" %>
-		<%= f.text_field :tag_name,class: "form-control" %>
+		<%= f.label :tag_name,"タグ名",class: "m-0" %>
+		<%= f.text_field :tag_name,placeholder: "タグ名を入力して下さい",class: "form-control" %>
 		<% if @tag.errors.include?(:tag_name) %>
 	    	<span style="color: red;"><%= @tag.errors.full_messages_for(:tag_name).first %></span>
 		<% end %>
@@ -14,13 +14,12 @@
 	<%= f.label :tag_status, "有効",value: true %>
 	<%= f.radio_button :tag_status,:false %>
 	<%= f.label :tag_status, "無効",value: false %>
-
 	<%= f.submit "作成",class: "btn" %>
 <% end %>
 
 
 <!-- 一覧 -->
-<table class="table table-hover border">
+<table class="table table-hover border content-top-margin_20">
 	<thead>
 		<tr>
 			<th>タグ名</th>

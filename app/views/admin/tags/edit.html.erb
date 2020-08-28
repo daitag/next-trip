@@ -1,14 +1,14 @@
 <div class="container">
-<h2>タグの制作</h2>
+<div class="page-sub-title">タグの制作</div>
 
 <%= form_for(@tag,url:admin_tag_path) do |f| %>
-	<%= f.label :tag_name,"タグ名" %>
+	<%= f.label :tag_name,"タグ名",class: "m-0" %>
 	<%= f.text_field :tag_name %>
 
 	<%= f.radio_button :tag_status,:true, checked: true %>
-	<%= f.label :tag_status, "有効" %>
+	<%= f.label :tag_status, "有効",value: true %>
 	<%= f.radio_button :tag_status,:false %>
-	<%= f.label :tag_status, "無効" %>
+	<%= f.label :tag_status, "無効",value: false %>
 
 	<%= f.submit "変更" %>
 <% end %>

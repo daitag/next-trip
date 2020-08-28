@@ -75,7 +75,9 @@
 		<div class="rank-post">
 		<h2>人気投稿</h2>
 			<div class="row">
-				<% @ranks.each do |rank| %>
+			<% @ranks.each do |rank| %>
+			<tr>
+				<td>
 					<div class="col-lg-3 col-md-6 post-box">
 						<div class="post-content">
 							<%= link_to post_path(rank) do %>
@@ -84,10 +86,6 @@
 										<% rank.post_images.each do |image| %>
 											<div class="slick_index_image">
 												<%= attachment_image_tag(image,:image ,:fill ,200,200) %>
-												<div class="post-favorite">
-													<i class="fas fa-heart" style="color: red;"></i>
-													<%= rank.favorites.count %>
-												</div>
 											</div>
 										<% end %>
 									</div>
@@ -104,11 +102,21 @@
 											<%= rank.city %>
 										<% end %>
 									</div>
+									<div class="post-favorite">
+										<i class="fas fa-heart" style="color: red;"></i>
+										<%= rank.favorites.count %>
+										<i class="fas fa-globe-asia" style="color: dodgerblue;"></i>
+										<%= rank.good_places.count %>
+										<i class="fas fa-comments" style="color: lightslategray;"></i>
+										<%= rank.comments.count %>
+									</div>
 								</div>
 							<% end %>
 						</div>
 					</div>
-				<% end %>
+				</td>
+			</tr>
+			<% end %>
 			</div>
 		</div>
 
@@ -125,10 +133,6 @@
 										<% post.post_images.each do |image| %>
 											<div class="slick_index_image">
 												<%= attachment_image_tag(image,:image ,:fill ,200,200) %>
-												<div class="post-favorite">
-													<i class="fas fa-heart" style="color: red;"></i>
-													<%= post.favorites.count %>
-												</div>
 											</div>
 										<% end %>
 									</div>
@@ -144,6 +148,14 @@
 										<% else %>
 											<%= post.city %>
 										<% end %>
+									</div>
+									<div class="post-favorite">
+										<i class="fas fa-heart" style="color: red;"></i>
+										<%= post.favorites.count %>
+										<i class="fas fa-globe-asia" style="color: dodgerblue;"></i>
+										<%= post.good_places.count %>
+										<i class="fas fa-comments" style="color: lightslategray;"></i>
+										<%= post.comments.count %>
 									</div>
 								</div>
 							<% end %>
@@ -168,10 +180,12 @@
 			<% @notices.each do |notice| %>
 			<tr>
 				<td>
-					<% if notice.notice_tag == true %>
-						<label class="notice_tag_true">重要な情報</label>
-					<% else %>
-						<label class="notice_tag_false">アップデート情報</label>
+					<%= link_to notice_path(notice) do %>
+						<% if notice.notice_tag == true %>
+							<label class="notice_tag_true">重要な情報</label>
+						<% else %>
+							<label class="notice_tag_false">アップデート情報</label>
+						<% end %>
 					<% end %>
 				</td>
 				<td>
@@ -184,7 +198,6 @@
 			<% end %>
 		</tbody>
 	</table>
-	<%= paginate @notices %>
 	<div id="top-scroll">
 		<a href="#page-top-link" id="page-top"><i class="fas fa-arrow-circle-up fa-2x"></i></a>
 	</div>

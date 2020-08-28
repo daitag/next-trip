@@ -10,8 +10,8 @@ RSpec.describe Post, type: :model do
   			post.title = ''
   			expect(post.valid?).to eq false;
   		end
-  		it '10文字以下である' do
-  			post.title = Faker::Lorem.characters(number:11)
+  		it '15文字以下である' do
+  			post.title = Faker::Lorem.characters(number:16)
   			expect(post.valid?).to eq false;
   		end
   	end

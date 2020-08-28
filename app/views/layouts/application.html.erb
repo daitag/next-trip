@@ -52,7 +52,7 @@
               <%= f.submit "検索",id:"search_submit",class: "btn my-2 my-sm-0" %>
             <% end %>
             <% elsif admin_signed_in?%>
-            <li><%= link_to '会員一覧',admin_users_path,class: "nav-link" %></li>
+            <li><%= link_to 'ユーザ一覧',admin_users_path,class: "nav-link" %></li>
             <li><%= link_to 'タグ作成',admin_tags_path,class: "nav-link" %></li>
             <li><%= link_to 'お知らせ',admin_notices_path,class: "nav-link" %></li>
             <li><%= link_to 'ログアウト',destroy_admin_session_path,method: :delete,class: "nav-link" %></li>
@@ -61,8 +61,8 @@
             <li><%= link_to '人気の投稿',"#ranking",class: "nav-link" %></li>
             <li><%= link_to '新規会員登録',new_user_registration_path,class: "nav-link" %></li>
             <li><%= link_to 'ログイン',new_user_session_path,class: "nav-link" %></li>
-            <li><%= link_to 'ゲストログイン（user）', users_guest_sign_in_path, method: :post,class: "nav-link" %></li>
-            <li><%= link_to 'ゲストログイン（admin）', admins_guest_sign_in_path, method: :post,class: "nav-link" %></li>
+            <li><%= link_to 'ユーザゲストログイン', users_guest_sign_in_path, method: :post,class: "nav-link" %></li>
+            <li><%= link_to '管理者ゲストログイン', admins_guest_sign_in_path, method: :post,class: "nav-link" %></li>
             <% end %>
           </ul>
         </div>

@@ -1,5 +1,5 @@
 <div class="container">
-<h2>新規作成</h2>
+<div class="page-sub-title">新規作成</div>
 
 <!-- 投稿フォーム -->
 <%= form_for(@post) do |f| %>
@@ -20,7 +20,7 @@
 							<%= f.label :title, "タイトル"%>
 						</th>
 						<td>
-							<%= f.text_field :title,class: "form-control" %>
+							<%= f.text_field :title,placeholder: "タイトルを入力してください(15文字まで)",class: "form-control" %>
 							<% if @post.errors.include?(:title) %>
     							<span style="color: red;"><%= @post.errors.full_messages_for(:title).first %></span>
 							<% end %>
@@ -31,7 +31,7 @@
 							<%= f.label :country, "国"%>
 						</th>
 						<td>
-							<%= f.country_select :country, {format: :with_alpha2 , priority_countries:["JP"] , include_blank: "------"}, class: "form-control country-select" %>
+							<%= f.country_select :country, {format: :with_alpha2 , priority_countries:["JP"] , include_blank: "国を選択してください"}, class: "form-control country-select" %>
 							<% if @post.errors.include?(:country) %>
     							<span style="color: red;"><%= @post.errors.full_messages_for(:country).first %></span>
 							<% end %>
@@ -42,7 +42,7 @@
 							<%= f.label :city, "都市"%>
 						</th>
 						<td>
-							<%= f.text_field :city,class: "form-control city_form" %>
+							<%= f.text_field :city,placeholder: "都市名を入力してください",class: "form-control city_form" %>
 							<% if @post.errors.include?(:city) %>
     							<span style="color: red;"><%= @post.errors.full_messages_for(:city).first %></span>
 							<% end %>
@@ -53,7 +53,7 @@
 							<%= f.label :prefecture, "都道府県"%>
 						</th>
 						<td>
-							<%= f.select :prefecture,Post.prefectures.keys,{include_blank: "------"},class: "form-control" %>
+							<%= f.select :prefecture,Post.prefectures.keys,{include_blank: "県名を入力してください"},class: "form-control" %>
 							<% if @post.errors.include?(:prefecture) %>
     							<span style="color: red;"><%= @post.errors.full_messages_for(:prefecture).first %></span>
 							<% end %>
@@ -64,7 +64,7 @@
 							<%= f.label :location, "場所"%>
 						</th>
 						<td>
-							<%= f.text_field :location,class: "form-control" %>
+							<%= f.text_field :location,placeholder: "場所を入力してください(15文字まで)",class: "form-control" %>
 							<% if @post.errors.include?(:location) %>
     							<span style="color: red;"><%= @post.errors.full_messages_for(:location).first %></span>
 							<% end %>
@@ -75,7 +75,7 @@
 							<%= f.label :body, "説明"%>
 						</th>
 						<td>
-							<%= f.text_area :body,class: "form-control" %>
+							<%= f.text_area :body,placeholder: "投稿説明を入力してください(150文字まで)",class: "form-control" %>
 						</td>
 					</tr>
 					<tr>
@@ -83,6 +83,9 @@
 							<%= f.label :tag, "タグ" %>
 						</th>
 						<td class="label-select">
+							<div class="label-select-message">
+								<span>複数選択ができます</span>
+							</div>
 							<%= f.collection_check_boxes(:tag_ids,Tag.where(tag_status: true), :id, :tag_name) do |tag|  %>
 								<%= tag.label do %>
 									<%= tag.check_box("data-toggle" => "toggle","data-size" => "mini",class: "toggle-select") %>
@@ -94,6 +97,6 @@
 			</table>
 		</div>
 	</div>
-<%= f.submit "投稿する",class: "btn" %>
+<%= f.submit "投稿する",class: "btn btn-primary" %>
 <% end %>
 </div>

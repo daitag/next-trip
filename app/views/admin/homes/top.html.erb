@@ -1,10 +1,14 @@
 <div class="container">
-<h2>トップページ</h2>
+<div class="content-title">トップページ</div>
 
-<h3>会員数</h3>
-<%= @users.count %>名登録中!!
+<div class="page-sub-title content-top-margin_20">会員数</div>
+<div class="sub-content">
+	<%=link_to admin_users_path do %>
+		<%= @users.count %>名登録中!!
+	<% end %>
+</div>
 
-<h3>アラート一覧</h3>
+<div class="page-sub-title content-top-margin_20">アラート一覧</div>
 <table class="table table-hover table-bordered">
 		<thead>
 			<tr>
@@ -31,4 +35,5 @@
 			<% end %>
 		</tbody>
 </table>
+<%=  paginate @alerts %>
 </div>

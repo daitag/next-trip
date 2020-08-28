@@ -39,7 +39,25 @@ footer {
 	width: 100%;
 }
 
+.content-top-margin_10 {
+	margin-top: 10px;
+}
 
+.content-top-margin_20 {
+	margin-top: 20px;
+}
+
+.content-bottom-margin_10 {
+	margin-bottom: 10px;
+}
+
+.content-bottom-margin_20 {
+	margin-bottom: 20px;
+}
+
+a {
+	color: #000000;
+}
 
 /*main*/
 
@@ -87,7 +105,7 @@ footer {
 }
 
 .sub-content {
-	font-size: 16px;
+	font-size: 20px;
 }
 
 .about-detail-box {
@@ -136,6 +154,28 @@ footer {
 	color: #ffffff;
 }
 
+.index-slidebar {
+	padding-top: 50px;
+}
+
+.search_tag {
+	font-size: 20px;
+	color: #000000;
+}
+
+.post-box {
+	padding: 0 20px;
+}
+
+.post-more-show {
+	display: block;
+	border: 1px solid #000000;
+	padding: 20px 0;
+}
+
+.post-index-more {
+	padding: 0;
+}
 
 /*my-page*/
 .user-detail-button {
@@ -241,14 +281,6 @@ footer {
 	height: 200px;
 }
 
-
-.post-favorite {
-	position: absolute;
-	top: 2%;
-	z-index: 110;
-	background-color: #ffffff;
-	opacity: 0.6;
-}
 
 
 .post-content {
@@ -362,7 +394,7 @@ footer {
 .notice_tag_true {
 	background-color: #ff0000;
 	border-radius: 10px;
-	width: 100px;
+	width: 150px;
 	text-align: center;
 	color: #ffffff;
 }
@@ -370,7 +402,7 @@ footer {
 .notice_tag_false {
 	background-color: #228b22;
 	border-radius: 10px;
-	width: 100px;
+	width: 150px;
 	text-align: center;
 	color: #ffffff;
 }

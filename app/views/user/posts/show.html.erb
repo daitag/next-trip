@@ -60,7 +60,7 @@
 		<div class="post-alert">
 			<!-- alert表示 -->
 			<% if @post.alerted_by?(current_user) %>
-				<%= link_to post_alerts_path(@post.id), method: :delete,class: "btn btn-primary" do %>
+				<%= link_to post_alerts_path(@post.id), method: :delete,class: "btn btn-danger" do %>
 					管理者に報告中
 				<% end %>
 			<% else %>

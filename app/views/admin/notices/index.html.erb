@@ -1,11 +1,11 @@
 <div class="container">
-<h2>一覧画面</h2>
+<div class="page-sub-title">一覧画面</div>
 
 <div data-turbolinks="false">
 	<%= link_to "+",new_admin_notice_path,class: "btn btn-primary rounded-circle float-right" %>
 </div>
 
-<% @notices.each do |notice| %>
+
 <table class="table table-hover border">
 	<thead>
 		<tr>
@@ -17,6 +17,7 @@
 		</tr>
 	</thead>
 	<tbody>
+		<% @notices.each do |notice| %>
 		<tr>
 			<td>
 				<% if notice.notice_tag == true %>
@@ -36,9 +37,9 @@
 			</td>
 			<td><%= link_to "詳細へ", admin_notice_path(notice) %></td>
 		</tr>
+		<% end %>
 	</tbody>
 </table>
-<% end %>
 
 <%= paginate @notices %>
 </div>

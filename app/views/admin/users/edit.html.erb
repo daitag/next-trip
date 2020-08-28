@@ -1,5 +1,5 @@
 <div class="container">
-<h2>ユーザ情報編集</h2>
+<div class="page-sub-title content-bottom-margin_20">ユーザ情報編集</div>
 
 
 <%= form_for(@user,url:admin_user_path(@user)) do |f| %>
@@ -9,22 +9,22 @@
 		<%= f.attachment_field :image,id:"user_image_preview" %>
 	</div>
 	<div class="col-md-8">
-		<%= f.label "名前" %>
-		<%= f.text_field :name,class: "form-control" %>
-		<%= f.label "出身" %>
-		<%= f.text_field :country,class: "form-control" %>
-		<%= f.label "メールアドレス" %>
-		<%= f.email_field :email,class: "form-control" %>
+		<%= f.label "名前",class: "m-0" %>
+		<%= f.text_field :name,class: "form-control content-bottom-margin_10" %>
+		<%= f.label "出身",class: "m-0" %>
+		<%= f.text_field :country,class: "form-control content-bottom-margin_10" %>
+		<%= f.label "メールアドレス",class: "m-0" %>
+		<%= f.email_field :email,class: "form-control content-bottom-margin_10" %>
 		<div class="user_status">
-			<%= f.label :user_status,"ユーザステータス" %>
-			<div class="radio_button">
+			<%= f.label :user_status,"ユーザステータス",class: "m-0" %>
+			<div class="radio_button content-bottom-margin_10">
 				<%= f.radio_button :user_status,:true %>
 				<%= f.label :user_status,"有効" , value: true %>
 				<%= f.radio_button :user_status,:false %>
 				<%= f.label :user_status,"無効" , value: false %>
 			</div>
 		</div>
-		<%= f.submit "編集する",class: "btn" %>
+		<%= f.submit "編集する",class: "btn btn-primary" %>
 	</div>
 <% end %>
 </div>

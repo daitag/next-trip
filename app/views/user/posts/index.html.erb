@@ -8,7 +8,7 @@
 				<!-- 一覧表示 -->
 		<!-- テンプレート化 -->
 		<div class="col-md-9 mr-p ml-0">
-			<h2>投稿一覧ページ</h2>
+			<div class="page-sub-title">投稿一覧ページ</div>
 			<% if @search_products %>
 				<div id="search_products">
 					<div class="row post_more">
@@ -27,11 +27,11 @@
 				<a href="#page-top-link" id="page-top"><i class="fas fa-arrow-circle-up fa-2x"></i></a>
 			</div>
 		</div>
-		<div class="col-md-3 index-slidebar">
+		<div class="col-md-2 index-slidebar">
 			<!-- タグ検索 -->
 			<div class="search_index">
 				<% if @search_products %>
-				<a class="page-sub-title search_index_toggle" href="#">タグ検索</a>
+				<a class="search_tag search_index_toggle" href="#">タグ検索</a>
 				<div class="search_index_detail">
 					<div class="search_tag_toggle"><%= render 'search_tag',{tags: @tags} %></div>
 				</div>
@@ -40,7 +40,7 @@
 			<div class="search_sort">
 			<!-- 一覧ソート機能 -->
 				<% if @search_products %>
-				<a class="page-sub-title search_index_toggle" href="#">並び替え</a>
+				<a class="search_tag search_index_toggle" href="#">並び替え</a>
 					<div class="search_index_detail">
 					<%= search_form_for @search, url:posts_path do |f| %>
 						<div class="row">
@@ -59,7 +59,7 @@
 			<!-- 国検索 -->
 			<div class="post-index-country-search">
 				<% if @search_products %>
-				<a class="page-sub-title search_index_toggle" href="#">国名検索</a>
+				<a class="search_tag search_index_toggle" href="#">国名検索</a>
 				<div class="search_index_detail">
 					<%= search_form_for @search,url: posts_path,class: "form-inline" do |f| %>
 						<%= f.country_select :country_cont, {format: :with_alpha2 , priority_countries:["JP"] , include_blank: "------"}, class: "form-control post-country-search" %>
@@ -70,8 +70,7 @@
 			</div>
 			<!-- ランキング -->
 			<div class="post-index-rank">
-				<a class="page-sub-title search_index_toggle" href="#">ランキング</a>
-				<div class="search_index_detail">
+				<a class="search_tag search_index_toggle" href="#">いいねランキング(3)</a>
 				<table class="table table-bordered">
 					<tbody>
 						<tr>
@@ -85,10 +84,6 @@
 														<% post.post_images.each do |image| %>
 															<div class="slick_index_image">
 																<%= attachment_image_tag(image,:image ,:fill ,200,200) %>
-																<div class="post-favorite">
-																	<i class="fas fa-heart" style="color: red;"></i>
-																	<%= post.favorites.count %>
-																</div>
 															</div>
 														<% end %>
 													</div>
@@ -104,9 +99,17 @@
 														<% else %>
 															<%= post.city %>
 														<% end %>
+														<div class="post-favorite">
+															<i class="fas fa-heart" style="color: red;"></i>
+															<%= post.favorites.count %>
+															<i class="fas fa-globe-asia" style="color: dodgerblue;"></i>
+															<%= post.good_places.count %>
+															<i class="fas fa-comments" style="color: lightslategray;"></i>
+															<%= post.comments.count %>
+														</div>
 													</div>
 													<div class="post-time">
-														<%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+														<%= post.created_at.strftime("%Y-%m-%d") %>
 													</div>
 												</div>
 											<% end %>
@@ -117,7 +120,6 @@
 						</tr>
 					</tbody>
 				</table>
-				</div>
 			</div>
 		</div>
 	</div>
