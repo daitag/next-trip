@@ -57,8 +57,8 @@
             <li><%= link_to 'お知らせ',admin_notices_path,class: "nav-link" %></li>
             <li><%= link_to 'ログアウト',destroy_admin_session_path,method: :delete,class: "nav-link" %></li>
             <% else %>
-            <li><%= link_to 'NextTripとは',"#about",class: "nav-link" %></li>
-            <li><%= link_to '人気の投稿',"#ranking",class: "nav-link" %></li>
+            <li><%= link_to 'NextTripとは',root_path(anchor: "about"),class: "nav-link" %></li>
+            <li><%= link_to '人気の投稿',root_path(anchor: "ranking"),class: "nav-link" %></li>
             <li><%= link_to '新規会員登録',new_user_registration_path,class: "nav-link" %></li>
             <li><%= link_to 'ログイン',new_user_session_path,class: "nav-link" %></li>
             <li><%= link_to 'ユーザゲストログイン', users_guest_sign_in_path, method: :post,class: "nav-link" %></li>

@@ -68,6 +68,15 @@
 				</div>
 				<% end %>
 			</div>
+			<!-- 日本地図検索 -->
+			<div class="post-index-japan-map">
+				<% if @search_products %>
+					<a class="search_tag search_index_toggle" href="#">日本地図検索</a>
+					<div class="search_index_detail" data-turbolinks="false">
+						<%= link_to "検索する",japan_map_path %>
+					</div>
+				<% end %>
+			</div>
 			<!-- ランキング -->
 			<div class="post-index-rank">
 				<a class="search_tag search_index_toggle" href="#">いいねランキング(3)</a>
