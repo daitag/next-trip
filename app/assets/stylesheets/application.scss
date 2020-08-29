@@ -177,6 +177,23 @@ a {
 	padding: 0;
 }
 
+.post-title {
+	font-size: 18px;
+}
+
+/*post_show*/
+.click_button {
+	margin: 10px 0;
+}
+
+.user-comment {
+	margin-top: 10px;
+}
+
+.post_index_return {
+	margin: 10px 0;
+}
+
 /*my-page*/
 .user-detail-button {
 	width: 150px;
@@ -246,7 +263,7 @@ a {
 //postのプレビュー
 .post_new {
 	position: fixed;
-	top: 105px;
+	top: 115px;
 	right: 50px;
 	z-index: 500;
 }
@@ -352,6 +369,19 @@ a {
 	display: flex;
 }
 
+.prefecture-title {
+	font-size: 30px;
+}
+
+.prefectures {
+	font-size: 30px;
+}
+
+.prefectures_name:hover {
+	background-color: black;
+	color: white;
+}
+
 .search_index_detail {
 	display: none;
 }
@@ -360,7 +390,7 @@ a {
 	position: fixed;
 	border-radius: 10px;
 	background: #007bff;
-	top: 60px;
+	top: 70px;
 	right: 35px;
 	color: #ffffff;
 	width: 70px;
@@ -388,6 +418,17 @@ a {
 
 .schedule_calender {
 	margin-top: 50px;
+}
+
+.schedule-index {
+	padding: 10px;
+	border: 1px solid #000000;
+	border-radius: 20px;
+	margin-top: 10px;
+}
+
+.schdule-title {
+	font-size: 20px;
 }
 
 /*notice*/

@@ -8,7 +8,13 @@
 				<!-- 一覧表示 -->
 		<!-- テンプレート化 -->
 		<div class="col-md-9 mr-p ml-0">
-			<div class="page-sub-title">投稿一覧ページ</div>
+			<div class="page-sub-title">
+				<% if params[:tag_id] %>
+					<%= @tag.tag_name %>一覧
+				<% else %>
+					投稿一覧ページ
+				<% end %>
+			</div>
 			<% if @search_products %>
 				<div id="search_products">
 					<div class="row post_more">
@@ -67,68 +73,6 @@
 					<% end %>
 				</div>
 				<% end %>
-			</div>
-			<!-- 日本地図検索 -->
-			<div class="post-index-japan-map">
-				<% if @search_products %>
-					<a class="search_tag search_index_toggle" href="#">日本地図検索</a>
-					<div class="search_index_detail" data-turbolinks="false">
-						<%= link_to "検索する",japan_map_path %>
-					</div>
-				<% end %>
-			</div>
-			<!-- ランキング -->
-			<div class="post-index-rank">
-				<a class="search_tag search_index_toggle" href="#">いいねランキング(3)</a>
-				<table class="table table-bordered">
-					<tbody>
-						<tr>
-							<td>
-								<% @post_ranks.first(3).each do |post| %>
-									<div class="post-box">
-										<div class="post-content">
-											<%= link_to post_path(post) do %>
-												<div class="content-top">
-													<div class="slick_index">
-														<% post.post_images.each do |image| %>
-															<div class="slick_index_image">
-																<%= attachment_image_tag(image,:image ,:fill ,200,200) %>
-															</div>
-														<% end %>
-													</div>
-												</div>
-												<div class="content-bottom">
-													<div class="post-title">
-														<%= post.title %>
-													</div>
-													<div class="post_place">
-														<span>【場所】</span>
-														<% if post.prefecture.present? %>
-															<%= post.prefecture %>
-														<% else %>
-															<%= post.city %>
-														<% end %>
-														<div class="post-favorite">
-															<i class="fas fa-heart" style="color: red;"></i>
-															<%= post.favorites.count %>
-															<i class="fas fa-globe-asia" style="color: dodgerblue;"></i>
-															<%= post.good_places.count %>
-															<i class="fas fa-comments" style="color: lightslategray;"></i>
-															<%= post.comments.count %>
-														</div>
-													</div>
-													<div class="post-time">
-														<%= post.created_at.strftime("%Y-%m-%d") %>
-													</div>
-												</div>
-											<% end %>
-										</div>
-									</div>
-								<% end %>
-							</td>
-						</tr>
-					</tbody>
-				</table>
 			</div>
 		</div>
 	</div>

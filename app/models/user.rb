@@ -21,4 +21,8 @@ class User < ApplicationRecord
       user.country = "JP"
     end
   end
+
+  def active_for_authentication?
+    super && self.user_status?
+  end
 end

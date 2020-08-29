@@ -2,7 +2,7 @@
 	<div class="home-top row align-items-center">
 		<div class="top-content col-md-8 offset-md-2 col-sm-12">
 			<div class="main-title">次の旅行を探してみませんか？</div>
-			<div class="sub-title">
+			<div class="sub-content">
 			当サイトは、旅行特化型のSNSになっています。次に行きたい場所を探したり、 <br>
 			旅行の思い出を投稿することができます。詳しくは、aboutに掲載しています。</div>
 			<div class="top-content-button">
@@ -26,9 +26,9 @@
 				<div class="col-md-8">
 					<div class="share-trip">
 						<div class="content-title">1.旅行の写真の共有</div>
-						<p>
-							写真を選択、タイトルと場所等を投稿することで,世界中の人に旅を共有することができます。いつでも、どこにいても写真・思い出の共有をすることができます。
-						</p>
+						<div class="sub-content content-top-margin_10">
+							写真を選択、タイトルと場所等を投稿することで,世界中の人に旅行写真を共有することができます。いつでも、どこにいても写真・思い出の共有をすることができます。最大10枚まで投稿することができます。自慢の旅を世界中の人に共有しよう！！
+						</div>
 						<%= link_to "さっそく共有してみる",new_user_registration_path,class: "btn btn-primary about-button" %>
 					</div>
 				</div>
@@ -42,10 +42,12 @@
 				<div class="col-md-8">
 					<div class="search-trip">
 						<div class="content-title">2.旅行先の検索</div>
-						<p>
+						<div class="sub-content content-top-margin_10">
 							いきたい旅行先を探すことができます。他の人の旅行先、人気なスポットを見てみて、
 							いきたい場所を探してみましょう。いきたい場所リストも作成することもできます。
-						</p>
+							投稿の並び替え、国名での検索、日本地図からの選択とたくさんの検索機能があります。
+							あなたに見つけたい写真・投稿が見つかります。さっそく次の旅の行き先を探してみよう！！
+						</div>
 						<%= link_to "さっそく探してみる",new_user_registration_path,class: "btn btn-primary about-button" %>
 					</div>
 				</div>
@@ -59,10 +61,9 @@
 				<div class="col-md-8">
 					<div class="schedule-trip">
 						<div class="content-title">3.旅行予定の管理</div>
-						<p>
-							旅行の予定を入力することで、予定の管理ができます。あと、何日で旅行なのかがわかります。
-							日程を把握し、旅行へのモチベーションを高めましょう。
-						</p>
+						<div class="sub-content content-top-margin_10">
+							自分だけのカレンダーが搭載されています。旅行の予定を入力することで、予定の管理ができます。あと、何日で旅行なのかがわかります。日程を把握し、旅行へのモチベーションを高めましょう。また、いきたい先リストも作成ができるので、日頃の投稿から旅を計画してみてはいかがでしょうか。さっそく次の旅の計画を立てよう！！
+						</div>
 						<%= link_to "さっそく予定を立てる",new_user_registration_path,class: "btn btn-primary about-button" %>
 					</div>
 				</div>
@@ -95,11 +96,10 @@
 										<%= rank.title %>
 									</div>
 									<div class="post_place">
-										<span>【場所】</span>
 										<% if rank.prefecture.present? %>
-											<%= rank.prefecture %>
+											<i class="fas fa-map-marker-alt" style="color: green;"></i><%= rank.prefecture %>
 										<% else %>
-											<%= rank.city %>
+											<i class="fas fa-map-marker-alt" style="color: green;"></i><%= rank.city %>
 										<% end %>
 									</div>
 									<div class="post-favorite">
@@ -142,11 +142,10 @@
 										<%= post.title %>
 									</div>
 									<div class="post_place">
-										<span>【場所】</span>
 										<% if post.prefecture.present? %>
-											<%= post.prefecture %>
+											<i class="fas fa-map-marker-alt" style="color: green;"></i><%= post.prefecture %>
 										<% else %>
-											<%= post.city %>
+											<i class="fas fa-map-marker-alt" style="color: green;"></i><%= post.city %>
 										<% end %>
 									</div>
 									<div class="post-favorite">

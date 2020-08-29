@@ -1,7 +1,7 @@
 class Admin::NoticesController < ApplicationController
 	before_action :authenticate_admin!
 	def index
-		@notices = Notice.page(params[:page])
+		@notices = Notice.page(params[:page]).per(10).reverse_order
 	end
 
 	def show

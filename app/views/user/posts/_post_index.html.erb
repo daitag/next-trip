@@ -17,11 +17,10 @@
 						<%= post.title %>
 					</div>
 					<div class="post_place">
-						<span>【場所】</span>
 						<% if post.prefecture.present? %>
-							<%= post.prefecture %>
+							<i class="fas fa-map-marker-alt" style="color: green;"></i><%= post.prefecture %>
 						<% else %>
-							<%= post.city %>
+							<i class="fas fa-map-marker-alt" style="color: green;"></i><%= post.city %>
 						<% end %>
 						<div class="post-favorite">
 							<i class="fas fa-heart" style="color: red;"></i>

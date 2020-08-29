@@ -1,14 +1,6 @@
 class User::PostsController < ApplicationController
 	before_action :authenticate_user!
 	def index
-		# if params[:q].present?
-		# 	@search = Post.ransack(search_params)
-		# 	@posts = @search.result.page(params[:page])
-		# else
-		# 	params[:q] = { sorts: 'id desc' }
-		# 	@search = Post.ransack()
-		# 	@posts = Post.page(params[:page])
-		# end
 		# 公開設定がtrueのみ表示
 		if params[:tag_id]
 			@tag = Tag.find(params[:tag_id])

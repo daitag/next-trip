@@ -1,15 +1,13 @@
 <div class="page-sub-title">コメント一覧</div>
 <div class="comment_index">
 	<% comments.each do |comment| %>
-		<div class="comment">
-			<%= comment.comment %>
-		</div>
-		<div class="comment-user">
-			<%= attachment_image_tag(comment.user,:image,:fill, 20, 20, class: "user_image comment_user_image",fallback: "no_image.jpg") %>
+		<div class="user-comment">
+			<%= comment.comment %><br>
+			<%= attachment_image_tag(comment.user,:image,:fill, 20, 20, class: "user_image comment_user_image m-0",fallback: "no_image.jpg") %>
 			<%= link_to comment.user.name,user_path(comment.user_id) %>
 			<%= comment.created_at.strftime("%Y-%m-%d %H:%M") %>
-			<% if post.user_id == current_user.id %>
-			<%= link_to "削除する",post_comment_path(comment.post,comment),method: :delete,remote: true,data: {confirm: "本当に削除しますか？"} %>
+			<% if comment.user_id == current_user.id %>
+				<%= link_to "削除する",post_comment_path(comment.post,comment),method: :delete,remote: true,data: {confirm: "本当に削除しますか？"} %>
 			<% end %>
 		</div>
 	<% end %>

@@ -40,15 +40,17 @@
 			<%= render 'user/comments/comment_form',{post: @post, comment: @comment } %>
 		</div>
 
-		<!-- いいねの表示 -->
-		<div id="favorite-<%= @post.id %>">
-			<%= render 'user/favorites/favorite', post: @post %>
-		</div>
-		<!-- いいね -->
+		<div class="click_button">
+			<!-- いいねの表示 -->
+			<div id="favorite-<%= @post.id %>">
+				<%= render 'user/favorites/favorite', post: @post %>
+			</div>
+			<!-- いいね -->
 
-		<!-- 行きたいの表示 -->
-		<div id="good_place-<%= @post.id %>">
-			<%= render 'user/good_places/good_place', post: @post %>
+			<!-- 行きたいの表示 -->
+			<div id="good_place-<%= @post.id %>">
+				<%= render 'user/good_places/good_place', post: @post %>
+			</div>
 		</div>
 
 		<div class="post-delete">
@@ -72,6 +74,8 @@
 	</div>
 </div>
 
-<%= link_to "一覧画面", posts_path,class: "btn btn-primary" %>
+<div class="post_index_return">
+	<%= link_to "一覧画面", posts_path,class: "btn btn-primary" %>
+</div>
 
 </div>

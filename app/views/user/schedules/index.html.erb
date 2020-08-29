@@ -30,29 +30,40 @@
 			<% end %>
 		</div>
 
-		<div class="submit content-top-margin">
+		<div class="submit content-top-margin_10">
 			<%= f.submit "登録する",class: "btn btn-primary" %>
 		</div>
 		<% end %>
 
 		<!-- スケジュールの一覧を表示 -->
 		<div class="schedule_calender">
-		<h3>スケジュール一覧</h3>
+		<h3>スケジュール</h3>
 			<% @schedules.each do |schedule| %>
-				<div class="schedule-index">
-					<%= schedule.content %>
-					<%= schedule.start_day %>
-					<% limit_day = 0 %>
-					<% limit_day = (schedule.start_day - Date.today).numerator %>
-					<% if limit_day.to_i >= 1 %>
-					<span>あと<%= limit_day %>日!!</span>
-					<% elsif limit_day.to_i <= -1 %>
-					<span></span>
-					<% else %>
-					<span>旅行楽しんできてください!!</span>
-					<% end %>
-					<%= link_to "削除", schedule_path(schedule),method: :delete %>
-				</div>
+				<% end_day = 0 %>
+				<% end_day = (schedule.end_day - Date.today).numerator %>
+				<% if end_day.to_i > 0 %>
+					<div class="schedule-index">
+						<div class="schdule-title">
+							<%= schedule.content %>
+						</div>
+						<div class="limit_day">
+						<i class="fas fa-plane-departure" style="color: skyblue;"></i><%= schedule.start_day %>
+						<i class="fas fa-plane-arrival" style="color: skyblue;"></i><%= schedule.end_day %>
+							<% limit_day = 0 %>
+							<% limit_day = (schedule.start_day - Date.today).numerator %>
+						</div>
+						<div class="limit_day_message">
+							<% if limit_day.to_i >= 1 %>
+								<span><%= schedule.content %>まで<%= limit_day %>日!!</span>
+							<% elsif limit_day.to_i <= -1 %>
+								<span></span>
+							<% else %>
+								<span><%= schedule.content %>楽しんできてください!!</span>
+							<% end %>
+						</div>
+						<%= link_to "削除", schedule_path(schedule),method: :delete,class: "btn btn-danger p-0" %>
+					</div>
+				<% end %>
 			<% end %>
 		</div>
 	</div>
