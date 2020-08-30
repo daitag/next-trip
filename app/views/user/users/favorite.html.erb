@@ -1,44 +1,48 @@
 <div class="container">
 <h2>いいね一覧</h2>
 
-<div class="row">
-	<% @favorites.each do |favorite| %>
-		<% post = Post.find(favorite.post_id) %>
-		<div class="col-md-3 post-box">
-		<div class="post-content">
-			<%= link_to post_path(post) do %>
-				<div class="content-top">
-					<div class="slick_index">
-						<% post.post_images.each do |image| %>
-							<div class="slick_index_image">
-								<%= attachment_image_tag(image,:image ,:fill ,200,200) %>
+	<div class="row">
+		<% @favorites.each do |favorite| %>
+			<% post = Post.find(favorite.post_id) %>
+			<div class="mr-0 ml-0 post-box">
+				<div class="post-content">
+					<%= link_to post_path(post) do %>
+						<div class="content-top">
+							<div class="slick_index">
+								<% post.post_images.each do |image| %>
+									<div class="slick_index_image">
+										<%= attachment_image_tag(image,:image ,:fill ,200,200) %>
+									</div>
+								<% end %>
+							</div>
+						</div>
+						<div class="content-bottom">
+							<div class="post-title">
+								<%= post.title %>
+							</div>
+							<div class="post_place">
+								<span></span>
+								<% if post.prefecture.present? %>
+									<i class="fas fa-map-marker-alt" style="color: green;"></i><%= post.prefecture %>
+								<% else %>
+									<i class="fas fa-map-marker-alt" style="color: green;"></i><%= post.city %>
+								<% end %>
 								<div class="post-favorite">
 									<i class="fas fa-heart" style="color: red;"></i>
 									<%= post.favorites.count %>
+									<i class="fas fa-globe-asia" style="color: dodgerblue;"></i>
+									<%= post.good_places.count %>
+									<i class="fas fa-comments" style="color: lightslategray;"></i>
+									<%= post.comments.count %>
+								</div>
+								<div class="post-time">
+									<%= post.created_at.strftime("%Y-%m-%d") %>
 								</div>
 							</div>
-						<% end %>
-					</div>
-				</div>
-				<div class="content-bottom">
-					<div class="post-title">
-						<%= post.title %>
-					</div>
-					<div class="post_place">
-						<span>【場所】</span>
-						<% if post.prefecture.present? %>
-							<%= post.prefecture %>
-						<% else %>
-							<%= post.city %>
-						<% end %>
-						<div class="post-time">
-							<%= post.created_at.strftime("%Y-%m-%d") %>
 						</div>
-					</div>
+					<% end %>
 				</div>
-			<% end %>
-		</div>
+			</div>
+		<% end %>
 	</div>
-	<% end %>
-</div>
 </div>
