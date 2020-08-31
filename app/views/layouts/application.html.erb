@@ -59,8 +59,8 @@
               <li><%= link_to 'ログアウト',destroy_admin_session_path,method: :delete,class: "nav-link fas fa-sign-out-alt" %></li>
             <% else %>
             <% unless %w[user_session new_user_registration new_admin_session].any? { |name| current_page?(send("#{name}_path")) } %>
-              <li><%= link_to 'Next-Tripとは',root_path(anchor: "about"),class: "nav-link fas fa-question-circle" %></li>
-              <li><%= link_to '人気の投稿',root_path(anchor: "ranking"),class: "nav-link fas fa-crown" %></li>
+              <li><%= link_to 'Next-Tripとは',"#about",class: "nav-link fas fa-question-circle" %></li>
+              <li><%= link_to '人気の投稿',"#ranking",class: "nav-link fas fa-crown" %></li>
             <% end %>
               <li><%= link_to '新規会員登録',new_user_registration_path,class: "nav-link fas fa-user-plus" %></li>
               <li><%= link_to 'ログイン',new_user_session_path,class: "nav-link fas fa-sign-in-alt" %></li>
