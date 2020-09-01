@@ -59,6 +59,8 @@ a {
 	color: #000000;
 }
 
+.container { max-width: 1024px; }
+
 /*main*/
 
 /*top*/
@@ -71,6 +73,7 @@ a {
 	height: 700px;
 	background-size: cover !important;
 	background-repeat: no-repeat;
+	background-position: right top;
 	position: relative;
 	text-align: center;
 	margin-bottom: 20px;
@@ -470,11 +473,6 @@ a {
 }
 
 /*レスポンシブデザイン*/
-@media screen and (max-width: 959px) {
-	.user_image {
-
-	}
-}
 
 @media screen and (max-width: 767px) {
 	.page-sub-title {
@@ -490,6 +488,20 @@ a {
 }
 
 @media screen and (max-width: 480px) {
+	.home-top {
+		background-image: image-url('photo5.jpeg');
+	}
+
+	.main-title {
+		font-size: 30px;
+	}
+
+	.sub-content {
+		font-size: 16px;
+	}
+
+
+
 	.user_show {
 		text-align: center;
 	}
