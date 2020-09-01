@@ -120,8 +120,13 @@ a {
 	border: 1px solid #000000;
 }
 
+.about-detail-text {
+	margin: auto;
+}
+
 .about-button {
-	margin-top: 50px;
+	bottom: 0;
+	display: block;
 }
 
 .rank-post,.new-post {
@@ -475,6 +480,10 @@ a {
 /*レスポンシブデザイン*/
 
 @media screen and (max-width: 767px) {
+
+	.share-trip-image img {
+		max-width: 300px;
+	}
 	.page-sub-title {
 		font-size: 20px;
 	}
@@ -491,6 +500,9 @@ a {
 	.home-top {
 		background-image: image-url('photo5.jpeg');
 	}
+	.share-trip-image img {
+		max-width: 200px;
+	}
 
 	.main-title {
 		font-size: 30px;
@@ -500,8 +512,9 @@ a {
 		font-size: 16px;
 	}
 
-
-
+	.content-title {
+		font-size: 30px;
+	}
 	.user_show {
 		text-align: center;
 	}
