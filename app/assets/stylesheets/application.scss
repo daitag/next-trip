@@ -448,7 +448,7 @@ a {
 .notice_tag_true {
 	background-color: #ff0000;
 	border-radius: 10px;
-	width: 150px;
+	max-width: 150px;
 	text-align: center;
 	color: #ffffff;
 }
@@ -456,7 +456,7 @@ a {
 .notice_tag_false {
 	background-color: #228b22;
 	border-radius: 10px;
-	width: 150px;
+	max-width: 150px;
 	text-align: center;
 	color: #ffffff;
 }
@@ -490,6 +490,9 @@ a {
 	.user_show {
 		text-align: center;
 	}
+	.index-slidebar {
+		display: none;
+	}
 
 	#calendar {
 	margin-top: 50px;
@@ -497,6 +500,7 @@ a {
 }
 
 @media screen and (max-width: 480px) {
+	/*top-page*/
 	.home-top {
 		background-image: image-url('photo5.jpeg');
 	}
@@ -515,6 +519,9 @@ a {
 	.content-title {
 		font-size: 30px;
 	}
+
+	/*index-page*/
+
 	.user_show {
 		text-align: center;
 	}
