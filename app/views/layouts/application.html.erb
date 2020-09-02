@@ -44,7 +44,7 @@
             <% if user_signed_in? %>
               <li><%= link_to '投稿一覧',posts_path,class: "nav-link fas fa-table" %></li>
               <li><%= link_to '新規投稿',new_post_path,class: "nav-link fas fa-plus-circle" %></li>
-              <li><%= link_to "日本地図検索",japan_map_path,class: "nav-link fas fa-map-marker-alt" %></li>
+              <li class="japan_map_view"><%= link_to "日本地図検索",japan_map_path,class: "nav-link fas fa-map-marker-alt" %></li>
               <li><%= link_to 'マイページ',user_path(current_user.id),class: "nav-link fas fa-address-book" %></li>
               <li><%= link_to 'ログアウト',destroy_user_session_path,method: :delete,class: "nav-link fas fa-sign-out-alt" %></li>
               <!-- 検索ボックス -->
