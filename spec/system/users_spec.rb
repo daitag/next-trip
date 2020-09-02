@@ -22,7 +22,23 @@ describe 'ユーザ認証のテスト' do
 				fill_in 'user[password_confirmation]', with: ''
 				click_button 'Sign up'
 
-				expect(page).to have_content 'アカウント登録が完了しました'
+				expect(page).to have_content 'エラー'
+			end
+		end
+	end
+	describe 'ユーザログイン' do
+		let(:user) { create(:user) }
+		before do
+			visit new_user_session_path
+		end
+		context 'ログイン画面に遷移' do
+			let(:test_user) { user }
+			it 'ログインに成功' do
+				fill_in 'user[email]', with: test_user.email
+				fill_in 'user[password]', with: test_user.password
+				click_button 'Log in'
+
+				expect(page).to have_content 'ログインしました。'
 			end
 		end
 	end
