@@ -40,6 +40,69 @@ describe 'ユーザ認証のテスト' do
 
 				expect(page).to have_content 'ログインしました。'
 			end
+
+			it 'ログインに失敗' do
+				fill_in 'user[email]', with: ''
+				fill_in 'user[password]', with: ''
+				click_button 'Log in'
+
+				expect(page).to have_content 'メールアドレス もしくはパスワードが不正です。'
+			end
+		end
+	end
+
+	describe 'ユーザのテスト' do
+		let(:user) { create(:user) }
+		let(:test_user2) { create(:user) }
+		let(:post) { create(:post, user: user) }
+		before do
+			visit new_user_session_path
+			fill_in 'user[email]', with: user.email
+			fill_in 'user[password]', with: user.password
+			click_button 'Log in'
+		end
+		describe '編集のテスト' do
+			context '自分の編集画面の遷移' do
+				it '遷移ができる' do
+					visit edit_user_path(user)
+					expect(current_path).to eq('/users/' + user.id.to_s + '/edit')
+				end
+			end
+			context '他人の編集画面に遷移できない' do
+				it '遷移できない' do
+					visit edit_user_path(test_user2)
+					expect(current_path).to eq('/users/' + user.id.to_s)
+				end
+			end
+			context '表示の確認' do
+				before do
+					visit edit_user_path(user)
+				end
+				it 'マイページと表示される' do
+					expect(page).to have_content('マイページ')
+				end
+				it '名前フォームに名前が表示される' do
+					expect(page).to have_field 'user[name]', with: user.name
+				end
+				it '画像フォームが表示される' do
+					expect(page).to have_field 'user[image]'
+				end
+				it '編集に成功する' do
+					click_button '編集する'
+					expect(page).to have_content 'ユーザ情報を更新しました'
+					expect(current_path).to eq('/users/' + user.id.to_s)
+				end
+				it '名前の編集失敗する' do
+					fill_in 'user[name]', with: ''
+					click_button '編集する'
+					expect(page).to have_content '名前は2文字以上に設定して下さい。'
+				end
+				it '名前の編集失敗する' do
+					fill_in 'user[email]', with: ''
+					click_button '編集する'
+					expect(page).to have_content 'メールアドレスが入力されていません。'
+				end
+			end
 		end
 	end
 end
