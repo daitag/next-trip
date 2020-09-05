@@ -23,8 +23,17 @@ describe '投稿のテスト' do
 				fill_in 'post[title]', with: Faker::Lorem.characters(number:10)
 				fill_in 'post[location]', with: Faker::Lorem.characters(number:10)
 				select 'JP', from: 'post[country]',match: :first
+				attach_file("post[post_images_images][]", Rails.root + '/assets/photo1.jpeg')
 				click_button '投稿する'
 				expect(page).to have_content '投稿できました'
+			end
+			it '投稿に失敗する' do
+				fill_in 'post[title]', with: Faker::Lorem.characters(number:10)
+				fill_in 'post[location]', with: Faker::Lorem.characters(number:10)
+				select 'JP', from: 'post[country]',match: :first
+				attach_file("post[post_images_images][]", Rails.root + '/assets/photo1.jpeg')
+				click_button '投稿する'
+				expect(page).to have_content '投稿できませんでした'
 			end
 		end
 	end
