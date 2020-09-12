@@ -37,7 +37,8 @@ class User::PostsController < ApplicationController
 	end
 
 	def destroy
-		@post = Post.find(params[:id])
+		# @post = Post.find(params[:id])
+		@post = current_user.posts.find(params[:id])
 		if @post.destroy
 			redirect_to posts_path
 			flash[:notice] = "削除ができました"

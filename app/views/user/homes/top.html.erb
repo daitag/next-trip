@@ -200,37 +200,8 @@
 	</div>
 
 	<!-- お知らせ一覧 -->
-	<table class="table table-hover border offset-md-2 col-md-8">
-		<h2>お知らせ</h2>
-		<thead>
-			<tr>
-				<th>タグ</th>
-				<th>タイトル</th>
-				<th>アップデート日時</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @notices.each do |notice| %>
-			<tr>
-				<td>
-					<%= link_to notice_path(notice) do %>
-						<% if notice.notice_tag == true %>
-							<label class="notice_tag_true">重要な情報</label>
-						<% else %>
-							<label class="notice_tag_false">アップデート</label>
-						<% end %>
-					<% end %>
-				</td>
-				<td>
-					<%= link_to notice.title,notice_path(notice) %>
-				</td>
-				<td>
-					<%= notice.updated_at.strftime("%Y-%m-%d") %>
-				</td>
-			</tr>
-			<% end %>
-		</tbody>
-	</table>
+	<%= render '/admin/notices/notice_index', {notices: @notices} %>
+
 	<div id="top-scroll">
 		<a href="#page-top-link" id="page-top"><i class="fas fa-arrow-circle-up fa-4x"></i></a>
 	</div>

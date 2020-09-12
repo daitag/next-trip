@@ -1,0 +1,38 @@
+<table class="table table-hover border">
+	<thead>
+		<tr>
+			<th></th>
+			<th>タイトル</th>
+			<th>アップデート日</th>
+			<% if admin_signed_in? %>
+			<th>公開状況</th>
+			<th></th>
+			<% end %>
+		</tr>
+	</thead>
+	<tbody>
+		<% notices.each do |notice| %>
+		<tr>
+			<td>
+				<% if notice.notice_tag == true %>
+					<label class="notice_tag_true">重要な情報</label>
+				<% else %>
+					<label class="notice_tag_false">アップデート情報</label>
+				<% end %>
+			</td>
+			<td><%= notice.title %></td>
+			<td><%= notice.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+			<% if admin_signed_in? %>
+			<td>
+				<% if notice.status == true %>
+					<label>公開中</label>
+				<% else %>
+					<label>非公開</label>
+				<% end %>
+			</td>
+			<td><%= link_to "詳細へ", admin_notice_path(notice) %></td>
+			<% end %>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
