@@ -20,7 +20,7 @@
 					<label class="notice_tag_false">アップデート情報</label>
 				<% end %>
 			</td>
-			<td><%= notice.title %></td>
+			<td><%= link_to notice.title,notice_path(notice) %></td>
 			<td><%= notice.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
 			<% if admin_signed_in? %>
 			<td>

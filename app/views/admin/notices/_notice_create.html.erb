@@ -1,0 +1,38 @@
+<div class="row">
+	<div class="col-md-4">
+		<%= attachment_image_tag(notice,:image,size:"200x200", fallback: "no_image.jpg") %>
+		<%= f.attachment_field :image,id: "notice_image_preview" %>
+		<% if notice.errors.include?(:image) %>
+    		<span style="color: red;"><%= notice.errors.full_messages_for(:image).first %></span>
+		<% end %>
+	</div>
+	<div class="col-md-8">
+		<%= f.label :title, "タイトル",class: "m-0" %>
+		<%= f.text_field :title,placeholder: "タイトルを入力して下さい",class: "form-control" %>
+		<% if notice.errors.include?(:title) %>
+    		<span style="color: red;"><%= notice.errors.full_messages_for(:title).first %></span>
+		<% end %>
+		<%= f.label :body, "内容",class: "m-0" %>
+		<%= f.text_area :body,placeholder: "内容を入力して下さい",class: "form-control" %>
+		<% if notice.errors.include?(:body) %>
+    		<span style="color: red;"><%= notice.errors.full_messages_for(:body).first %></span>
+		<% end %>
+		<div class="notice_tag_setting">
+			<span>タグ設定</span>
+			<%= f.radio_button :notice_tag,true, checked: true %>
+			<%= f.label :notice_tag, "重要なお知らせ",value: true %>
+			<%= f.radio_button :notice_tag,false %>
+			<%= f.label :notice_tag, "アップデート情報",value: false %>
+		</div>
+		<div class="notice_status">
+			<%= f.label :status, "公開設定" %>
+			<%= f.radio_button :status,true,checked: true %>
+			<%= f.label :status,"公開",value: true %>
+			<%= f.radio_button :status,false %>
+			<%= f.label :status,"非公開",value: false %>
+		</div>
+		<div class="submit">
+			<%= f.submit "投稿",class: "btn btn-primary" %>
+		</div>
+	</div>
+</div>
