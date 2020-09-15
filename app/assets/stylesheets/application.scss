@@ -448,17 +448,19 @@ a {
 .notice_tag_true {
 	background-color: #ff0000;
 	border-radius: 10px;
-	max-width: 150px;
+	min-width: 100px;
 	text-align: center;
 	color: #ffffff;
+	padding: 0 10px;
 }
 
 .notice_tag_false {
 	background-color: #228b22;
 	border-radius: 10px;
-	max-width: 150px;
+	min-width: 100px;
 	text-align: center;
 	color: #ffffff;
+	padding: 0 10px;
 }
 
 .notice_status_true {
