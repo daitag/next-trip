@@ -15,11 +15,9 @@
  *= require fullcalendar
  */
 
-
 @import "bootstrap";
 @import "slick-theme";
 @import "slick";
-
 
 /*footerを下部に固定*/
 body,#wrapper {
@@ -68,29 +66,6 @@ a {
 	margin-right: 5px;
 }
 
-.home-top {
-	background-image: image-url('photo2.jpeg');
-	height: 700px;
-	background-size: cover !important;
-	background-repeat: no-repeat;
-	background-position: right top;
-	position: relative;
-	text-align: center;
-	margin-bottom: 20px;
-	margin-right: 0 !important;
-	margin-left: 0 !important;
-}
-
-
-.top-content {
-	border: 1px solid #000000;
-	background-color: rgba(255,255,255,0.5);
-}
-
-.share-trip-image img {
-	width: 100%;
-}
-
 .main-title {
 	font-size: 50px;
 }
@@ -107,34 +82,13 @@ a {
 	margin: 10px 0;
 }
 
-.about {
-	margin: 50px 0;
-}
 
 .sub-content {
 	font-size: 20px;
 }
 
-.about-detail-box {
-	margin: 40px 0;
-	border: 1px solid #000000;
-}
-
-.about-detail-text {
-	margin: auto;
-}
-
-.about-button {
-	bottom: 0;
-	display: block;
-}
-
 .rank-post,.new-post {
 	margin: 50px 0;
-}
-
-.about-list > li{
-	list-style: none;
 }
 
 .page-sub-title {
@@ -206,11 +160,6 @@ a {
 	margin: 10px 0;
 }
 
-/*my-page*/
-.user-detail-button {
-	width: 150px;
-}
-
 .user-detail-box {
 	margin: 30px 0;
 }
@@ -234,8 +183,6 @@ a {
   xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)'
   stroke-width='3' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
-
-
 
 #top-scroll {
 	postition: relative;
@@ -304,14 +251,10 @@ a {
 	margin-bottom: 20px;
 }
 
-
-
 .slick_index_image{
 	width: 200px;
 	height: 200px;
 }
-
-
 
 .post-content {
 	width: 200px;
@@ -378,70 +321,8 @@ a {
 	width: 100% !important;
 }
 
-.japan-map-view {
-	display: flex;
-}
-
-.prefecture-title {
-	font-size: 30px;
-}
-
-.prefectures {
-	font-size: 30px;
-}
-
-.prefectures_name:hover {
-	background-color: black;
-	color: white;
-}
-
 .search_index_detail {
 	display: none;
-}
-
-#tooltip {
-	position: fixed;
-	border-radius: 10px;
-	background: #007bff;
-	top: 70px;
-	right: 35px;
-	color: #ffffff;
-	width: 70px;
-	height: 40px;
-	text-align: center;
-	z-index: 200;
-}
-
-#tooltip:after {
-	content: "";
-	width: 0px;
-	border-top: 5px solid #007bff;
-	border-left: 4px solid transparent;
-	border-right: 4px solid transparent;
-	position: absolute;
-	left: 50%;
-	margin-left: -4px;
-}
-
-/*schedule_calender*/
-
-.schdule_content {
-	margin-top: 50px;
-}
-
-.schedule_calender {
-	margin-top: 50px;
-}
-
-.schedule-index {
-	padding: 10px;
-	border: 1px solid #000000;
-	border-radius: 20px;
-	margin-top: 10px;
-}
-
-.schdule-title {
-	font-size: 20px;
 }
 
 /*notice*/
@@ -482,7 +363,6 @@ a {
 /*レスポンシブデザイン*/
 
 @media screen and (max-width: 767px) {
-
 	.share-trip-image img {
 		max-width: 300px;
 	}
@@ -495,7 +375,6 @@ a {
 	.index-slidebar {
 		display: none;
 	}
-
 	#calendar {
 	margin-top: 50px;
 	}
@@ -531,5 +410,4 @@ a {
 	.user_show {
 		text-align: center;
 	}
-
 }

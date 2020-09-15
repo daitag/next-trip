@@ -1,3 +1,47 @@
 // Place all the styles related to the user::homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.home-top {
+	background-image: image-url('photo2.jpeg');
+	height: 700px;
+	background-size: cover !important;
+	background-repeat: no-repeat;
+	background-position: right top;
+	position: relative;
+	text-align: center;
+	margin-bottom: 20px;
+	margin-right: 0 !important;
+	margin-left: 0 !important;
+}
+
+.top-content {
+	border: 1px solid #000000;
+	background-color: rgba(255,255,255,0.5);
+}
+
+.share-trip-image img {
+	width: 100%;
+}
+
+.about {
+	margin: 50px 0;
+}
+
+.about-detail-box {
+	margin: 40px 0;
+	border: 1px solid #000000;
+}
+
+.about-detail-text {
+	margin: auto;
+}
+
+.about-button {
+	bottom: 0;
+	display: block;
+}
+
+.about-list > li{
+	list-style: none;
+}
