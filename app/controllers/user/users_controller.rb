@@ -15,9 +15,9 @@ class User::UsersController < ApplicationController
 		@user = User.find(params[:id])
 		if @user.update(user_params)
         # パスワードを変更するとログアウトしてしまうので、再ログインが必要
-       		sign_in(current_user, bypass: true)
+       		sign_in(@user, bypass: true)
+       		flash[:notice] = "ユーザ情報を更新しました"
        	 	redirect_to user_path(@user.id)
-       	 	flash[:notice] = "ユーザ情報を更新しました"
       	else
 			render :edit
 			flash.now[:alert] = "ユーザ情報を更新できませんでした"

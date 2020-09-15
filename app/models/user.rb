@@ -19,6 +19,7 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
       user.name = "geust"
       user.country = "JP"
+      user.password = "123456"
     end
   end
 
